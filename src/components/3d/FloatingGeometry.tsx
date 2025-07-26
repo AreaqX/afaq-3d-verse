@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { Box, Sphere, Octahedron } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface FloatingGeometryProps {
@@ -21,15 +20,27 @@ export const FloatingGeometry = ({ position, type, color, scale = 1 }: FloatingG
     }
   });
 
-  const GeometryComponent = type === 'box' ? Box : type === 'sphere' ? Sphere : Octahedron;
+  // Create geometry based on type
+  const createGeometry = () => {
+    switch (type) {
+      case 'box':
+        return <boxGeometry args={[1, 1, 1]} />;
+      case 'sphere':
+        return <sphereGeometry args={[0.5, 16, 16]} />;
+      case 'octahedron':
+        return <octahedronGeometry args={[0.5]} />;
+      default:
+        return <boxGeometry args={[1, 1, 1]} />;
+    }
+  };
 
   return (
-    <GeometryComponent
+    <mesh
       ref={meshRef}
       position={position}
       scale={scale}
-      args={type === 'box' ? [1, 1, 1] : type === 'sphere' ? [0.5, 16, 16] : [0.5]}
     >
+      {createGeometry()}
       <meshStandardMaterial
         color={color}
         transparent
@@ -38,6 +49,6 @@ export const FloatingGeometry = ({ position, type, color, scale = 1 }: FloatingG
         emissiveIntensity={0.2}
         wireframe={Math.random() > 0.5}
       />
-    </GeometryComponent>
+    </mesh>
   );
 };
