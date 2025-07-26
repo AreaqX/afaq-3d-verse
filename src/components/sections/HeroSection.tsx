@@ -6,8 +6,8 @@ import { MapPin, Download, Mail } from 'lucide-react';
 
 const titles = [
   "Full Stack Developer",
-  "Podio Specialist", 
-  "Retool Expert",
+  "Podio Automation Specialist", 
+  "Retool Developer",
   "FlutterFlow Developer"
 ];
 
@@ -83,11 +83,12 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            Crafting robust and user-centric applications with 2.5 years of experience in 
+            "Engineering scalable, high-performance solutions with 2.5 years of deep expertise in 
             <span className="text-primary font-semibold"> Podio</span>, 
             <span className="text-secondary font-semibold"> Retool</span>, 
             <span className="text-accent font-semibold"> GHL</span>, and 
             <span className="text-primary font-semibold"> FlutterFlow</span>
+            "Podio, Retool, GHL, and FlutterFlow, specializing in cross-platform development and user-centric design."
           </motion.p>
 
           {/* Location */}
