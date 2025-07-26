@@ -59,6 +59,24 @@ const projects = [
   },
   {
     id: 5,
+    title: "Forecash",
+    category: "flutterflow",
+    description: "Financial Forecasting platform for transaction management and future balance prediction",
+    technologies: ["FlutterFlow", "Firebase", "Financial APIs", "Analytics"],
+    features: ["Transaction Tracking", "Future Forecasting", "Balance Prediction", "Financial Planning"],
+    gradient: "from-secondary to-primary"
+  },
+  {
+    id: 6,
+    title: "MyoutdoorShare",
+    category: "flutterflow",
+    description: "Vehicle rental platform with identity verification, payments, and contract management",
+    technologies: ["FlutterFlow", "Stripe", "DocuSeal", "AI Chat", "Firebase"],
+    features: ["Vehicle Listings", "Identity Verification", "Payment Integration", "Contract Management", "AI Chat", "In-app Messaging"],
+    gradient: "from-accent to-secondary"
+  },
+  {
+    id: 7,
     title: "Cargo Management System",
     category: "retool",
     description: "Comprehensive logistics platform for tracking and managing cargo shipments",
@@ -67,7 +85,7 @@ const projects = [
     gradient: "from-secondary to-primary"
   },
   {
-    id: 6,
+    id: 8,
     title: "Customer Support Portal",
     category: "retool",
     description: "Streamlined customer service platform with ticket management and analytics",
@@ -76,7 +94,7 @@ const projects = [
     gradient: "from-accent to-secondary"
   },
   {
-    id: 7,
+    id: 9,
     title: "HR Management Portal",
     category: "retool",
     description: "Complete HR solution with accounts financing and employee management",
@@ -85,7 +103,7 @@ const projects = [
     gradient: "from-primary to-secondary"
   },
   {
-    id: 8,
+    id: 10,
     title: "Real Estate Automation",
     category: "podio",
     description: "Business automation system for real estate industry workflow management",
@@ -94,7 +112,7 @@ const projects = [
     gradient: "from-secondary to-accent"
   },
   {
-    id: 9,
+    id: 11,
     title: "Custom Business Builder",
     category: "podio",
     description: "Flexible business process automation with custom workflows",
@@ -103,7 +121,7 @@ const projects = [
     gradient: "from-accent to-primary"
   },
   {
-    id: 10,
+    id: 12,
     title: "Lead Management System",
     category: "ghl",
     description: "Multi-source lead management with automated pipeline workflows",

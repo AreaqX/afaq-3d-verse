@@ -23,7 +23,7 @@ const skillCategories = [
   {
     title: "Programming Languages",
     icon: Globe,
-    skills: ["JavaScript", "PHP", "TypeScript", "HTML5", "CSS3", "SQL"],
+    skills: ["JavaScript", "PHP", "React.js", "Node.js", "HTML5", "CSS3", "XML", "Java", "SQL"],
     color: "from-secondary to-accent"
   },
   {
@@ -60,6 +60,11 @@ const integrations = [
     category: "AI Services",
     icon: Bot,
     tools: ["Vapi AI", "ChatGPT", "OpenAI API", "Machine Learning"]
+  },
+  {
+    category: "Document Integration",
+    icon: Mail,
+    tools: ["DocuSeal", "DocuSign", "RightSignature", "Contract Automation"]
   }
 ];
 
