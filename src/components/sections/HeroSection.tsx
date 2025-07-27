@@ -87,8 +87,8 @@ export const HeroSection = () => {
             <span className="text-primary font-semibold"> Podio</span>, 
             <span className="text-secondary font-semibold"> Retool</span>, 
             <span className="text-accent font-semibold"> GHL</span>, and 
-            <span className="text-primary font-semibold"> FlutterFlow</span>
-            "Podio, Retool, GHL, and FlutterFlow, specializing in cross-platform development and user-centric design."
+            <span className="text-primary font-semibold"> FlutterFlow</span>,
+            specializing in cross-platform development and user-centric design."
           </motion.p>
 
           {/* Location */}
