@@ -4,13 +4,12 @@ import * as THREE from 'three';
 
 interface FloatingGeometryProps {
   position: [number, number, number];
-  type: 'box' | 'sphere' | 'octahedron' | 'torus' | 'cone' | 'cylinder';
+  type: 'box' | 'sphere' | 'octahedron';
   color: string;
   scale?: number;
-  symbol?: string;
 }
 
-export const FloatingGeometry = ({ position, type, color, scale = 1, symbol }: FloatingGeometryProps) => {
+export const FloatingGeometry = ({ position, type, color, scale = 1 }: FloatingGeometryProps) => {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -30,12 +29,6 @@ export const FloatingGeometry = ({ position, type, color, scale = 1, symbol }: F
         return <sphereGeometry args={[0.5, 16, 16]} />;
       case 'octahedron':
         return <octahedronGeometry args={[0.5]} />;
-      case 'torus':
-        return <torusGeometry args={[0.6, 0.2, 8, 16]} />;
-      case 'cone':
-        return <coneGeometry args={[0.5, 1, 8]} />;
-      case 'cylinder':
-        return <cylinderGeometry args={[0.3, 0.3, 1, 8]} />;
       default:
         return <boxGeometry args={[1, 1, 1]} />;
     }

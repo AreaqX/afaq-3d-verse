@@ -2,8 +2,6 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { FloatingGeometry } from './FloatingGeometry';
 import { ParticleField } from './ParticleField';
-import { CodeSymbols } from './CodeSymbols';
-import { BinaryRain } from './BinaryRain';
 
 interface Scene3DProps {
   children?: React.ReactNode;
@@ -29,48 +27,33 @@ export const Scene3D = ({ children, enableControls = false, className = "" }: Sc
             color="#6366f1" 
           />
           
-          {/* Binary Rain Background */}
-          <BinaryRain />
+          {/* Particle Background */}
+          <ParticleField />
           
-          {/* Code Symbols */}
-          <CodeSymbols />
-          
-          {/* Software Dev Themed Floating Geometries */}
+          {/* Floating Geometries */}
           <FloatingGeometry 
             position={[-6, 2, -3]} 
-            type="torus" 
+            type="box" 
             color="#6366f1" 
             scale={0.8}
           />
           <FloatingGeometry 
             position={[6, -2, -2]} 
-            type="octahedron" 
+            type="sphere" 
             color="#8b5cf6" 
             scale={1}
           />
           <FloatingGeometry 
             position={[-3, -3, -4]} 
-            type="cone" 
+            type="octahedron" 
             color="#06ffa5" 
             scale={0.8}
           />
           <FloatingGeometry 
             position={[4, 3, -3]} 
-            type="cylinder" 
+            type="box" 
             color="#6366f1" 
             scale={0.6}
-          />
-          <FloatingGeometry 
-            position={[-2, 4, -5]} 
-            type="torus" 
-            color="#06ffa5" 
-            scale={0.5}
-          />
-          <FloatingGeometry 
-            position={[7, 1, -4]} 
-            type="octahedron" 
-            color="#8b5cf6" 
-            scale={0.7}
           />
           
           {children}
