@@ -39,15 +39,14 @@ export const HeroSection = () => {
   }, [currentTitle]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden futuristic-bg gpu-accelerated">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* 3D Background */}
       <div className="absolute inset-0 z-0">
         <Scene3D />
       </div>
       
-      {/* Enhanced Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/20 to-background/80 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent z-10" />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-transparent to-background/60 z-10" />
       
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">

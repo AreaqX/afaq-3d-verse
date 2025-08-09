@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark Theme Colors - Deep Space Background */
-    --background: 222 47% 2%;
+    /* Dark Theme Colors */
+    --background: 240 10% 4%;
     --foreground: 0 0% 100%;
 
     --card: 240 6% 10%;
@@ -51,7 +51,6 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
     --gradient-neon: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
     --gradient-surface: linear-gradient(145deg, hsl(var(--card)), hsl(var(--surface)));
-    --gradient-background: linear-gradient(135deg, hsl(222 47% 2%) 0%, hsl(222 84% 1%) 50%, hsl(238 75% 3%) 100%);
     
     /* Shadows */
     --shadow-neon: 0 0 30px hsl(var(--accent) / 0.3);
@@ -162,32 +161,6 @@ All colors MUST be HSL.
     background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 0 40px hsl(var(--accent) / 0.5);
-  }
-
-  /* Futuristic Background */
-  .futuristic-bg {
-    background: var(--gradient-background);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .futuristic-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, hsl(var(--secondary) / 0.1) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  /* Performance optimizations */
-  .gpu-accelerated {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000px;
   }
 }
 /*@layer base {
