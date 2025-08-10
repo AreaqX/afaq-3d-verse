@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
-import { FloatingGeometry } from './FloatingGeometry';
+import { ComputerSetup } from './ComputerSetup';
 import { ParticleField } from './ParticleField';
 
 interface Scene3DProps {
@@ -30,31 +30,8 @@ export const Scene3D = ({ children, enableControls = false, className = "" }: Sc
           {/* Particle Background */}
           <ParticleField />
           
-          {/* Floating Geometries */}
-          <FloatingGeometry 
-            position={[-6, 2, -3]} 
-            type="box" 
-            color="#6366f1" 
-            scale={0.8}
-          />
-          <FloatingGeometry 
-            position={[6, -2, -2]} 
-            type="sphere" 
-            color="#8b5cf6" 
-            scale={1}
-          />
-          <FloatingGeometry 
-            position={[-3, -3, -4]} 
-            type="octahedron" 
-            color="#06ffa5" 
-            scale={0.8}
-          />
-          <FloatingGeometry 
-            position={[4, 3, -3]} 
-            type="box" 
-            color="#6366f1" 
-            scale={0.6}
-          />
+          {/* 3D Computer Setup */}
+          <ComputerSetup />
           
           {children}
         </Suspense>
