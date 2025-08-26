@@ -11,7 +11,9 @@ import {
   MapPin, 
   Linkedin, 
   Send,
-  MessageCircle
+  MessageCircle,
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react';
 
 const contactInfo = [
@@ -49,6 +51,7 @@ export const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -58,19 +61,85 @@ export const ContactSection = () => {
     });
   };
 
+  const sendEmailWithBrevo = async (emailData: typeof formData) => {
+    // Replace with your actual backend API endpoint
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        templateId: 1, // Your Brevo "Portfolio Response" template ID
+        to: [{ 
+          email: 'afaqmehmood3179@gmail.com', 
+          name: 'Afaq Mehmood' 
+        }],
+        params: {
+          first_name: emailData.name,
+          email: emailData.email,
+          message: emailData.message,
+          subject: emailData.subject
+        }
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to send email');
+    }
+
+    return response.json();
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus(null);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email via Brevo
+      const result = await sendEmailWithBrevo(formData);
+      
+      console.log('Email sent successfully:', result);
+      setSubmitStatus('success');
+      
+      // Show success toast
       toast({
-        title: "Message Sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
+        title: "Message Sent Successfully!",
+        description: "Thank you for your message. I'll get back to you within 24 hours.",
       });
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+      
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitStatus('error');
+      
+      // Show error toast
+      toast({
+        title: "Failed to Send Message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive"
+      });
+      
+      // Auto-hide error message after 10 seconds
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 10000);
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -169,7 +238,8 @@ export const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       className="bg-surface/50 border-border/50 focus:border-accent transition-colors"
-                      placeholder="John Doe"
+                      placeholder="Your Name"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <div>
@@ -185,6 +255,7 @@ export const ContactSection = () => {
                       onChange={handleInputChange}
                       className="bg-surface/50 border-border/50 focus:border-accent transition-colors"
                       placeholder="john@example.com"
+                      disabled={isSubmitting}
                     />
                   </div>
                 </div>
@@ -202,6 +273,7 @@ export const ContactSection = () => {
                     onChange={handleInputChange}
                     className="bg-surface/50 border-border/50 focus:border-accent transition-colors"
                     placeholder="Project Discussion"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -218,18 +290,44 @@ export const ContactSection = () => {
                     onChange={handleInputChange}
                     className="bg-surface/50 border-border/50 focus:border-accent transition-colors resize-none"
                     placeholder="Tell me about your project..."
+                    disabled={isSubmitting}
                   />
                 </div>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400"
+                  >
+                    <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                    <span>Message sent successfully! I'll get back to you within 24 hours.</span>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400"
+                  >
+                    <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                    <span>Failed to send message. Please try again or contact me directly at afaqmehmood3179@gmail.com</span>
+                  </motion.div>
+                )}
 
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-xl neon-glow transition-all duration-300 hover:scale-105"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-xl neon-glow transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
                       <div className="w-4 h-4 border-2 border-accent-foreground/30 border-t-accent-foreground rounded-full animate-spin" />
-                      Sending...
+                      Sending via Brevo...
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
