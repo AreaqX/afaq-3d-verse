@@ -83,7 +83,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            "Engineering scalable, high-performance solutions with 2.5 years of deep expertise in 
+            "Engineering scalable, high-performance solutions with 3 years of deep expertise in 
             <span className="text-primary font-semibold"> Podio</span>, 
             <span className="text-secondary font-semibold"> Retool</span>, 
             <span className="text-accent font-semibold"> GHL</span>, and 

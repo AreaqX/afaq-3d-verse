@@ -30,7 +30,7 @@ export const ComputerSetup = () => {
         'const developer = {',
         '  name: "Afaq Mehmood",',
         '  role: "Full Stack Developer",',
-        '  experience: "2.5 years",',
+        '  experience: "3 years",',
         '  skills: ["React", "Node.js"]',
         '};',
         '',

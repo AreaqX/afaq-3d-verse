@@ -76,7 +76,7 @@ export const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Full Stack Developer with <span className="text-accent font-semibold">2.5 years of experience</span> specializing in crafting robust and user-centric applications using cutting-edge low-code and traditional development platforms.
+              Full Stack Developer with <span className="text-accent font-semibold">3 years of experience</span> specializing in crafting robust and user-centric applications using cutting-edge low-code and traditional development platforms.
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
