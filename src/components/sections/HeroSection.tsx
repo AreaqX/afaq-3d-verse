@@ -121,6 +121,18 @@ export const HeroSection = () => {
               variant="outline" 
               size="lg"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold rounded-xl neon-glow transition-all duration-300 hover:scale-105"
+              asChild
+            >
+              <a href="/Afaq_Mehmood_Resume.pdf" download="Afaq_Mehmood_Resume.pdf">
+                <Download className="w-5 h-5 mr-2" />
+                Resume
+              </a>
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="lg"
+              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold rounded-xl neon-glow transition-all duration-300 hover:scale-105"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="w-5 h-5 mr-2" />
