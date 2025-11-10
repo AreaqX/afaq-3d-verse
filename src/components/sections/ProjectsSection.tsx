@@ -174,7 +174,7 @@ export const ProjectsSection = () => {
               className={`flex items-center gap-2 transition-all duration-300 ${
                 activeCategory === category.id 
                   ? 'bg-primary text-primary-foreground primary-glow' 
-                  : 'border-border hover:border-accent hover:bg-accent/10 hover:text-accent-foreground'
+                  : 'border-border hover:border-primary hover:bg-primary hover:text-primary-foreground'
               }`}
             >
               <category.icon className="w-4 h-4" />
