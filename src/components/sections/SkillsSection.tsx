@@ -10,7 +10,8 @@ import {
   MessageSquare,
   Mail,
   Phone,
-  Bot
+  Bot,
+  CreditCard
 } from 'lucide-react';
 
 const skillCategories = [
@@ -60,6 +61,11 @@ const integrations = [
     category: "AI Services",
     icon: Bot,
     tools: ["Vapi AI", "ChatGPT", "OpenAI API", "Machine Learning"]
+  },
+  {
+    category: "Financial",
+    icon: CreditCard,
+    tools: ["Stripe", "Revenue Cat", "Payment Processing", "Subscription Management"]
   },
   {
     category: "Document Integration",
