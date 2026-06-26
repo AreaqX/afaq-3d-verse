@@ -23,7 +23,18 @@ const projectCategories = [
 ];
 
 
-const projects = [
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  gradient?: string;
+  badge?: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "E-Scrow",
