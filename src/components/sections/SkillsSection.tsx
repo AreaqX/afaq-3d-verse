@@ -121,9 +121,10 @@ export const SkillsSection = () => {
                 <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 h-full card-shadow">
                   {/* Category Header */}
                   <div className="mb-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${category.color} p-3 mb-3 group-hover:scale-110 transition-transform duration-300`}>
-                      <category.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/50 transition-colors duration-300">
+                      <category.icon className="w-6 h-6 text-accent" />
                     </div>
+
                     <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                       {category.title}
                     </h4>
@@ -180,9 +181,10 @@ export const SkillsSection = () => {
                 <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 h-full card-shadow">
                   {/* Integration Header */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-accent to-primary p-3 mb-3 group-hover:scale-110 transition-transform duration-300">
-                      <integration.icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/50 transition-colors duration-300">
+                      <integration.icon className="w-6 h-6 text-accent" />
                     </div>
+
                     <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                       {integration.category}
                     </h4>
