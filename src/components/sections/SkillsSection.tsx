@@ -142,7 +142,7 @@ export const SkillsSection = () => {
                       >
                         <Badge 
                           variant="outline"
-                          className="w-full justify-start text-xs border-border/30 hover:border-accent/50 hover:bg-accent/10 transition-colors"
+                          className="w-full justify-start text-xs bg-surface border-border text-foreground hover:border-accent transition-colors"
                         >
                           {skill}
                         </Badge>
@@ -221,7 +221,7 @@ export const SkillsSection = () => {
             {["English", "Urdu", "Punjabi"].map((language, i) => (
               <Badge 
                 key={language}
-                className="bg-surface text-foreground border border-accent/30 px-4 py-2"
+                className="bg-surface text-foreground border border-border hover:border-accent transition-colors px-4 py-2"
               >
                 {language}
               </Badge>
