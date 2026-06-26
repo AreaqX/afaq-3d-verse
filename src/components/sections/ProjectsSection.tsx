@@ -301,7 +301,7 @@ export const ProjectsSection = () => {
                       <Badge 
                         key={i}
                         variant="outline"
-                        className="text-xs border-primary/30 text-primary hover:border-primary hover:bg-primary/10"
+                        className="text-xs bg-surface border-border text-foreground hover:border-accent transition-colors"
                       >
                         {tech}
                       </Badge>
