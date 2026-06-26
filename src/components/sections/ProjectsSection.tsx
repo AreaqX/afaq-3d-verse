@@ -131,8 +131,45 @@ const projects = [
     technologies: ["GoHighLevel", "CRM", "Automation", "Multi-channel"],
     features: ["Lead Capture", "Pipeline Automation", "Follow-up Sequences", "Conversion Tracking"],
     gradient: "from-primary to-accent"
+  },
+  {
+    id: 13,
+    title: "AI Voice Agent Prototype",
+    category: "research",
+    badge: "Prototype",
+    description: "Exploratory voice assistant connecting Vapi AI with CRM data for automated call handling",
+    technologies: ["Vapi AI", "ChatGPT", "Webhooks", "Twilio"],
+    features: ["Voice Interaction", "Intent Detection", "CRM Lookup", "Call Routing"]
+  },
+  {
+    id: 14,
+    title: "SERP Data Aggregator",
+    category: "research",
+    badge: "Research",
+    description: "Research into scraping and structuring search data with SERP API for lead enrichment",
+    technologies: ["SERP API", "Node.js", "Airtable", "REST APIs"],
+    features: ["Data Scraping", "Enrichment", "Structured Export", "Scheduling"]
+  },
+  {
+    id: 15,
+    title: "No-Code Tooling Study",
+    category: "research",
+    badge: "Research",
+    description: "Comparative evaluation of Tape, Softr.io and Airtable for rapid internal app delivery",
+    technologies: ["Tape", "Softr.io", "Airtable", "Zapier"],
+    features: ["Tool Benchmarking", "Workflow Mapping", "Cost Analysis", "Prototyping"]
+  },
+  {
+    id: 16,
+    title: "Automated Forecasting Concept",
+    category: "research",
+    badge: "Prototype",
+    description: "Prototype exploring rule-based future-transaction modelling and balance forecasting",
+    technologies: ["FlutterFlow", "Firebase", "Custom Logic"],
+    features: ["Future Transactions", "Cascading Edits", "Balance Projection", "Scenario Testing"]
   }
 ];
+
 
 export const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
