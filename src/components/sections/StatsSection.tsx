@@ -59,7 +59,7 @@ export const StatsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -74,12 +74,13 @@ export const StatsSection = () => {
               <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-8 text-center h-full card-shadow">
                 {/* Icon */}
                 <motion.div
-                  className={`w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br ${stat.color} p-4 group-hover:scale-110 transition-transform duration-300`}
+                  className="w-16 h-16 mx-auto mb-4 rounded-xl bg-surface border border-border p-4 group-hover:border-accent/50 transition-colors duration-300"
                   whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                   transition={{ duration: 0.5 }}
                 >
-                  <stat.icon className="w-full h-full text-white" />
+                  <stat.icon className="w-full h-full text-accent" />
                 </motion.div>
+
 
                 {/* Counter */}
                 <div className="mb-2">
