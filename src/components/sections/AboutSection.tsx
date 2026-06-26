@@ -80,8 +80,9 @@ export const AboutSection = () => {
             </p>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Proficient in <span className="text-primary font-semibold">PHP</span>, <span className="text-primary font-semibold">JavaScript</span>, <span className="text-primary font-semibold">React</span> with additional expertise in <span className="text-secondary font-semibold">Firebase</span>, <span className="text-secondary font-semibold">PostgreSQL</span> for database management.
+              Proficient in PHP, JavaScript, and React with additional expertise in Firebase and PostgreSQL for database management.
             </p>
+
 
             {/* Skills Tags */}
             <div className="space-y-4">
@@ -127,9 +128,10 @@ export const AboutSection = () => {
               >
                 <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 card-shadow">
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-gradient-to-br from-primary to-secondary rounded-lg group-hover:scale-110 transition-transform duration-300">
-                      <strength.icon className="w-5 h-5 text-white" />
+                    <div className="p-2 bg-surface border border-border rounded-lg group-hover:border-accent/50 transition-colors duration-300">
+                      <strength.icon className="w-5 h-5 text-accent" />
                     </div>
+
                     <div className="space-y-2">
                       <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
                         {strength.title}

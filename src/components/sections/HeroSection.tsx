@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Scene3D } from '@/components/3d/Scene3D';
 import { MapPin, Download, Mail } from 'lucide-react';
+
 
 const titles = [
   "Full Stack Developer",
@@ -39,14 +39,19 @@ export const HeroSection = () => {
   }, [currentTitle]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <Scene3D />
-      </div>
-      
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Subtle charcoal mesh background (very low opacity, no competing color) */}
+      <div
+        className="absolute inset-0 z-0 opacity-[0.06]"
+        style={{
+          background:
+            'radial-gradient(circle at 20% 30%, hsl(var(--foreground)) 0%, transparent 40%), radial-gradient(circle at 80% 70%, hsl(var(--primary)) 0%, transparent 45%)',
+        }}
+      />
+
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-transparent to-background/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-transparent to-background z-10" />
+
       
       {/* Content */}
       <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
@@ -83,12 +88,10 @@ export const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
           >
-            "Engineering scalable, high-performance solutions with 3 years of deep expertise in 
-            <span className="text-primary font-semibold"> Podio</span>, 
-            <span className="text-secondary font-semibold"> Retool</span>, 
-            <span className="text-accent font-semibold"> GHL</span>, and 
-            <span className="text-primary font-semibold"> FlutterFlow</span>,
-            specializing in cross-platform development and user-centric design."
+            Engineering scalable, high-performance solutions with 3 years of deep expertise in
+            Podio, Retool, GHL, and FlutterFlow — specializing in cross-platform development
+            and user-centric design.
+
           </motion.p>
 
           {/* Location */}

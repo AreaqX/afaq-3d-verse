@@ -8,58 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark Theme Colors */
-    --background: 240 10% 4%;
-    --foreground: 0 0% 100%;
+    /* Charcoal Theme */
+    --background: 240 5% 11%;        /* #1A1A1D charcoal */
+    --foreground: 40 24% 93%;        /* #F2EFE9 warm off-white */
 
-    --card: 240 6% 10%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 5% 15%;              /* #242428 surface */
+    --card-foreground: 40 24% 93%;
 
-    --popover: 240 6% 10%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 5% 15%;
+    --popover-foreground: 40 24% 93%;
 
-    /* Indigo Primary */
-    --primary: 238 75% 65%;
-    --primary-foreground: 0 0% 100%;
+    /* Teal Primary (single accent) */
+    --primary: 173 80% 40%;          /* #14B8A6 teal */
+    --primary-foreground: 240 5% 11%;
 
-    /* Purple Secondary */
-    --secondary: 262 83% 68%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary kept as teal so legacy gradients render flat teal */
+    --secondary: 173 80% 40%;
+    --secondary-foreground: 240 5% 11%;
 
-    --muted: 240 6% 25%;
-    --muted-foreground: 240 4% 64%;
+    --muted: 240 5% 21%;
+    --muted-foreground: 38 5% 64%;   /* #A8A5A0 warm gray */
 
-    /* Neon Green Accent */
-    --accent: 155 100% 52%;
-    --accent-foreground: 240 10% 4%;
+    /* Teal Accent */
+    --accent: 173 80% 45%;
+    --accent-foreground: 240 5% 11%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 40 24% 93%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 238 75% 65%;
+    --border: 240 6% 21%;            /* #33333A */
+    --input: 240 6% 21%;
+    --ring: 173 80% 40%;
 
     --radius: 0.75rem;
 
     /* Portfolio Specific Colors */
-    --surface: 237 22% 20%;
-    --neon: 155 100% 52%;
-    --glow: 238 75% 65%;
+    --surface: 240 5% 15%;
+    --neon: 173 80% 45%;
+    --glow: 173 80% 40%;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    --gradient-neon: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    /* Gradients (flat teal — no multi-color) */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
+    --gradient-neon: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent)));
     --gradient-surface: linear-gradient(145deg, hsl(var(--card)), hsl(var(--surface)));
     
     /* Shadows */
-    --shadow-neon: 0 0 30px hsl(var(--accent) / 0.3);
-    --shadow-glow: 0 0 50px hsl(var(--primary) / 0.4);
-    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.4);
+    --shadow-neon: 0 0 24px hsl(var(--accent) / 0.18);
+    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.22);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.45);
     
     /* Animations */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
 
     --sidebar-background: 0 0% 98%;
 
@@ -133,36 +134,31 @@ All colors MUST be HSL.
 
 @layer components {
   .glass-effect {
-    @apply backdrop-blur-xl bg-card/20 border border-border/50;
+    @apply bg-card border border-border;
   }
   
   .neon-glow {
-    box-shadow: 0 0 30px hsl(var(--accent) / 0.3);
+    box-shadow: 0 0 24px hsl(var(--accent) / 0.18);
   }
   
   .primary-glow {
-    box-shadow: 0 0 50px hsl(var(--primary) / 0.4);
+    box-shadow: 0 0 32px hsl(var(--primary) / 0.22);
   }
   
   .card-shadow {
-    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.4);
+    box-shadow: 0 8px 32px hsl(0 0% 0% / 0.45);
   }
   
+  /* Flat teal text accent (no multi-color gradient) */
   .gradient-text {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: hsl(var(--primary));
   }
   
   .hero-text {
-    background: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 40px hsl(var(--accent) / 0.5);
+    color: hsl(var(--foreground));
   }
 }
+
 /*@layer base {
   * {
     @apply border-border;

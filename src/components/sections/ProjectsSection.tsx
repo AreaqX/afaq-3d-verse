@@ -9,7 +9,8 @@ import {
   Database, 
   Workflow, 
   Building2,
-  Filter
+  Filter,
+  FlaskConical
 } from 'lucide-react';
 
 const projectCategories = [
@@ -17,10 +18,23 @@ const projectCategories = [
   { id: 'flutterflow', name: 'FlutterFlow', icon: Smartphone },
   { id: 'retool', name: 'Retool', icon: Database },
   { id: 'podio', name: 'Podio', icon: Workflow },
-  { id: 'ghl', name: 'GoHighLevel', icon: Building2 }
+  { id: 'ghl', name: 'GoHighLevel', icon: Building2 },
+  { id: 'research', name: 'Research & Prototypes', icon: FlaskConical }
 ];
 
-const projects = [
+
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  description: string;
+  technologies: string[];
+  features: string[];
+  gradient?: string;
+  badge?: string;
+}
+
+const projects: Project[] = [
   {
     id: 1,
     title: "E-Scrow",
@@ -128,8 +142,45 @@ const projects = [
     technologies: ["GoHighLevel", "CRM", "Automation", "Multi-channel"],
     features: ["Lead Capture", "Pipeline Automation", "Follow-up Sequences", "Conversion Tracking"],
     gradient: "from-primary to-accent"
+  },
+  {
+    id: 13,
+    title: "AI Voice Agent Prototype",
+    category: "research",
+    badge: "Prototype",
+    description: "Exploratory voice assistant connecting Vapi AI with CRM data for automated call handling",
+    technologies: ["Vapi AI", "ChatGPT", "Webhooks", "Twilio"],
+    features: ["Voice Interaction", "Intent Detection", "CRM Lookup", "Call Routing"]
+  },
+  {
+    id: 14,
+    title: "SERP Data Aggregator",
+    category: "research",
+    badge: "Research",
+    description: "Research into scraping and structuring search data with SERP API for lead enrichment",
+    technologies: ["SERP API", "Node.js", "Airtable", "REST APIs"],
+    features: ["Data Scraping", "Enrichment", "Structured Export", "Scheduling"]
+  },
+  {
+    id: 15,
+    title: "No-Code Tooling Study",
+    category: "research",
+    badge: "Research",
+    description: "Comparative evaluation of Tape, Softr.io and Airtable for rapid internal app delivery",
+    technologies: ["Tape", "Softr.io", "Airtable", "Zapier"],
+    features: ["Tool Benchmarking", "Workflow Mapping", "Cost Analysis", "Prototyping"]
+  },
+  {
+    id: 16,
+    title: "Automated Forecasting Concept",
+    category: "research",
+    badge: "Prototype",
+    description: "Prototype exploring rule-based future-transaction modelling and balance forecasting",
+    technologies: ["FlutterFlow", "Firebase", "Custom Logic"],
+    features: ["Future Transactions", "Cascading Edits", "Balance Projection", "Scenario Testing"]
   }
 ];
+
 
 export const ProjectsSection = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -201,18 +252,29 @@ export const ProjectsSection = () => {
               className="group"
             >
               <Card className="glass-effect hover:border-accent/50 transition-all duration-300 overflow-hidden h-full card-shadow">
-                {/* Project Header with Gradient */}
-                <div className={`h-32 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20" />
+                {/* Project Header (flat charcoal surface) */}
+                <div className="h-32 bg-surface border-b border-border relative overflow-hidden">
+                  {/* Research / Prototype badge */}
+                  {project.badge && (
+                    <div className="absolute top-4 left-4">
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] uppercase tracking-wider border-accent/60 text-accent bg-transparent"
+                      >
+                        {project.badge}
+                      </Badge>
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4">
-                    <ExternalLink className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-xl font-bold text-white">
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-bold text-foreground">
                       {project.title}
                     </h3>
                   </div>
                 </div>
+
 
                 {/* Project Content */}
                 <div className="p-6 space-y-4">
@@ -239,7 +301,7 @@ export const ProjectsSection = () => {
                       <Badge 
                         key={i}
                         variant="outline"
-                        className="text-xs border-primary/30 text-primary hover:border-primary hover:bg-primary/10"
+                        className="text-xs bg-surface border-border text-foreground hover:border-accent transition-colors"
                       >
                         {tech}
                       </Badge>
