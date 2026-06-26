@@ -9,7 +9,8 @@ import {
   Database, 
   Workflow, 
   Building2,
-  Filter
+  Filter,
+  FlaskConical
 } from 'lucide-react';
 
 const projectCategories = [
@@ -17,8 +18,10 @@ const projectCategories = [
   { id: 'flutterflow', name: 'FlutterFlow', icon: Smartphone },
   { id: 'retool', name: 'Retool', icon: Database },
   { id: 'podio', name: 'Podio', icon: Workflow },
-  { id: 'ghl', name: 'GoHighLevel', icon: Building2 }
+  { id: 'ghl', name: 'GoHighLevel', icon: Building2 },
+  { id: 'research', name: 'Research & Prototypes', icon: FlaskConical }
 ];
+
 
 const projects = [
   {
