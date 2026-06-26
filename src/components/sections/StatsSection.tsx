@@ -1,7 +1,8 @@
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useRef } from 'react';
-import { Award, Briefcase, Code2, Layers } from 'lucide-react';
+import { Briefcase, Layers } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+
 
 interface StatCounterProps {
   value: number;
@@ -39,30 +40,15 @@ const stats = [
     label: "Years Experience",
     value: 3,
     suffix: "+",
-    color: "from-primary to-secondary"
   },
   {
     icon: Layers,
     label: "Projects Completed",
     value: 25,
     suffix: "+",
-    color: "from-secondary to-accent"
-  },
-  {
-    icon: Code2,
-    label: "Technologies Mastered",
-    value: 15,
-    suffix: "+",
-    color: "from-accent to-primary"
-  },
-  {
-    icon: Award,
-    label: "Successful Integrations",
-    value: 50,
-    suffix: "+",
-    color: "from-primary to-accent"
   }
 ];
+
 
 export const StatsSection = () => {
   return (
