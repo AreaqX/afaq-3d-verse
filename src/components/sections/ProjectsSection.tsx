@@ -145,39 +145,39 @@ const projects: Project[] = [
   },
   {
     id: 13,
-    title: "AI Voice Agent Prototype",
+    title: "AI-Powered Full-Stack Prototyping with Lovable",
     category: "research",
-    badge: "Prototype",
-    description: "Exploratory voice assistant connecting Vapi AI with CRM data for automated call handling",
-    technologies: ["Vapi AI", "ChatGPT", "Webhooks", "Twilio"],
-    features: ["Voice Interaction", "Intent Detection", "CRM Lookup", "Call Routing"]
+    badge: "Research",
+    description: "Evaluated natural-language-to-app generation for rapid internal-tool prototyping, testing how far AI scaffolding can replace manual React setup for dashboard and CRM interfaces.",
+    technologies: ["Lovable", "Supabase", "React", "Tailwind"],
+    features: ["Podio Data Connector Prototype", "Code Export Quality Test", "Iteration Speed Benchmark", "B2B Dashboard Patterns"]
   },
   {
     id: 14,
-    title: "SERP Data Aggregator",
+    title: "Rapid Backend Prototyping with Replit Agent",
     category: "research",
-    badge: "Research",
-    description: "Research into scraping and structuring search data with SERP API for lead enrichment",
-    technologies: ["SERP API", "Node.js", "Airtable", "REST APIs"],
-    features: ["Data Scraping", "Enrichment", "Structured Export", "Scheduling"]
+    badge: "Research / Prototype",
+    description: "Explored Replit's AI agent for quick Node.js backend scaffolding and API development, comparing it to local development setups for automation webhook services.",
+    technologies: ["Replit", "Node.js", "Express", "Webhooks"],
+    features: ["Podio Webhook Scaffolding", "Live URL Deployment Test", "Environment Config Comparison", "Remote Team Debugging"]
   },
   {
     id: 15,
-    title: "No-Code Tooling Study",
+    title: "AI-Assisted Mobile Development: FlutterFlow + Claude",
     category: "research",
-    badge: "Research",
-    description: "Comparative evaluation of Tape, Softr.io and Airtable for rapid internal app delivery",
-    technologies: ["Tape", "Softr.io", "Airtable", "Zapier"],
-    features: ["Tool Benchmarking", "Workflow Mapping", "Cost Analysis", "Prototyping"]
+    badge: "Prototype",
+    description: "Investigated using Claude to generate custom FlutterFlow actions, Dart functions, and API integration logic to accelerate mobile app delivery for client projects.",
+    technologies: ["FlutterFlow", "Claude", "Dart", "Firebase"],
+    features: ["Custom Dart Function Generation", "Stripe Integration Debugging", "DocuSeal API Mapping", "Action Flow Time Benchmark"]
   },
   {
     id: 16,
-    title: "Automated Forecasting Concept",
+    title: "Exploring MCP for Automation-Connected AI Workflows",
     category: "research",
-    badge: "Prototype",
-    description: "Prototype exploring rule-based future-transaction modelling and balance forecasting",
-    technologies: ["FlutterFlow", "Firebase", "Custom Logic"],
-    features: ["Future Transactions", "Cascading Edits", "Balance Projection", "Scenario Testing"]
+    badge: "Research",
+    description: "Researched Model Context Protocol as a bridge between AI assistants and external tools, building a test server to connect Claude with Podio and Retool data sources.",
+    technologies: ["MCP", "Claude Desktop", "Node.js", "TypeScript"],
+    features: ["Podio MCP Test Server", "Architecture vs REST Comparison", "Retool NL Query Runner", "Security Model Analysis"]
   }
 ];
 
