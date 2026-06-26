@@ -252,18 +252,29 @@ export const ProjectsSection = () => {
               className="group"
             >
               <Card className="glass-effect hover:border-accent/50 transition-all duration-300 overflow-hidden h-full card-shadow">
-                {/* Project Header with Gradient */}
-                <div className={`h-32 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20" />
+                {/* Project Header (flat charcoal surface) */}
+                <div className="h-32 bg-surface border-b border-border relative overflow-hidden">
+                  {/* Research / Prototype badge */}
+                  {project.badge && (
+                    <div className="absolute top-4 left-4">
+                      <Badge
+                        variant="outline"
+                        className="text-[10px] uppercase tracking-wider border-accent/60 text-accent bg-transparent"
+                      >
+                        {project.badge}
+                      </Badge>
+                    </div>
+                  )}
                   <div className="absolute top-4 right-4">
-                    <ExternalLink className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ExternalLink className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-xl font-bold text-white">
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-xl font-bold text-foreground">
                       {project.title}
                     </h3>
                   </div>
                 </div>
+
 
                 {/* Project Content */}
                 <div className="p-6 space-y-4">
