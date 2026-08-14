@@ -143,7 +143,7 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20 relative">
+    <section id="contact" className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -193,10 +193,10 @@ export const ContactSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ y: -2 }}
                   className="block group"
                 >
-                  <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-4 card-shadow">
+                  <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-4 card-shadow hover-lift">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-gradient-to-br from-primary to-secondary rounded-lg group-hover:scale-110 transition-transform duration-300">
                         <contact.icon className="w-5 h-5 text-white" />
@@ -223,7 +223,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Card className="glass-effect border-accent/20 p-8 card-shadow">
+            <Card className="glass-effect border-accent/20 p-8 card-shadow hover-lift">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -322,7 +322,7 @@ export const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-xl neon-glow transition-all duration-300 hover:scale-105 disabled:hover:scale-100 disabled:opacity-50"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-xl neon-glow transition-all duration-300 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

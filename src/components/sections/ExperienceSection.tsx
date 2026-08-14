@@ -43,7 +43,7 @@ const experiences = [
 
 export const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-20 relative">
+    <section id="experience" className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -86,10 +86,10 @@ export const ExperienceSection = () => {
                 {/* Content */}
                 <div className={`w-full md:w-1/2 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ y: -2 }}
                     className="group"
                   >
-                    <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 card-shadow">
+                    <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-6 card-shadow hover-lift">
                       {/* Header */}
                       <div className="mb-4">
                         <div className="flex items-center gap-2 mb-2">
