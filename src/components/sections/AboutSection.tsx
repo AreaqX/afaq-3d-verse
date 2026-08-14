@@ -50,7 +50,7 @@ const skills = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-20 relative">
+    <section id="about" className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -123,12 +123,12 @@ export const AboutSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ y: -2 }}
                 className="group"
               >
-                <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 card-shadow">
+                <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-6 card-shadow hover-lift">
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-surface border border-border rounded-lg group-hover:border-accent/50 transition-colors duration-300">
+                    <div className="p-2 bg-surface border border-border rounded-lg group-hover:border-accent/40 transition-colors duration-300">
                       <strength.icon className="w-5 h-5 text-accent" />
                     </div>
 

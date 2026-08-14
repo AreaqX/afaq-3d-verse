@@ -190,7 +190,7 @@ export const ProjectsSection = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -248,10 +248,10 @@ export const ProjectsSection = () => {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -10 }}
+              whileHover={{ y: -4 }}
               className="group"
             >
-              <Card className="glass-effect hover:border-accent/50 transition-all duration-300 overflow-hidden h-full card-shadow">
+              <Card className="glass-effect hover:border-accent/40 transition-all duration-300 overflow-hidden h-full card-shadow hover-lift">
                 {/* Project Header (flat charcoal surface) */}
                 <div className="h-32 bg-surface border-b border-border relative overflow-hidden">
                   {/* Research / Prototype badge */}

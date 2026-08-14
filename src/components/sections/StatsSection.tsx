@@ -52,7 +52,7 @@ const stats = [
 
 export const StatsSection = () => {
   return (
-    <section className="py-20 relative">
+    <section className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -68,14 +68,14 @@ export const StatsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -5 }}
+              whileHover={{ y: -3 }}
               className="group"
             >
-              <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-8 text-center h-full card-shadow">
+              <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-8 text-center h-full card-shadow hover-lift">
                 {/* Icon */}
                 <motion.div
-                  className="w-16 h-16 mx-auto mb-4 rounded-xl bg-surface border border-border p-4 group-hover:border-accent/50 transition-colors duration-300"
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                  className="w-16 h-16 mx-auto mb-4 rounded-xl bg-surface border border-border p-4 group-hover:border-accent/40 transition-colors duration-300"
+                  
                   transition={{ duration: 0.5 }}
                 >
                   <stat.icon className="w-full h-full text-accent" />

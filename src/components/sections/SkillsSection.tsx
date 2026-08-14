@@ -76,7 +76,7 @@ const integrations = [
 
 export const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 relative">
+    <section id="skills" className="py-28 md:py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -115,13 +115,13 @@ export const SkillsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -2 }}
                 className="group"
               >
-                <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 h-full card-shadow">
+                <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-6 h-full card-shadow hover-lift">
                   {/* Category Header */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/50 transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/40 transition-colors duration-300">
                       <category.icon className="w-6 h-6 text-accent" />
                     </div>
 
@@ -175,13 +175,13 @@ export const SkillsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -2 }}
                 className="group"
               >
-                <Card className="glass-effect hover:border-accent/50 transition-all duration-300 p-6 h-full card-shadow">
+                <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-6 h-full card-shadow hover-lift">
                   {/* Integration Header */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/50 transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-lg bg-surface border border-border p-3 mb-3 group-hover:border-accent/40 transition-colors duration-300">
                       <integration.icon className="w-6 h-6 text-accent" />
                     </div>
 
