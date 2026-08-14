@@ -145,13 +145,13 @@ export const HeroSection = () => {
 
           {/* Scroll Indicator */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+            className="flex justify-center pt-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 2 }}
           >
-            <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse" />
+            <div className="w-6 h-10 border border-border rounded-full flex justify-center">
+              <div className="w-1 h-2 bg-accent/60 rounded-full mt-2" />
             </div>
           </motion.div>
         </motion.div>
