@@ -198,7 +198,7 @@ export const ContactSection = () => {
                 >
                   <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-4 card-shadow hover-lift">
                     <div className="flex items-center gap-4">
-                      <div className="p-3 bg-gradient-to-br from-primary to-secondary rounded-lg group-hover:scale-110 transition-transform duration-300">
+                      <div className="p-3 bg-surface border border-border rounded-xl group-hover:border-accent/40 transition-colors duration-300">
                         <contact.icon className="w-5 h-5 text-white" />
                       </div>
                       <div>
