@@ -114,7 +114,7 @@ export const HeroSection = () => {
           >
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold rounded-xl primary-glow transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-base font-medium rounded-xl primary-glow hover-lift transition-all duration-300"
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View Projects
@@ -123,7 +123,7 @@ export const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold rounded-xl neon-glow transition-all duration-300"
+              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-base font-medium rounded-xl neon-glow hover-lift transition-all duration-300"
               asChild
             >
               <a href="/Afaq_Mehmood_Resume.pdf" download="Afaq_Mehmood_Resume.pdf">
@@ -135,7 +135,7 @@ export const HeroSection = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold rounded-xl neon-glow transition-all duration-300"
+              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-base font-medium rounded-xl neon-glow hover-lift transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="w-5 h-5 mr-2" />
@@ -151,7 +151,7 @@ export const HeroSection = () => {
             transition={{ duration: 1, delay: 2 }}
           >
             <div className="w-6 h-10 border-2 border-accent rounded-full flex justify-center">
-              <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-bounce" />
+              <div className="w-1 h-3 bg-accent rounded-full mt-2 animate-pulse" />
             </div>
           </motion.div>
         </motion.div>

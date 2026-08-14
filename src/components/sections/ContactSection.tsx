@@ -199,7 +199,7 @@ export const ContactSection = () => {
                   <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-4 card-shadow hover-lift">
                     <div className="flex items-center gap-4">
                       <div className="p-3 bg-surface border border-border rounded-xl group-hover:border-accent/40 transition-colors duration-300">
-                        <contact.icon className="w-5 h-5 text-white" />
+                        <contact.icon className="w-5 h-5 text-accent" />
                       </div>
                       <div>
                         <h4 className="font-semibold text-foreground group-hover:text-accent transition-colors">
@@ -322,7 +322,7 @@ export const ContactSection = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-3 rounded-xl neon-glow transition-all duration-300 disabled:opacity-50"
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-medium py-3 rounded-xl neon-glow hover-lift transition-all duration-300 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

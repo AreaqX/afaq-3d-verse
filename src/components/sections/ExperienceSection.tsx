@@ -65,7 +65,7 @@ export const ExperienceSection = () => {
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform md:-translate-x-0.5" />
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-border transform md:-translate-x-0.5" />
 
           {/* Experience Cards */}
           <div className="space-y-12">
