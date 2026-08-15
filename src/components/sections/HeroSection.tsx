@@ -1,159 +1,110 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { MapPin, Download, Mail } from 'lucide-react';
+import { MapPin, Download, Mail, Linkedin } from 'lucide-react';
 
-
-const titles = [
-  "Full Stack Developer",
-  "Podio Automation Specialist", 
-  "Retool Developer",
-  "FlutterFlow Developer"
+const roles = [
+  'Full Stack Developer',
+  'Mobile App Specialist',
+  'Firebase & Supabase Security Expert',
 ];
 
 export const HeroSection = () => {
-  const [currentTitle, setCurrentTitle] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
-
-  useEffect(() => {
-    const title = titles[currentTitle];
-    let i = 0;
-    
-    const typeInterval = setInterval(() => {
-      if (i < title.length) {
-        setDisplayText(title.slice(0, i + 1));
-        i++;
-      } else {
-        setIsTyping(false);
-        setTimeout(() => {
-          setDisplayText('');
-          setCurrentTitle((prev) => (prev + 1) % titles.length);
-          setIsTyping(true);
-        }, 2000);
-        clearInterval(typeInterval);
-      }
-    }, 150);
-
-    return () => clearInterval(typeInterval);
-  }, [currentTitle]);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Subtle charcoal mesh background (very low opacity, no competing color) */}
+      {/* Subtle grid + glow backdrop */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.06]"
+        className="absolute inset-0 z-0 opacity-[0.35]"
+        style={{
+          backgroundImage:
+            'linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px)',
+          backgroundSize: '64px 64px',
+          maskImage: 'radial-gradient(circle at 50% 40%, black, transparent 70%)',
+          WebkitMaskImage: 'radial-gradient(circle at 50% 40%, black, transparent 70%)',
+        }}
+      />
+      <div
+        className="absolute inset-0 z-0 opacity-[0.12]"
         style={{
           background:
-            'radial-gradient(circle at 20% 30%, hsl(var(--foreground)) 0%, transparent 40%), radial-gradient(circle at 80% 70%, hsl(var(--primary)) 0%, transparent 45%)',
+            'radial-gradient(circle at 50% 30%, hsl(var(--accent)) 0%, transparent 55%)',
         }}
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-transparent to-background z-10" />
-
-      
-      {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 text-center">
+      <div className="relative z-20 max-w-4xl mx-auto px-6 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Main Heading */}
-          <div className="space-y-4">
-            <motion.h1 
-              className="text-6xl md:text-8xl font-bold hero-text mb-4"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
+          <div className="space-y-5">
+            <p className="tech-tag text-accent uppercase tracking-[0.2em]">
+              Available for new opportunities
+            </p>
+
+            <h1 className="text-5xl md:text-7xl font-bold hero-text tracking-tight">
               Afaq Mehmood
-            </motion.h1>
-            
-            {/* Typing Animation */}
-            <div className="h-16 flex items-center justify-center">
-              <h2 className="text-2xl md:text-4xl font-semibold text-muted-foreground">
-                <span className="gradient-text">{displayText}</span>
-                <span className={`ml-1 ${isTyping ? 'animate-pulse' : ''}`}>|</span>
-              </h2>
+            </h1>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base md:text-lg text-muted-foreground">
+              {roles.map((role, i) => (
+                <span key={role} className="flex items-center gap-3">
+                  {i > 0 && <span className="text-accent">·</span>}
+                  {role}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Description */}
-          <motion.p 
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            Engineering scalable, high-performance solutions with 3 years of deep expertise in
-            Podio, Retool, GHL, and FlutterFlow — specializing in cross-platform development
-            and user-centric design.
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            3+ years shipping production SaaS — cross-platform mobile apps in FlutterFlow,
+            React web dashboards, and hardened Firebase / Supabase backends with
+            fine-grained RLS and role-based access control.
+          </p>
 
-          </motion.p>
+          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="w-4 h-4 text-accent" />
+            <span>Sialkot, Pakistan — open to relocation (UAE / GCC)</span>
+          </div>
 
-          {/* Location */}
-          <motion.div 
-            className="flex items-center justify-center gap-2 text-muted-foreground"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1.2 }}
-          >
-            <MapPin className="w-5 h-5 text-accent" />
-            <span>Sialkot, Punjab, Pakistan</span>
-          </motion.div>
-
-          {/* CTA Buttons */}
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 1.4 }}
-          >
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-base font-medium rounded-xl primary-glow hover-lift transition-all duration-300"
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              View Projects
-            </Button>
-            
-            <Button 
-              variant="outline" 
+          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center pt-4">
+            <Button
               size="lg"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-base font-medium rounded-xl neon-glow hover-lift transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-7 rounded-xl hover-lift transition-all duration-300"
               asChild
             >
               <a href="/Afaq_Mehmood_Resume.pdf" download="Afaq_Mehmood_Resume.pdf">
-                <Download className="w-5 h-5 mr-2" />
-                Resume
+                <Download className="w-4 h-4 mr-2" />
+                Download CV
               </a>
             </Button>
-            
-            <Button 
-              variant="outline" 
+
+            <Button
+              variant="outline"
               size="lg"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-base font-medium rounded-xl neon-glow hover-lift transition-all duration-300"
+              className="border-border text-foreground hover:border-accent hover:text-accent px-7 rounded-xl transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Mail className="w-5 h-5 mr-2" />
-              Contact Me
+              <Mail className="w-4 h-4 mr-2" />
+              Contact
             </Button>
-          </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            className="flex justify-center pt-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 2 }}
-          >
-            <div className="w-6 h-10 border border-border rounded-full flex justify-center">
-              <div className="w-1 h-2 bg-accent/60 rounded-full mt-2" />
-            </div>
-          </motion.div>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-border text-foreground hover:border-accent hover:text-accent px-7 rounded-xl transition-all duration-300"
+              asChild
+            >
+              <a
+                href="https://www.linkedin.com/in/afaqmehmood-500327259"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="w-4 h-4 mr-2" />
+                LinkedIn
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
     </section>
