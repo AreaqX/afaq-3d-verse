@@ -1,150 +1,109 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Code, 
-  Database, 
-  Zap, 
-  Users, 
+import {
   Smartphone,
-  Globe
+  Database,
+  ShieldCheck,
+  CreditCard,
+  Bot,
+  Layers,
 } from 'lucide-react';
 
 const strengths = [
   {
-    icon: Code,
-    title: "Low-code/No-code Development",
-    description: "Expert in Podio, Retool, and FlutterFlow platforms"
+    icon: Smartphone,
+    title: 'Cross-platform Apps',
+    description: 'FlutterFlow apps shipped to App Store and Play Store, plus React web clients.',
   },
   {
     icon: Database,
-    title: "Database Management", 
-    description: "Proficient in Firebase, PostgreSQL, and MySQL"
+    title: 'Backend & Data',
+    description: 'Firebase, Supabase and PostgreSQL schemas designed for multi-tenant SaaS.',
   },
   {
-    icon: Zap,
-    title: "API Integrations",
-    description: "Seamless third-party service integrations"
+    icon: ShieldCheck,
+    title: 'Security Rules & RLS',
+    description: 'Firestore security rules, Supabase row-level security, and RBAC models.',
   },
   {
-    icon: Globe,
-    title: "Automation Solutions",
-    description: "Streamlining business processes with smart automation"
+    icon: CreditCard,
+    title: 'Payments & Identity',
+    description: 'Stripe subscriptions, Connect payouts, and Stripe Identity verification.',
   },
   {
-    icon: Users,
-    title: "Cross-functional Collaboration",
-    description: "Effective teamwork and project management"
+    icon: Bot,
+    title: 'AI & Automation',
+    description: 'LLM-assisted workflows, webhook services, and integration pipelines.',
   },
   {
-    icon: Smartphone,
-    title: "Mobile Development",
-    description: "Native apps for Web, Android, and iOS platforms"
-  }
-];
-
-const skills = [
-  "Podio", "Retool", "FlutterFlow", "GoHighLevel", "React.js", "JavaScript", 
-  "PHP", "ASP.Net MVC", "Firebase", "PostgreSQL", "MongoDB", "HTML5", "CSS3"
+    icon: Layers,
+    title: 'Low-code Delivery',
+    description: 'Podio, Retool and GoHighLevel internal tools built at production speed.',
+  },
 ];
 
 export const AboutSection = () => {
   return (
     <section id="about" className="py-28 md:py-32 relative">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
+      <div className="max-w-6xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-            About Me
+          <p className="tech-tag text-accent uppercase tracking-[0.2em] mb-3">01 — About</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            Building secure products, end to end
           </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full" />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Column - Description */}
+        <div className="grid lg:grid-cols-2 gap-14">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="space-y-5"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Full Stack Developer with <span className="text-accent font-semibold">3 years of experience</span> specializing in crafting robust and user-centric applications using cutting-edge low-code and traditional development platforms.
+              I'm a full stack developer with{' '}
+              <span className="text-accent font-medium">3+ years of production SaaS experience</span>,
+              focused on cross-platform mobile delivery with FlutterFlow and modern web
+              frontends in React.
             </p>
-            
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Proficient in PHP, JavaScript, and React with additional expertise in Firebase and PostgreSQL for database management.
+              A large part of my work is backend correctness and security: writing Firebase
+              security rules, designing Supabase row-level security policies, and modelling
+              role-based access control so multi-tenant data stays isolated by default.
             </p>
-
-
-            {/* Skills Tags */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Technical Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                  <motion.div
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <Badge 
-                      variant="secondary" 
-                      className="bg-surface text-foreground border border-border/50 hover:border-accent transition-colors px-3 py-1"
-                    >
-                      {skill}
-                    </Badge>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Alongside that, I integrate the pieces real products need — Stripe payments and
+              identity verification, e-signature flows, and automation across Podio, Retool
+              and GoHighLevel.
+            </p>
           </motion.div>
 
-          {/* Right Column - Strengths Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="grid gap-4"
-          >
-            {strengths.map((strength, index) => (
+          <div className="grid sm:grid-cols-2 gap-4">
+            {strengths.map((item, index) => (
               <motion.div
-                key={strength.title}
-                initial={{ opacity: 0, y: 30 }}
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -2 }}
-                className="group"
               >
-                <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-6 card-shadow hover-lift">
-                  <div className="flex items-start gap-4">
-                    <div className="p-2 bg-surface border border-border rounded-lg group-hover:border-accent/40 transition-colors duration-300">
-                      <strength.icon className="w-5 h-5 text-accent" />
-                    </div>
-
-                    <div className="space-y-2">
-                      <h3 className="font-semibold text-foreground group-hover:text-accent transition-colors">
-                        {strength.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {strength.description}
-                      </p>
-                    </div>
-                  </div>
+                <Card className="glass-effect p-5 h-full card-shadow hover-lift hover:border-accent/40 transition-colors">
+                  <item.icon className="w-5 h-5 text-accent mb-3" strokeWidth={1.5} />
+                  <h3 className="font-semibold text-foreground mb-1 text-sm">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {item.description}
+                  </p>
                 </Card>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
