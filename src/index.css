@@ -146,4 +146,11 @@
   .hero-text {
     color: hsl(var(--foreground));
   }
+
+  /* Monospace tech tag */
+  .tech-tag {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.72rem;
+    letter-spacing: -0.01em;
+  }
 }
