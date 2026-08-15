@@ -2,58 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Afaq Mehmood — Soft Premium Design System
-   Warm sand background, deep navy text, muted teal accent. All colors HSL.
+/* Afaq Mehmood — Modern Developer Portfolio Design System
+   Near-dark charcoal base, off-white text, single muted teal accent. All colors HSL.
 */
 
 @layer base {
   :root {
-    /* Warm sand / off-white */
-    --background: 40 33% 96%;        /* #F8F6F2 */
-    --foreground: 215 28% 17%;       /* #1F2937 deep navy-charcoal */
+    --background: 220 12% 7%;        /* #0F1115 */
+    --foreground: 60 5% 96%;         /* #F5F5F4 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card: 220 11% 10%;
+    --card-foreground: 60 5% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover: 220 11% 10%;
+    --popover-foreground: 60 5% 96%;
 
-    /* Muted teal accent */
-    --primary: 184 32% 34%;          /* #3B7378-ish muted teal */
-    --primary-foreground: 40 33% 97%;
+    --primary: 174 42% 51%;          /* muted teal */
+    --primary-foreground: 220 12% 7%;
 
-    --secondary: 38 30% 92%;
-    --secondary-foreground: 215 28% 17%;
+    --secondary: 220 10% 15%;
+    --secondary-foreground: 60 5% 96%;
 
-    --muted: 40 20% 92%;
-    --muted-foreground: 215 12% 45%;
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 8% 66%;
 
-    --accent: 184 32% 34%;
-    --accent-foreground: 40 33% 97%;
+    --accent: 174 42% 51%;
+    --accent-foreground: 220 12% 7%;
 
-    --destructive: 4 55% 48%;
-    --destructive-foreground: 40 33% 97%;
+    --destructive: 4 62% 52%;
+    --destructive-foreground: 60 5% 96%;
 
-    --border: 38 18% 88%;
-    --input: 38 18% 88%;
-    --ring: 184 32% 34%;
+    --border: 220 9% 18%;
+    --input: 220 9% 18%;
+    --ring: 174 42% 51%;
 
-    --radius: 0.625rem;              /* 10px soft corners */
+    --radius: 0.75rem;               /* 12px cards */
 
     /* Portfolio specific */
-    --surface: 40 28% 94%;
-    --neon: 184 32% 34%;
-    --glow: 184 32% 34%;
-    --sand: 36 30% 90%;
+    --surface: 220 11% 12%;
+    --neon: 174 42% 51%;
+    --glow: 174 42% 51%;
+    --sand: 220 10% 15%;
 
-    /* Flat, calm gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
     --gradient-neon: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent)));
     --gradient-surface: linear-gradient(145deg, hsl(var(--card)), hsl(var(--surface)));
 
-    /* Soft, low-opacity shadows */
-    --shadow-soft: 0 1px 2px hsl(215 28% 17% / 0.04), 0 8px 24px hsl(215 28% 17% / 0.06);
-    --shadow-lift: 0 2px 4px hsl(215 28% 17% / 0.05), 0 16px 40px hsl(215 28% 17% / 0.09);
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.4), 0 8px 24px hsl(0 0% 0% / 0.28);
+    --shadow-lift: 0 2px 6px hsl(0 0% 0% / 0.45), 0 18px 44px hsl(0 0% 0% / 0.4);
     --shadow-neon: var(--shadow-soft);
     --shadow-glow: var(--shadow-soft);
     --shadow-card: var(--shadow-soft);
@@ -61,37 +57,37 @@
     --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    --sidebar-background: 40 33% 96%;
-    --sidebar-foreground: 215 28% 17%;
-    --sidebar-primary: 184 32% 34%;
-    --sidebar-primary-foreground: 40 33% 97%;
-    --sidebar-accent: 40 28% 94%;
-    --sidebar-accent-foreground: 215 28% 17%;
-    --sidebar-border: 38 18% 88%;
-    --sidebar-ring: 184 32% 34%;
+    --sidebar-background: 220 12% 7%;
+    --sidebar-foreground: 60 5% 96%;
+    --sidebar-primary: 174 42% 51%;
+    --sidebar-primary-foreground: 220 12% 7%;
+    --sidebar-accent: 220 11% 12%;
+    --sidebar-accent-foreground: 60 5% 96%;
+    --sidebar-border: 220 9% 18%;
+    --sidebar-ring: 174 42% 51%;
   }
 
   .dark {
-    --background: 215 28% 12%;
-    --foreground: 40 33% 96%;
-    --card: 215 24% 16%;
-    --card-foreground: 40 33% 96%;
-    --popover: 215 24% 16%;
-    --popover-foreground: 40 33% 96%;
-    --primary: 184 32% 46%;
-    --primary-foreground: 215 28% 12%;
-    --secondary: 215 20% 22%;
-    --secondary-foreground: 40 33% 96%;
-    --muted: 215 20% 22%;
-    --muted-foreground: 215 12% 70%;
-    --accent: 184 32% 46%;
-    --accent-foreground: 215 28% 12%;
-    --destructive: 4 55% 48%;
-    --destructive-foreground: 40 33% 96%;
-    --border: 215 18% 26%;
-    --input: 215 18% 26%;
-    --ring: 184 32% 46%;
-    --surface: 215 24% 18%;
+    --background: 220 12% 7%;
+    --foreground: 60 5% 96%;
+    --card: 220 11% 10%;
+    --card-foreground: 60 5% 96%;
+    --popover: 220 11% 10%;
+    --popover-foreground: 60 5% 96%;
+    --primary: 174 42% 51%;
+    --primary-foreground: 220 12% 7%;
+    --secondary: 220 10% 15%;
+    --secondary-foreground: 60 5% 96%;
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 8% 66%;
+    --accent: 174 42% 51%;
+    --accent-foreground: 220 12% 7%;
+    --destructive: 4 62% 52%;
+    --destructive-foreground: 60 5% 96%;
+    --border: 220 9% 18%;
+    --input: 220 9% 18%;
+    --ring: 174 42% 51%;
+    --surface: 220 11% 12%;
   }
 }
 
