@@ -20,15 +20,17 @@ const Index = () => {
         <ExperienceSection />
         <ProjectsSection />
         <SkillsSection />
+        <EducationSection />
         <ContactSection />
       </main>
       
       {/* Footer */}
       <footer className="border-t border-border/50 py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
-            © 2024 Afaq Mehmood. Built with React, TypeScript, and Three.js
+          <p className="tech-tag text-xs text-muted-foreground">
+            © 2026 Afaq Mehmood · Full Stack Developer · Sialkot, Pakistan
           </p>
+
         </div>
       </footer>
     </div>
