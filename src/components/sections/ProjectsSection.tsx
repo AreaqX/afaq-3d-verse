@@ -32,7 +32,9 @@ interface Project {
   features: string[];
   gradient?: string;
   badge?: string;
+  platforms?: string[];
 }
+
 
 const projects: Project[] = [
   {
@@ -82,13 +84,40 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "MyoutdoorShare",
+    title: "Outdoor Share",
     category: "flutterflow",
-    description: "Vehicle rental platform with identity verification, payments, and contract management",
-    technologies: ["FlutterFlow", "Stripe", "DocuSeal", "AI Chat", "Firebase"],
-    features: ["Vehicle Listings", "Identity Verification", "Payment Integration", "Contract Management", "AI Chat", "In-app Messaging"],
-    gradient: "from-accent to-secondary"
+    description: "Vehicle rental marketplace with Stripe identity verification, payments, e-signature contracts and AI chat support",
+    technologies: ["FlutterFlow", "Stripe", "DocuSeal", "Firebase"],
+    features: ["Vehicle Listings", "Identity Verification", "Payment Integration", "Contract Management"],
+    platforms: ["App Store", "Play Store"]
   },
+  {
+    id: 17,
+    title: "Well Quest",
+    category: "flutterflow",
+    description: "Wellness and habit-tracking app with personalised programs, progress analytics and subscription tiers",
+    technologies: ["FlutterFlow", "Supabase", "RevenueCat", "Push"],
+    features: ["Habit Tracking", "Progress Analytics", "Subscriptions", "Personalised Plans"],
+    platforms: ["App Store", "Play Store"]
+  },
+  {
+    id: 18,
+    title: "Sole by Soleties",
+    category: "flutterflow",
+    description: "Footwear commerce app with catalog browsing, cart, secure checkout and order tracking",
+    technologies: ["FlutterFlow", "Firebase", "Stripe", "REST API"],
+    features: ["Product Catalog", "Secure Checkout", "Order Tracking", "Push Notifications"],
+    platforms: ["App Store", "Play Store"]
+  },
+  {
+    id: 19,
+    title: "Company Valuation Tool",
+    category: "retool",
+    description: "Financial modelling tool that calculates business valuations from live financial inputs with exportable reports",
+    technologies: ["React", "Node.js", "PostgreSQL", "Charts"],
+    features: ["Valuation Models", "Scenario Analysis", "PDF Reports", "Role-based Access"]
+  },
+
   {
     id: 7,
     title: "Cargo Management System",
@@ -194,45 +223,45 @@ export const ProjectsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-            Projects
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of innovative solutions across different platforms and technologies
+          <p className="tech-tag text-accent uppercase tracking-[0.2em] mb-3">03 — Work</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Projects</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Production apps and internal tools across mobile, web and automation platforms.
           </p>
         </motion.div>
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap gap-3 mb-12"
         >
           {projectCategories.map((category) => (
             <Button
               key={category.id}
-              variant={activeCategory === category.id ? "default" : "outline"}
+              variant="outline"
+              size="sm"
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 transition-all duration-300 ${
-                activeCategory === category.id 
-                  ? 'bg-primary text-primary-foreground primary-glow' 
-                  : 'border-border hover:border-primary hover:bg-primary hover:text-primary-foreground'
+              className={`tech-tag flex items-center gap-2 rounded-full transition-colors duration-300 ${
+                activeCategory === category.id
+                  ? 'bg-accent/10 border-accent text-accent'
+                  : 'border-border text-muted-foreground hover:border-accent/50 hover:text-foreground'
               }`}
             >
-              <category.icon className="w-4 h-4" />
+              <category.icon className="w-3.5 h-3.5" strokeWidth={1.5} />
               {category.name}
             </Button>
           ))}
         </motion.div>
+
 
         {/* Projects Grid */}
         <motion.div 
@@ -243,72 +272,70 @@ export const ProjectsSection = () => {
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.06 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
               className="group"
             >
-              <Card className="glass-effect hover:border-accent/40 transition-all duration-300 overflow-hidden h-full card-shadow hover-lift">
-                {/* Project Header (flat charcoal surface) */}
-                <div className="h-32 bg-surface border-b border-border relative overflow-hidden">
-                  {/* Research / Prototype badge */}
-                  {project.badge && (
-                    <div className="absolute top-4 left-4">
+              <Card className="glass-effect hover:border-accent/40 transition-colors duration-300 overflow-hidden h-full card-shadow hover-lift p-6 flex flex-col gap-4">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {project.title}
+                  </h3>
+                  <ExternalLink className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity mt-1 flex-shrink-0" strokeWidth={1.5} />
+                </div>
+
+                {(project.badge || project.platforms) && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.badge && (
                       <Badge
                         variant="outline"
-                        className="text-[10px] uppercase tracking-wider border-accent/60 text-accent bg-transparent"
+                        className="tech-tag text-[10px] uppercase tracking-wider border-accent/50 text-accent bg-transparent"
                       >
                         {project.badge}
                       </Badge>
-                    </div>
-                  )}
-                  <div className="absolute top-4 right-4">
-                    <ExternalLink className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-bold text-foreground">
-                      {project.title}
-                    </h3>
-                  </div>
-                </div>
-
-
-                {/* Project Content */}
-                <div className="p-6 space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Features */}
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2 text-sm">Key Features:</h4>
-                    <div className="grid grid-cols-2 gap-1">
-                      {project.features.slice(0, 4).map((feature, i) => (
-                        <div key={i} className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.map((tech, i) => (
-                      <Badge 
-                        key={i}
+                    )}
+                    {project.platforms?.map((p) => (
+                      <Badge
+                        key={p}
                         variant="outline"
-                        className="text-xs bg-surface border-border text-foreground hover:border-accent transition-colors"
+                        className="tech-tag text-[10px] uppercase tracking-wider border-border text-muted-foreground bg-transparent"
                       >
-                        {tech}
+                        {p}
                       </Badge>
                     ))}
                   </div>
+                )}
+
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {project.features.slice(0, 4).map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="w-1 h-1 bg-accent rounded-full flex-shrink-0 mt-1.5" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="tech-tag text-xs text-muted-foreground border border-border rounded-md px-2 py-0.5 hover:border-accent/50 hover:text-foreground transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </Card>
+
             </motion.div>
           ))}
         </motion.div>

@@ -147,20 +147,19 @@ export const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-            Get In Touch
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ready to discuss your next project? Let's connect and create something amazing together.
+          <p className="tech-tag text-accent uppercase tracking-[0.2em] mb-3">06 — Contact</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Get In Touch</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Open to full-time roles and contract work — including relocation to the UAE/GCC.
           </p>
         </motion.div>
+
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Information */}
