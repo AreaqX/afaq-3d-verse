@@ -272,72 +272,70 @@ export const ProjectsSection = () => {
             <motion.div
               key={project.id}
               layout
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: Math.min(index, 5) * 0.06 }}
               viewport={{ once: true }}
               whileHover={{ y: -4 }}
               className="group"
             >
-              <Card className="glass-effect hover:border-accent/40 transition-all duration-300 overflow-hidden h-full card-shadow hover-lift">
-                {/* Project Header (flat charcoal surface) */}
-                <div className="h-32 bg-surface border-b border-border relative overflow-hidden">
-                  {/* Research / Prototype badge */}
-                  {project.badge && (
-                    <div className="absolute top-4 left-4">
+              <Card className="glass-effect hover:border-accent/40 transition-colors duration-300 overflow-hidden h-full card-shadow hover-lift p-6 flex flex-col gap-4">
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {project.title}
+                  </h3>
+                  <ExternalLink className="w-4 h-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity mt-1 flex-shrink-0" strokeWidth={1.5} />
+                </div>
+
+                {(project.badge || project.platforms) && (
+                  <div className="flex flex-wrap gap-2">
+                    {project.badge && (
                       <Badge
                         variant="outline"
-                        className="text-[10px] uppercase tracking-wider border-accent/60 text-accent bg-transparent"
+                        className="tech-tag text-[10px] uppercase tracking-wider border-accent/50 text-accent bg-transparent"
                       >
                         {project.badge}
                       </Badge>
-                    </div>
-                  )}
-                  <div className="absolute top-4 right-4">
-                    <ExternalLink className="w-5 h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-bold text-foreground">
-                      {project.title}
-                    </h3>
-                  </div>
-                </div>
-
-
-                {/* Project Content */}
-                <div className="p-6 space-y-4">
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-
-                  {/* Features */}
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2 text-sm">Key Features:</h4>
-                    <div className="grid grid-cols-2 gap-1">
-                      {project.features.slice(0, 4).map((feature, i) => (
-                        <div key={i} className="flex items-center gap-1 text-xs text-muted-foreground">
-                          <span className="w-1 h-1 bg-accent rounded-full flex-shrink-0" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1">
-                    {project.technologies.map((tech, i) => (
-                      <Badge 
-                        key={i}
+                    )}
+                    {project.platforms?.map((p) => (
+                      <Badge
+                        key={p}
                         variant="outline"
-                        className="text-xs bg-surface border-border text-foreground hover:border-accent transition-colors"
+                        className="tech-tag text-[10px] uppercase tracking-wider border-border text-muted-foreground bg-transparent"
                       >
-                        {tech}
+                        {p}
                       </Badge>
                     ))}
                   </div>
+                )}
+
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div>
+                  <div className="grid grid-cols-2 gap-1.5">
+                    {project.features.slice(0, 4).map((feature, i) => (
+                      <div key={i} className="flex items-start gap-2 text-xs text-muted-foreground">
+                        <span className="w-1 h-1 bg-accent rounded-full flex-shrink-0 mt-1.5" />
+                        {feature}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+                  {project.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="tech-tag text-xs text-muted-foreground border border-border rounded-md px-2 py-0.5 hover:border-accent/50 hover:text-foreground transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </Card>
+
             </motion.div>
           ))}
         </motion.div>
