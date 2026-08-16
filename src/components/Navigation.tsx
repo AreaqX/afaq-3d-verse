@@ -73,18 +73,18 @@ export const Navigation = () => {
             ))}
             
             <Button
+              asChild
               variant="outline"
               size="sm"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-              onClick={() => {
-                // Add resume download logic here
-                console.log('Download resume');
-              }}
+              className="border-accent/60 text-accent hover:bg-accent/10 transition-colors duration-300"
             >
-              <Download className="w-4 h-4 mr-2" />
-              Resume
+              <a href="/Afaq_Mehmood_Resume.pdf" download>
+                <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
+                Resume
+              </a>
             </Button>
           </div>
+
 
           {/* Mobile Menu Button */}
           <Button
@@ -116,18 +116,18 @@ export const Navigation = () => {
             ))}
             <div className="px-4 pt-2">
               <Button
+                asChild
                 variant="outline"
                 size="sm"
-                className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                onClick={() => {
-                  // Add resume download logic here
-                  console.log('Download resume');
-                }}
+                className="w-full border-accent/60 text-accent hover:bg-accent/10"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Resume
+                <a href="/Afaq_Mehmood_Resume.pdf" download>
+                  <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
+                  Resume
+                </a>
               </Button>
             </div>
+
           </div>
         </motion.div>
       </div>
