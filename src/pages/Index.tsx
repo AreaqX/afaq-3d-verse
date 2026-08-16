@@ -5,7 +5,9 @@ import { StatsSection } from '@/components/sections/StatsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { SkillsSection } from '@/components/sections/SkillsSection';
+import { EducationSection } from '@/components/sections/EducationSection';
 import { ContactSection } from '@/components/sections/ContactSection';
+
 
 const Index = () => {
   return (
