@@ -32,7 +32,9 @@ interface Project {
   features: string[];
   gradient?: string;
   badge?: string;
+  platforms?: string[];
 }
+
 
 const projects: Project[] = [
   {
@@ -82,13 +84,40 @@ const projects: Project[] = [
   },
   {
     id: 6,
-    title: "MyoutdoorShare",
+    title: "Outdoor Share",
     category: "flutterflow",
-    description: "Vehicle rental platform with identity verification, payments, and contract management",
-    technologies: ["FlutterFlow", "Stripe", "DocuSeal", "AI Chat", "Firebase"],
-    features: ["Vehicle Listings", "Identity Verification", "Payment Integration", "Contract Management", "AI Chat", "In-app Messaging"],
-    gradient: "from-accent to-secondary"
+    description: "Vehicle rental marketplace with Stripe identity verification, payments, e-signature contracts and AI chat support",
+    technologies: ["FlutterFlow", "Stripe", "DocuSeal", "Firebase"],
+    features: ["Vehicle Listings", "Identity Verification", "Payment Integration", "Contract Management"],
+    platforms: ["App Store", "Play Store"]
   },
+  {
+    id: 17,
+    title: "Well Quest",
+    category: "flutterflow",
+    description: "Wellness and habit-tracking app with personalised programs, progress analytics and subscription tiers",
+    technologies: ["FlutterFlow", "Supabase", "RevenueCat", "Push"],
+    features: ["Habit Tracking", "Progress Analytics", "Subscriptions", "Personalised Plans"],
+    platforms: ["App Store", "Play Store"]
+  },
+  {
+    id: 18,
+    title: "Sole by Soleties",
+    category: "flutterflow",
+    description: "Footwear commerce app with catalog browsing, cart, secure checkout and order tracking",
+    technologies: ["FlutterFlow", "Firebase", "Stripe", "REST API"],
+    features: ["Product Catalog", "Secure Checkout", "Order Tracking", "Push Notifications"],
+    platforms: ["App Store", "Play Store"]
+  },
+  {
+    id: 19,
+    title: "Company Valuation Tool",
+    category: "retool",
+    description: "Financial modelling tool that calculates business valuations from live financial inputs with exportable reports",
+    technologies: ["React", "Node.js", "PostgreSQL", "Charts"],
+    features: ["Valuation Models", "Scenario Analysis", "PDF Reports", "Role-based Access"]
+  },
+
   {
     id: 7,
     title: "Cargo Management System",
