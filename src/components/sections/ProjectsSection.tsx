@@ -223,45 +223,45 @@ export const ProjectsSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-            Projects
-          </h2>
-          <div className="w-24 h-1 bg-accent mx-auto mb-8 rounded-full" />
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of innovative solutions across different platforms and technologies
+          <p className="tech-tag text-accent uppercase tracking-[0.2em] mb-3">03 — Work</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">Projects</h2>
+          <p className="text-muted-foreground max-w-2xl">
+            Production apps and internal tools across mobile, web and automation platforms.
           </p>
         </motion.div>
 
         {/* Category Filter */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap gap-3 mb-12"
         >
           {projectCategories.map((category) => (
             <Button
               key={category.id}
-              variant={activeCategory === category.id ? "default" : "outline"}
+              variant="outline"
+              size="sm"
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 transition-all duration-300 ${
-                activeCategory === category.id 
-                  ? 'bg-primary text-primary-foreground primary-glow' 
-                  : 'border-border hover:border-primary hover:bg-primary hover:text-primary-foreground'
+              className={`tech-tag flex items-center gap-2 rounded-full transition-colors duration-300 ${
+                activeCategory === category.id
+                  ? 'bg-accent/10 border-accent text-accent'
+                  : 'border-border text-muted-foreground hover:border-accent/50 hover:text-foreground'
               }`}
             >
-              <category.icon className="w-4 h-4" />
+              <category.icon className="w-3.5 h-3.5" strokeWidth={1.5} />
               {category.name}
             </Button>
           ))}
         </motion.div>
+
 
         {/* Projects Grid */}
         <motion.div 
