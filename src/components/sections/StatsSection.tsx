@@ -71,42 +71,20 @@ export const StatsSection = () => {
               whileHover={{ y: -3 }}
               className="group"
             >
-              <Card className="glass-effect hover:border-accent/40 transition-all duration-300 p-8 text-center h-full card-shadow hover-lift">
-                {/* Icon */}
-                <motion.div
-                  className="w-16 h-16 mx-auto mb-4 rounded-xl bg-surface border border-border p-4 group-hover:border-accent/40 transition-colors duration-300"
-                  
-                  transition={{ duration: 0.5 }}
-                >
-                  <stat.icon className="w-full h-full text-accent" />
-                </motion.div>
-
-
-                {/* Counter */}
-                <div className="mb-2">
-                  <motion.h3 
-                    className="text-5xl font-bold gradient-text"
-                    initial={{ scale: 0.5 }}
-                    whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
-                    <StatCounter 
-                      value={stat.value} 
-                      suffix={stat.suffix}
-                      duration={2}
-                    />
-                  </motion.h3>
+              <Card className="glass-effect hover:border-accent/40 transition-colors duration-300 p-8 text-center h-full card-shadow hover-lift">
+                <div className="w-12 h-12 mx-auto mb-4 rounded-xl bg-surface border border-border p-3 group-hover:border-accent/40 transition-colors duration-300">
+                  <stat.icon className="w-full h-full text-accent" strokeWidth={1.5} />
                 </div>
 
-                {/* Label */}
-                <p className="text-muted-foreground font-medium group-hover:text-accent transition-colors">
+                <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
+                  <StatCounter value={stat.value} suffix={stat.suffix} duration={2} />
+                </h3>
+
+                <p className="tech-tag text-xs uppercase tracking-[0.15em] text-muted-foreground">
                   {stat.label}
                 </p>
-
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/0 via-accent/0 to-accent/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </Card>
+
             </motion.div>
           ))}
         </motion.div>
