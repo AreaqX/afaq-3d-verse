@@ -16,7 +16,7 @@ export const HeroSection = () => {
       <img
         src={portrait}
         alt="Afaq Mehmood portrait"
-        className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_18%] md:object-[75%_20%] opacity-70 md:opacity-80"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_12%] md:object-[88%_18%] opacity-45 md:opacity-70"
       />
       {/* Readability scrim */}
       <div
