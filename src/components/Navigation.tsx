@@ -76,7 +76,7 @@ export const Navigation = () => {
               asChild
               variant="outline"
               size="sm"
-              className="border-accent/60 text-accent hover:bg-accent/10 transition-colors duration-300"
+              className="border-accent/60 text-accent hover:bg-accent hover:text-accent-foreground transition-colors duration-300"
             >
               <a href="/Afaq_Mehmood_Resume.pdf" download>
                 <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />
@@ -109,7 +109,7 @@ export const Navigation = () => {
               <button
                 key={item.name}
                 onClick={() => handleNavClick(item.href)}
-                className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-accent hover:bg-accent/10 transition-colors duration-300 rounded-lg"
+                className="block w-full text-left px-4 py-2 text-muted-foreground hover:text-accent-foreground hover:bg-accent transition-colors duration-300 rounded-lg"
               >
                 {item.name}
               </button>
@@ -119,7 +119,7 @@ export const Navigation = () => {
                 asChild
                 variant="outline"
                 size="sm"
-                className="w-full border-accent/60 text-accent hover:bg-accent/10"
+                className="w-full border-accent/60 text-accent hover:bg-accent hover:text-accent-foreground"
               >
                 <a href="/Afaq_Mehmood_Resume.pdf" download>
                   <Download className="w-4 h-4 mr-2" strokeWidth={1.5} />

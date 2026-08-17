@@ -92,7 +92,7 @@ export const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-border text-foreground hover:border-accent hover:text-accent px-7 rounded-xl transition-all duration-300"
+              className="border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent px-7 rounded-xl transition-all duration-300"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Mail className="w-4 h-4 mr-2" />
@@ -102,7 +102,7 @@ export const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-border text-foreground hover:border-accent hover:text-accent px-7 rounded-xl transition-all duration-300"
+              className="border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent px-7 rounded-xl transition-all duration-300"
               asChild
             >
               <a
