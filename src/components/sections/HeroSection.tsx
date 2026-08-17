@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { MapPin, Download, Mail, Linkedin } from 'lucide-react';
+import portrait from '@/assets/me.png.asset.json';
 
 const roles = [
   'Full Stack Developer',
@@ -11,22 +12,31 @@ const roles = [
 export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      {/* Portrait background */}
+      <img
+        src={portrait.url}
+        alt="Afaq Mehmood portrait"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_18%] md:object-[75%_20%] opacity-70 md:opacity-80"
+      />
+      {/* Readability scrim */}
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background:
+            'linear-gradient(to right, hsl(var(--background) / 0.94) 0%, hsl(var(--background) / 0.86) 45%, hsl(var(--background) / 0.6) 100%)',
+        }}
+      />
+      <div className="absolute inset-0 z-10 bg-background/55 md:bg-background/35" />
+
       {/* Subtle grid + glow backdrop */}
       <div
-        className="absolute inset-0 z-0 opacity-[0.35]"
+        className="absolute inset-0 z-10 opacity-[0.25]"
         style={{
           backgroundImage:
             'linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px)',
           backgroundSize: '64px 64px',
           maskImage: 'radial-gradient(circle at 50% 40%, black, transparent 70%)',
           WebkitMaskImage: 'radial-gradient(circle at 50% 40%, black, transparent 70%)',
-        }}
-      />
-      <div
-        className="absolute inset-0 z-0 opacity-[0.12]"
-        style={{
-          background:
-            'radial-gradient(circle at 50% 30%, hsl(var(--accent)) 0%, transparent 55%)',
         }}
       />
 
