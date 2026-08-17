@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { MapPin, Download, Mail, Linkedin } from 'lucide-react';
-import portrait from '@/assets/me.png.asset.json';
+import portrait from '@/assets/me.png';
 
 const roles = [
   'Full Stack Developer',
@@ -14,7 +14,7 @@ export const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Portrait background */}
       <img
-        src={portrait.url}
+        src={portrait}
         alt="Afaq Mehmood portrait"
         className="absolute inset-0 z-0 h-full w-full object-cover object-[50%_18%] md:object-[75%_20%] opacity-70 md:opacity-80"
       />
