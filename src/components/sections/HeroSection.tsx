@@ -112,31 +112,64 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative mx-auto w-full max-w-[320px] sm:max-w-[380px] lg:max-w-none"
+            className="relative flex justify-center lg:justify-end"
           >
-            <div className="absolute -inset-3 rounded-[28px] bg-accent/10 blur-2xl" aria-hidden />
-            <div className="relative rounded-3xl overflow-hidden border border-border bg-card shadow-2xl">
-              <img
-                src={portrait}
-                alt="Portrait of Afaq Mehmood, full stack developer"
-                className="w-full aspect-[4/5] object-cover object-[50%_18%]"
-                loading="eager"
-              />
-              <div
-                className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
-                style={{
-                  background: 'linear-gradient(to top, hsl(var(--card) / 0.9), transparent)',
-                }}
-              />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
-                <span className="tech-tag text-xs text-foreground">Sialkot, PK</span>
-                <span className="flex items-center gap-2 tech-tag text-xs text-accent">
+            <div className="relative w-full max-w-[320px] sm:max-w-[400px]">
+              {/* Decorative L-shape frames */}
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-t border-l border-accent/40 rounded-tl-[3rem]" aria-hidden />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b border-r border-accent/40 rounded-br-[3rem]" aria-hidden />
+
+              {/* Main image */}
+              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-card border border-border shadow-2xl">
+                <img
+                  src={portrait}
+                  alt="Portrait of Afaq Mehmood, full stack developer"
+                  className="w-full h-full object-cover object-[50%_18%]"
+                  loading="eager"
+                />
+                <div
+                  className="absolute inset-0 opacity-60 pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(to top, hsl(var(--background) / 0.8), transparent 60%)',
+                  }}
+                  aria-hidden
+                />
+                {/* Vertical mono label */}
+                <div className="absolute left-5 top-1/2 -translate-y-1/2 -rotate-180 [writing-mode:vertical-lr]">
+                  <span className="tech-tag text-[9px] uppercase tracking-[0.6em] text-foreground/30 whitespace-nowrap">
+                    EST . 2022 // PORTFOLIO // AM
+                  </span>
+                </div>
+              </div>
+
+              {/* Floating badges */}
+              <div className="absolute -right-4 sm:-right-6 top-14 backdrop-blur-xl bg-foreground/5 border border-border rounded-2xl p-4 shadow-2xl">
+                <p className="tech-tag text-[9px] uppercase tracking-wider text-accent">Location</p>
+                <p className="text-sm font-medium text-foreground">Sialkot, PK</p>
+              </div>
+
+              <div className="absolute -left-4 sm:-left-8 bottom-16 backdrop-blur-xl bg-background/60 border border-border rounded-2xl p-4 shadow-2xl flex items-center gap-3">
+                <span className="w-9 h-9 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center">
                   <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                  Open to work
                 </span>
+                <div>
+                  <p className="tech-tag text-[9px] uppercase tracking-wider text-accent">Status</p>
+                  <p className="text-sm font-medium text-foreground">Open to work</p>
+                </div>
+              </div>
+
+              {/* Dot grid texture */}
+              <div className="absolute -bottom-2 -right-2 w-20 h-20 opacity-20 pointer-events-none" aria-hidden>
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                  <pattern id="hero-dots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+                    <circle cx="2" cy="2" r="1" fill="hsl(var(--accent))" />
+                  </pattern>
+                  <rect width="100%" height="100%" fill="url(#hero-dots)" />
+                </svg>
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
     </section>
