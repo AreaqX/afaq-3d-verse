@@ -8,7 +8,7 @@ export const ContactView: React.FC = () => {
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(portfolioData.profile.email);
-    addToast('Email copied to clipboard (YOUR_EMAIL_HERE)', 'success');
+    addToast(`Email copied: ${portfolioData.profile.email}`, 'success');
   };
 
   return (
@@ -47,6 +47,15 @@ export const ContactView: React.FC = () => {
             <span className="font-bold">RELOCATION:</span>
             <span>UAE / GCC (Available within 1 month) & Lahore</span>
           </div>
+          {portfolioData.profile.phone && (
+            <div className="flex items-center gap-2 text-[#94A3B8]">
+              <span>📞</span>
+              <span className="font-bold">PHONE:</span>
+              <a href={`tel:${portfolioData.profile.phone.replace(/\s+/g, '')}`} className="text-[#00E5FF] hover:underline">
+                {portfolioData.profile.phone}
+              </a>
+            </div>
+          )}
         </div>
 
         {/* Action Buttons Grid */}
@@ -79,11 +88,12 @@ export const ContactView: React.FC = () => {
 
           <a
             href={portfolioData.profile.cv}
+            download="Afaq_Mehmood_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-card-interactive px-5 py-3.5 rounded-xl text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer hover:border-[#00E5FF]/50"
           >
-            <span>RESUME PDF</span>
+            <span>DOWNLOAD CV</span>
             <span className="text-[#00E5FF]">↓</span>
           </a>
         </div>

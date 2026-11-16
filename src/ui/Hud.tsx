@@ -39,6 +39,7 @@ export const Hud: React.FC = () => {
           {/* Skip to CV Button */}
           <a
             href={portfolioData.profile.cv}
+            download="Afaq_Mehmood_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-pill hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs text-[#F1F5F9] hover:text-[#00E5FF] hover:border-[#00E5FF]/40 transition-all"

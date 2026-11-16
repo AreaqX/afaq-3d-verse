@@ -12,6 +12,7 @@ export interface Profile {
   portfolioUrl: string;
   cv: string;
   email: string;
+  phone?: string;
 }
 
 export interface ExperienceItem {
@@ -86,14 +87,15 @@ export const portfolioData: PortfolioData = {
     tagline: "I build mobile apps that ship, and test them until they don't break.",
     summary:
       "3+ years shipping production mobile apps and web platforms, with a strong focus on secure backends, payments and rigorous testing. I take products from idea to the App Store and Play Store, and I test them like a user who wants them to fail.",
-    location: "Sialkot, Pakistan",
+    location: "Sialkot, Punjab, Pakistan",
     status: "Open to relocation (UAE / GCC), available within 1 month. Also open to roles in Lahore.",
     relocation: "Open to UAE / GCC & Lahore",
     availability: "Available within 1 month",
     linkedin: "https://www.linkedin.com/in/afaqmehmood-500327259",
     portfolioUrl: "https://afaq-portfolio.lovable.app",
     cv: "/Afaq_Mehmood_Resume.pdf",
-    email: "YOUR_EMAIL_HERE"
+    email: "afaqmehmood3179@gmail.com",
+    phone: "+92 326 177 9448"
   },
 
   experience: [

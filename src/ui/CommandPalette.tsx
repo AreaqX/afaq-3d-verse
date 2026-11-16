@@ -47,12 +47,19 @@ export const CommandPalette: React.FC = () => {
     // Actions
     list.push({
       id: 'action-cv',
-      title: 'Download Afaq Mehmood Resume PDF',
-      subtitle: 'Static file /Afaq_Mehmood_Resume.pdf',
+      title: 'Download Afaq Mehmood Resume / Portfolio PDF',
+      subtitle: 'Official Resume (/Afaq_Mehmood_Resume.pdf)',
       category: 'ACTIONS',
       icon: '📄',
       action: () => {
-        window.open(portfolioData.profile.cv, '_blank');
+        const link = document.createElement('a');
+        link.href = portfolioData.profile.cv;
+        link.download = 'Afaq_Mehmood_Resume.pdf';
+        link.target = '_blank';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        addToast('Downloading Afaq Mehmood Resume PDF...', 'info');
         setCommandPalette(false);
       }
     });
@@ -65,7 +72,7 @@ export const CommandPalette: React.FC = () => {
       icon: '✉',
       action: () => {
         navigator.clipboard.writeText(portfolioData.profile.email);
-        addToast('Email copied to clipboard (YOUR_EMAIL_HERE)', 'success');
+        addToast(`Email copied: ${portfolioData.profile.email}`, 'success');
         setCommandPalette(false);
       }
     });

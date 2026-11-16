@@ -8,7 +8,7 @@ export const ClassicView: React.FC = () => {
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(portfolioData.profile.email);
-    addToast('Email copied to clipboard (YOUR_EMAIL_HERE)', 'success');
+    addToast(`Email copied: ${portfolioData.profile.email}`, 'success');
   };
 
   const featuredProjects = portfolioData.projects.filter((p) => p.featured);
@@ -28,6 +28,7 @@ export const ClassicView: React.FC = () => {
         <div className="flex items-center gap-3">
           <a
             href={portfolioData.profile.cv}
+            download="Afaq_Mehmood_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="px-3.5 py-1.5 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-xs font-mono text-[#F1F5F9] transition-colors"
@@ -91,6 +92,7 @@ export const ClassicView: React.FC = () => {
             </a>
             <a
               href={portfolioData.profile.cv}
+              download="Afaq_Mehmood_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"

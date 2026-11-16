@@ -68,6 +68,7 @@ export const HubView: React.FC = () => {
 
           <a
             href={portfolioData.profile.cv}
+            download="Afaq_Mehmood_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="glass-pill px-6 py-3.5 rounded-full text-[#F1F5F9] hover:text-[#00E5FF] hover:border-[#00E5FF]/50 font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer shadow-lg"
