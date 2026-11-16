@@ -15,9 +15,9 @@ export const ToastContainer: React.FC = () => {
             initial={{ opacity: 0, y: -16, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-            className="pointer-events-auto flex items-center gap-3 px-4 py-2.5 bg-[#0C1017] border border-[#C6FF3D]/40 text-[#EDEDED] font-mono text-xs rounded shadow-lg shadow-black/60 backdrop-blur-md"
+            className="pointer-events-auto flex items-center gap-3 px-4 py-2.5 bg-[#0C101A] border border-[#00E5FF]/40 text-[#F1F5F9] font-mono text-xs rounded-lg shadow-xl shadow-black/80 backdrop-blur-md"
           >
-            <span className="w-2 h-2 rounded-full bg-[#C6FF3D] animate-ping" />
+            <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-ping shadow-[0_0_8px_#00E5FF]" />
             <span>{toast.message}</span>
             <button
               onClick={() => removeToast(toast.id)}

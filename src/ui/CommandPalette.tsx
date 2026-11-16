@@ -189,8 +189,8 @@ export const CommandPalette: React.FC = () => {
             aria-label="Command search palette"
           >
             {/* Search Input */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#202736]">
-              <span className="text-base text-[#C6FF3D]">🔍</span>
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#1A2333]">
+              <span className="text-base text-[#00E5FF]">🔍</span>
               <input
                 ref={inputRef}
                 type="text"
@@ -201,9 +201,9 @@ export const CommandPalette: React.FC = () => {
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder="Jump to station, project, CV, or action..."
-                className="w-full bg-transparent text-sm text-[#FFFFFF] placeholder-[#606878] focus:outline-none"
+                className="w-full bg-transparent text-sm text-[#FFFFFF] placeholder-[#64748B] focus:outline-none"
               />
-              <kbd className="px-1.5 py-0.5 rounded bg-[#18202E] text-[10px] text-[#8E8E93] border border-[#242E40]">
+              <kbd className="px-1.5 py-0.5 rounded bg-[#131926] text-[10px] text-[#94A3B8] border border-[#1E273A]">
                 ESC
               </kbd>
             </div>
@@ -211,7 +211,7 @@ export const CommandPalette: React.FC = () => {
             {/* Results List */}
             <div className="max-h-80 overflow-y-auto p-2 divide-y divide-transparent">
               {filtered.length === 0 ? (
-                <div className="py-8 text-center text-xs text-[#8E8E93]">
+                <div className="py-8 text-center text-xs text-[#94A3B8]">
                   No matching stations, projects, or commands found.
                 </div>
               ) : (
@@ -222,22 +222,22 @@ export const CommandPalette: React.FC = () => {
                       key={item.id}
                       onClick={item.action}
                       onMouseEnter={() => setSelectedIndex(index)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors ${
+                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors cursor-pointer ${
                         isSelected
-                          ? 'bg-[#161D2A] text-[#FFFFFF]'
-                          : 'text-[#C5CBD8] hover:bg-[#121620]'
+                          ? 'bg-[#131A29] text-[#FFFFFF]'
+                          : 'text-[#CBD5E1] hover:bg-[#101522]'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <span className="text-sm select-none">{item.icon}</span>
                         <div>
-                          <div className={`text-xs font-medium ${isSelected ? 'text-[#C6FF3D]' : ''}`}>
+                          <div className={`text-xs font-medium ${isSelected ? 'text-[#00E5FF]' : ''}`}>
                             {item.title}
                           </div>
-                          <div className="text-[11px] text-[#7A8394]">{item.subtitle}</div>
+                          <div className="text-[11px] text-[#64748B]">{item.subtitle}</div>
                         </div>
                       </div>
-                      <span className="text-[10px] text-[#555E70] uppercase tracking-wider">
+                      <span className="text-[10px] text-[#475569] uppercase tracking-wider">
                         {item.category}
                       </span>
                     </button>
@@ -247,14 +247,14 @@ export const CommandPalette: React.FC = () => {
             </div>
 
             {/* Footer tips */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-[#1C222E] bg-[#0A0D13] text-[11px] text-[#7A8394]">
+            <div className="flex items-center justify-between px-4 py-2 border-t border-[#161D2B] bg-[#080B12] text-[11px] text-[#64748B]">
               <div className="flex items-center gap-2">
                 <span>Navigate</span>
-                <kbd className="px-1 bg-[#18202E] rounded border border-[#252E40]">↑↓</kbd>
+                <kbd className="px-1 bg-[#131A28] rounded border border-[#1E273A]">↑↓</kbd>
                 <span>Select</span>
-                <kbd className="px-1 bg-[#18202E] rounded border border-[#252E40]">↵</kbd>
+                <kbd className="px-1 bg-[#131A28] rounded border border-[#1E273A]">↵</kbd>
               </div>
-              <div className="text-[#C6FF3D]">FLIGHT COMMAND SYSTEM</div>
+              <div className="text-[#00E5FF]">FLIGHT COMMAND SYSTEM</div>
             </div>
           </motion.div>
         </div>

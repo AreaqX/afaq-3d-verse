@@ -129,7 +129,7 @@ export const portfolioData: PortfolioData = {
     {
       name: "Mobile Development",
       ringIndex: 0,
-      color: "#C6FF3D", // Electric Lime
+      color: "#00E5FF", // Electric Cyan
       skills: [
         { name: "FlutterFlow", context: "Primary rapid mobile development framework for 8+ published apps" },
         { name: "Dart", context: "Custom functions, state actions, and custom widgets" },
@@ -158,7 +158,7 @@ export const portfolioData: PortfolioData = {
     {
       name: "SQA & Testing",
       ringIndex: 2,
-      color: "#9AE600", // Bright lime green
+      color: "#2DD4BF", // Teal Mint
       skills: [
         { name: "Test case design", context: "Boundary value analysis, equivalence partitioning, edge cases" },
         { name: "Manual & exploratory", context: "Uncovering UX quirks, broken states, and abnormal user journeys" },

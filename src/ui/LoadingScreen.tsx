@@ -31,7 +31,7 @@ export const LoadingScreen: React.FC = () => {
         >
           <div className="w-full max-w-xs px-6 flex flex-col items-center gap-6">
             {/* Minimal Logo / Monogram */}
-            <div className="w-14 h-14 rounded-lg bg-[#0F131A] border border-[#202736] flex items-center justify-center text-[#C6FF3D] font-display font-bold text-xl shadow-lg shadow-black">
+            <div className="w-14 h-14 rounded-xl bg-[#0C101A] border border-[#1A2333] flex items-center justify-center text-[#00E5FF] font-display font-bold text-xl shadow-[0_0_20px_rgba(0,229,255,0.2)]">
               AM
             </div>
 
@@ -40,15 +40,15 @@ export const LoadingScreen: React.FC = () => {
               <div className="text-sm font-semibold tracking-widest text-[#FFFFFF]">
                 AFAQ MEHMOOD
               </div>
-              <div className="text-[11px] text-[#8E8E93]">
-                PREPARING 3D FLIGHT WORLD
+              <div className="text-[11px] text-[#94A3B8]">
+                INITIALIZING 3D FLIGHT WORLD
               </div>
             </div>
 
             {/* Progress Bar */}
-            <div className="w-full h-1 bg-[#131720] rounded-full overflow-hidden border border-[#202633]">
+            <div className="w-full h-1 bg-[#101624] rounded-full overflow-hidden border border-[#1A2333]">
               <motion.div
-                className="h-full bg-[#C6FF3D]"
+                className="h-full bg-[#00E5FF] shadow-[0_0_10px_#00E5FF]"
                 initial={{ width: '10%' }}
                 animate={{ width: `${progress}%` }}
                 transition={{ ease: 'easeOut', duration: 0.2 }}
@@ -56,9 +56,9 @@ export const LoadingScreen: React.FC = () => {
             </div>
 
             {/* Progress Percentage & Status */}
-            <div className="w-full flex items-center justify-between text-[11px] text-[#7A8394]">
+            <div className="w-full flex items-center justify-between text-[11px] text-[#64748B]">
               <span>CALIBRATING SENSORS...</span>
-              <span className="text-[#C6FF3D] font-bold">{progress}%</span>
+              <span className="text-[#00E5FF] font-bold">{progress}%</span>
             </div>
           </div>
         </motion.div>

@@ -161,14 +161,14 @@ export const World: React.FC = () => {
           {/* Ambient & Atmospheric Lighting */}
           <ambientLight intensity={0.4} />
           <directionalLight position={[10, 20, 15]} intensity={0.8} color="#FFFFFF" />
-          <directionalLight position={[-15, -10, -5]} intensity={0.3} color="#C6FF3D" />
+          <directionalLight position={[-15, -10, -5]} intensity={0.3} color="#00E5FF" />
 
           {/* Subtle Volumetric Accent Lights at Stations */}
-          <pointLight position={[0, 0, 8]} intensity={0.6} color="#C6FF3D" distance={25} />
-          <pointLight position={[0, -35, 8]} intensity={0.8} color="#C6FF3D" distance={30} />
+          <pointLight position={[0, 0, 8]} intensity={0.6} color="#00E5FF" distance={25} />
+          <pointLight position={[0, -35, 8]} intensity={0.8} color="#00E5FF" distance={30} />
           <pointLight position={[45, -70, 8]} intensity={0.7} color="#9AE600" distance={30} />
           <pointLight position={[0, -110, 8]} intensity={0.6} color="#EDEDED" distance={30} />
-          <pointLight position={[-35, -150, 8]} intensity={1.0} color="#C6FF3D" distance={35} />
+          <pointLight position={[-35, -150, 8]} intensity={1.0} color="#00E5FF" distance={35} />
 
           {/* Camera Flight Controller */}
           <CameraRig />

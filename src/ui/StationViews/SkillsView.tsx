@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { portfolioData, SkillCategory } from '../../data/portfolio';
+import { portfolioData } from '../../data/portfolio';
 import { useNav } from '../../store/useNav';
 
 export const SkillsView: React.FC = () => {
@@ -16,7 +16,7 @@ export const SkillsView: React.FC = () => {
         <h2 className="font-display font-bold text-2xl sm:text-3xl text-[#FFFFFF]">
           SKILL ORBITS & SPECIALIZATIONS
         </h2>
-        <p className="font-mono text-xs text-[#8E8E93] mt-1">
+        <p className="font-mono text-xs text-[#94A3B8] mt-1">
           PRODUCTION TOOLSETS BACKED BY REAL DEPLOYMENTS AND VERIFIED QA PRACTICES
         </p>
 
@@ -31,18 +31,18 @@ export const SkillsView: React.FC = () => {
                   setActiveTab(idx);
                   setSelectedSkill(null);
                 }}
-                className={`px-4 py-2 rounded-lg font-mono text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
+                className={`px-4 py-2 rounded-xl font-mono text-xs font-bold transition-all flex items-center gap-2 cursor-pointer ${
                   isSelected
-                    ? 'bg-[#C6FF3D] text-[#07080A] shadow-md shadow-[#C6FF3D]/15'
-                    : 'bg-[#10141D] text-[#8E8E93] hover:text-[#EDEDED] border border-[#202736] hover:bg-[#151B26]'
+                    ? 'bg-[#00E5FF] text-[#06080F] shadow-[0_0_15px_rgba(0,229,255,0.3)]'
+                    : 'bg-[#0C101A] text-[#94A3B8] hover:text-[#FFFFFF] border border-[#1A2333] hover:bg-[#131926]'
                 }`}
               >
                 <span
                   className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: isSelected ? '#07080A' : cat.color }}
+                  style={{ backgroundColor: isSelected ? '#06080F' : cat.color }}
                 />
                 <span>{cat.name.toUpperCase()}</span>
-                <span className="text-[10px] opacity-70">({cat.skills.length})</span>
+                <span className="text-[10px] opacity-75">({cat.skills.length})</span>
               </button>
             );
           })}
@@ -59,15 +59,15 @@ export const SkillsView: React.FC = () => {
             transition={{ duration: 0.25, delay: idx * 0.04 }}
             onMouseEnter={() => setSelectedSkill({ name: skill.name, context: skill.context, category: currentCategory.name })}
             onMouseLeave={() => setSelectedSkill(null)}
-            className="p-4 rounded-xl bg-[#0B0E14]/90 border border-[#202634] hover:border-[#C6FF3D] transition-all group cursor-pointer shadow-lg backdrop-blur-md"
+            className="p-4 rounded-xl bg-[#0C101A]/95 border border-[#1A2333] hover:border-[#00E5FF] transition-all group cursor-pointer shadow-lg backdrop-blur-md"
           >
             <div className="flex items-center justify-between gap-2 mb-2">
-              <h3 className="font-display font-bold text-base text-[#FFFFFF] group-hover:text-[#C6FF3D] transition-colors">
+              <h3 className="font-display font-bold text-base text-[#FFFFFF] group-hover:text-[#00E5FF] transition-colors">
                 {skill.name}
               </h3>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C6FF3D] opacity-60 group-hover:opacity-100" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] opacity-60 group-hover:opacity-100" />
             </div>
-            <p className="font-mono text-xs text-[#9CA3AF] leading-relaxed">
+            <p className="font-mono text-xs text-[#94A3B8] leading-relaxed">
               {skill.context}
             </p>
           </motion.div>

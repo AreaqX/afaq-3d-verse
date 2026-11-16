@@ -23,11 +23,11 @@ export const HubView: React.FC = () => {
         transition={{ duration: 0.5 }}
         className="flex flex-wrap items-center justify-center gap-2.5 mb-4"
       >
-        <span className="px-3 py-1 rounded-full bg-[#121620] border border-[#242C3A] text-xs font-mono text-[#8E8E93]">
+        <span className="px-3.5 py-1 rounded-full bg-[#0C101A] border border-[#1A2333] text-xs font-mono text-[#94A3B8]">
           PORTFOLIO · 3D FLIGHT EXPERIENCE
         </span>
-        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121620] border border-[#C6FF3D]/30 text-xs font-mono text-[#C6FF3D]">
-          <span className="w-2 h-2 rounded-full bg-[#C6FF3D] animate-pulse" />
+        <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0C101A] border border-[#00E5FF]/40 text-xs font-mono text-[#00E5FF]">
+          <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse shadow-[0_0_8px_#00E5FF]" />
           <span>OPEN TO RELOCATION · UAE / GCC & LAHORE</span>
         </span>
       </motion.div>
@@ -37,7 +37,7 @@ export const HubView: React.FC = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-4xl sm:text-6xl md:text-7xl font-display font-black text-[#FFFFFF] tracking-tight mb-2 drop-shadow-2xl"
+        className="text-4xl sm:text-6xl md:text-7xl font-display font-black text-[#FFFFFF] tracking-tight mb-2 drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]"
       >
         AFAQ MEHMOOD
       </motion.h1>
@@ -49,7 +49,7 @@ export const HubView: React.FC = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="h-10 flex items-center justify-center mb-4"
       >
-        <span className="font-mono text-lg sm:text-2xl text-[#C6FF3D] font-bold tracking-wide uppercase px-3 py-1 rounded bg-[#0A0E14]/70 border border-[#C6FF3D]/20 backdrop-blur-sm shadow-sm">
+        <span className="font-mono text-lg sm:text-2xl text-[#00E5FF] font-bold tracking-wide uppercase px-4 py-1 rounded-lg bg-[#0C101A]/80 border border-[#00E5FF]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,229,255,0.15)]">
           {portfolioData.profile.roles[roleIndex]}
         </span>
       </motion.div>
@@ -59,7 +59,7 @@ export const HubView: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
-        className="text-base sm:text-xl text-[#EDEDED] font-medium max-w-2xl leading-relaxed mb-4"
+        className="text-base sm:text-xl text-[#F1F5F9] font-medium max-w-2xl leading-relaxed mb-4"
       >
         "{portfolioData.profile.tagline}"
       </motion.p>
@@ -69,7 +69,7 @@ export const HubView: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="text-xs sm:text-sm text-[#9CA3AF] max-w-2xl leading-relaxed mb-8"
+        className="text-xs sm:text-sm text-[#94A3B8] max-w-2xl leading-relaxed mb-8"
       >
         {portfolioData.profile.summary}
       </motion.p>
@@ -83,7 +83,7 @@ export const HubView: React.FC = () => {
       >
         <button
           onClick={() => goToStation(1)}
-          className="px-6 py-3 rounded-lg bg-[#C6FF3D] hover:bg-[#B4F524] text-[#07080A] font-mono text-xs sm:text-sm font-bold transition-all shadow-lg shadow-[#C6FF3D]/20 flex items-center gap-2 group cursor-pointer"
+          className="px-6 py-3 rounded-xl bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] font-mono text-xs sm:text-sm font-bold transition-all shadow-[0_0_20px_rgba(0,229,255,0.35)] flex items-center gap-2 group cursor-pointer"
         >
           <span>EXPLORE PRODUCTION WORK</span>
           <span className="group-hover:translate-x-1 transition-transform">→</span>
@@ -93,15 +93,15 @@ export const HubView: React.FC = () => {
           href={portfolioData.profile.cv}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-5 py-3 rounded-lg bg-[#11151F] hover:bg-[#1A202E] border border-[#262F40] hover:border-[#C6FF3D]/50 text-[#EDEDED] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
+          className="px-5 py-3 rounded-xl bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] hover:border-[#00E5FF]/50 text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
         >
           <span>DOWNLOAD CV</span>
-          <span className="text-[#C6FF3D]">↓</span>
+          <span className="text-[#00E5FF]">↓</span>
         </a>
 
         <button
           onClick={() => goToStation(4)}
-          className="px-5 py-3 rounded-lg bg-[#11151F] hover:bg-[#1A202E] border border-[#262F40] hover:border-[#C6FF3D]/50 text-[#EDEDED] font-mono text-xs sm:text-sm transition-all cursor-pointer"
+          className="px-5 py-3 rounded-xl bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] hover:border-[#00E5FF]/50 text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all cursor-pointer"
         >
           CONTACT ME ✉
         </button>

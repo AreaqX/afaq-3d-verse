@@ -81,7 +81,7 @@ export const SkillOrbit: React.FC = () => {
         <sphereGeometry args={[1.0, 32, 32]} />
         <meshStandardMaterial
           color="#0B0E14"
-          emissive="#C6FF3D"
+          emissive="#00E5FF"
           emissiveIntensity={0.5}
           metalness={0.9}
           roughness={0.2}
@@ -90,7 +90,7 @@ export const SkillOrbit: React.FC = () => {
       <mesh>
         <sphereGeometry args={[1.3, 16, 16]} />
         <meshBasicMaterial
-          color="#C6FF3D"
+          color="#00E5FF"
           wireframe
           transparent
           opacity={0.2}

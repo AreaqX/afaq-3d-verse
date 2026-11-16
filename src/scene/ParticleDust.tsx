@@ -22,7 +22,7 @@ export const ParticleDust: React.FC<ParticleDustProps> = ({ count = 1800 }) => {
     const sca = new Float32Array(actualCount);
     const col = new Float32Array(actualCount * 3);
 
-    const limeColor = new THREE.Color('#C6FF3D');
+    const limeColor = new THREE.Color('#00E5FF');
     const whiteColor = new THREE.Color('#EDEDED');
     const greyColor = new THREE.Color('#4A5260');
 

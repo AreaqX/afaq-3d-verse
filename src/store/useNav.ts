@@ -64,6 +64,7 @@ export interface ToastItem {
 interface NavState {
   currentStation: StationIndex;
   previousStation: StationIndex;
+  slideDirection: number; // +1 for forward/right, -1 for backward/left
   isFlying: boolean;
   flightVelocity: number; // 0 to 1, indicates motion intensity for particles
   
@@ -118,6 +119,7 @@ const getStoredClassicPref = (): boolean => {
 export const useNav = create<NavState>((set, get) => ({
   currentStation: 0,
   previousStation: 0,
+  slideDirection: 1,
   isFlying: false,
   flightVelocity: 0,
   
@@ -139,10 +141,13 @@ export const useNav = create<NavState>((set, get) => ({
     const { currentStation, isFlying } = get();
     if (station === currentStation && !isFlying) return;
     
+    const direction = station >= currentStation ? 1 : -1;
+
     // Reset modal states when navigating
     set({
       previousStation: currentStation,
       currentStation: station,
+      slideDirection: direction,
       isFlying: true,
       flightVelocity: 1,
       activeProject: null,

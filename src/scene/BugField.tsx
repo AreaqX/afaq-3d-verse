@@ -32,13 +32,13 @@ export const BugField: React.FC = () => {
   // Generate 7 drifting bugs placed across stations
   const bugs = useMemo<BugData[]>(() => {
     return [
-      { id: 1, initialPos: [4, 1, 10], speed: 0.6, phase: 0.2, radius: 2.5, color: '#C6FF3D' },
+      { id: 1, initialPos: [4, 1, 10], speed: 0.6, phase: 0.2, radius: 2.5, color: '#00E5FF' },
       { id: 2, initialPos: [-5, -34, 12], speed: 0.8, phase: 1.5, radius: 3.2, color: '#9AE600' },
-      { id: 3, initialPos: [40, -68, 14], speed: 0.5, phase: 2.8, radius: 2.8, color: '#C6FF3D' },
+      { id: 3, initialPos: [40, -68, 14], speed: 0.5, phase: 2.8, radius: 2.8, color: '#00E5FF' },
       { id: 4, initialPos: [-4, -108, 15], speed: 0.7, phase: 4.1, radius: 3.5, color: '#88B81E' },
-      { id: 5, initialPos: [-32, -148, 12], speed: 0.6, phase: 5.3, radius: 2.6, color: '#C6FF3D' },
+      { id: 5, initialPos: [-32, -148, 12], speed: 0.6, phase: 5.3, radius: 2.6, color: '#00E5FF' },
       { id: 6, initialPos: [6, -25, 14], speed: 0.9, phase: 3.0, radius: 3.0, color: '#9AE600' },
-      { id: 7, initialPos: [32, -75, 16], speed: 0.5, phase: 0.9, radius: 2.2, color: '#C6FF3D' }
+      { id: 7, initialPos: [32, -75, 16], speed: 0.5, phase: 0.9, radius: 2.2, color: '#00E5FF' }
     ];
   }, []);
 

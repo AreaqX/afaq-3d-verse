@@ -16,13 +16,13 @@ export const ClassicView: React.FC = () => {
   const automationProjects = portfolioData.projects.filter((p) => p.category === 'Automation');
 
   return (
-    <div className="min-h-screen bg-[#07080A] text-[#EDEDED] font-sans antialiased overflow-y-auto selection:bg-[#C6FF3D] selection:text-[#07080A]">
+    <div className="min-h-screen bg-[#06080F] text-[#F1F5F9] font-sans antialiased overflow-y-auto selection:bg-[#00E5FF] selection:text-[#06080F]">
       {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-[#07080A]/95 border-b border-[#202530] backdrop-blur-md px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-[#06080F]/95 border-b border-[#1A2333] backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#C6FF3D]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#00E5FF] shadow-[0_0_8px_#00E5FF]" />
           <span className="font-display font-bold text-lg text-[#FFFFFF]">AFAQ MEHMOOD</span>
-          <span className="hidden sm:inline font-mono text-xs text-[#8E8E93]">/ CLASSIC ACCESSIBLE VIEW</span>
+          <span className="hidden sm:inline font-mono text-xs text-[#94A3B8]">/ CLASSIC ACCESSIBLE VIEW</span>
         </div>
 
         <div className="flex items-center gap-3">
@@ -30,13 +30,13 @@ export const ClassicView: React.FC = () => {
             href={portfolioData.profile.cv}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded bg-[#121620] hover:bg-[#1A2130] border border-[#242D3C] text-xs font-mono text-[#EDEDED] transition-colors"
+            className="px-3.5 py-1.5 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-xs font-mono text-[#F1F5F9] transition-colors"
           >
             Download CV ↓
           </a>
           <button
             onClick={toggleClassicView}
-            className="px-4 py-1.5 rounded bg-[#C6FF3D] hover:bg-[#B4F524] text-[#07080A] text-xs font-mono font-bold transition-all shadow-md shadow-[#C6FF3D]/10"
+            className="px-4 py-1.5 rounded-lg bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] text-xs font-mono font-bold transition-all shadow-md shadow-[#00E5FF]/20 cursor-pointer"
           >
             Launch 3D Experience 🚀
           </button>
@@ -48,36 +48,36 @@ export const ClassicView: React.FC = () => {
         {/* Profile / Hero Section */}
         <section aria-labelledby="profile-heading" className="space-y-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#121720] border border-[#242C3A] text-xs font-mono text-[#A6ADB8]">
-              <span className="w-2 h-2 rounded-full bg-[#C6FF3D] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0C101A] border border-[#1A2333] text-xs font-mono text-[#94A3B8]">
+              <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
               <span>Sialkot, PK · Open to relocation (UAE / GCC) & Lahore</span>
             </div>
             <h1 id="profile-heading" className="text-4xl sm:text-5xl font-display font-bold text-[#FFFFFF] tracking-tight">
               Afaq Mehmood
             </h1>
-            <p className="font-mono text-base sm:text-lg text-[#C6FF3D] font-medium">
+            <p className="font-mono text-base sm:text-lg text-[#00E5FF] font-medium">
               {portfolioData.profile.title}
             </p>
           </div>
 
-          <p className="text-lg text-[#B0B6C2] font-medium leading-relaxed max-w-2xl">
+          <p className="text-lg text-[#CBD5E1] font-medium leading-relaxed max-w-2xl">
             "{portfolioData.profile.tagline}"
           </p>
 
-          <p className="text-base text-[#9299A6] leading-relaxed max-w-3xl">
+          <p className="text-base text-[#94A3B8] leading-relaxed max-w-3xl">
             {portfolioData.profile.summary}
           </p>
 
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="px-4 py-2 rounded bg-[#C6FF3D] hover:bg-[#B4F524] text-[#07080A] font-mono text-xs font-bold transition-colors"
+              className="px-4 py-2 rounded-lg bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] font-mono text-xs font-bold transition-colors cursor-pointer"
             >
               Send Email ↗
             </a>
             <button
               onClick={handleCopyEmail}
-              className="px-4 py-2 rounded bg-[#121620] hover:bg-[#1A2130] border border-[#242D3C] text-[#EDEDED] font-mono text-xs transition-colors"
+              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
             >
               Copy Email 📋
             </button>
@@ -85,7 +85,7 @@ export const ClassicView: React.FC = () => {
               href={portfolioData.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded bg-[#121620] hover:bg-[#1A2130] border border-[#242D3C] text-[#EDEDED] font-mono text-xs transition-colors"
+              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
             >
               LinkedIn ↗
             </a>
@@ -93,7 +93,7 @@ export const ClassicView: React.FC = () => {
               href={portfolioData.profile.cv}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded bg-[#121620] hover:bg-[#1A2130] border border-[#242D3C] text-[#EDEDED] font-mono text-xs transition-colors"
+              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
             >
               Resume PDF ↓
             </a>
@@ -115,11 +115,11 @@ export const ClassicView: React.FC = () => {
             {featuredProjects.map((project) => (
               <article
                 key={project.id}
-                className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] hover:border-[#C6FF3D]/50 transition-all flex flex-col justify-between space-y-4"
+                className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] hover:border-[#00E5FF]/50 transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-[#C6FF3D] uppercase tracking-wider">
+                    <span className="font-mono text-[11px] text-[#00E5FF] uppercase tracking-wider">
                       {project.subtitle}
                     </span>
                     <div className="flex items-center gap-1.5">
@@ -147,7 +147,7 @@ export const ClassicView: React.FC = () => {
                     <ul className="space-y-1.5">
                       {project.whatIDid.map((bullet, idx) => (
                         <li key={idx} className="flex items-start gap-2 text-xs text-[#B0B6C2]">
-                          <span className="text-[#C6FF3D] mt-0.5 select-none font-bold">›</span>
+                          <span className="text-[#00E5FF] mt-0.5 select-none font-bold">›</span>
                           <span>{bullet}</span>
                         </li>
                       ))}
@@ -159,7 +159,7 @@ export const ClassicView: React.FC = () => {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#C6FF3D]"
+                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#00E5FF]"
                     >
                       {t}
                     </span>
@@ -191,7 +191,7 @@ export const ClassicView: React.FC = () => {
                   <span className="font-mono text-[11px] text-[#8E8E93] uppercase">
                     {project.category}
                   </span>
-                  <span className="font-mono text-[11px] text-[#C6FF3D]">
+                  <span className="font-mono text-[11px] text-[#00E5FF]">
                     {project.subtitle}
                   </span>
                 </div>
@@ -208,7 +208,7 @@ export const ClassicView: React.FC = () => {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#C6FF3D]"
+                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#00E5FF]"
                     >
                       {t}
                     </span>
@@ -271,7 +271,7 @@ export const ClassicView: React.FC = () => {
           <div className="space-y-6">
             {portfolioData.skills.map((group) => (
               <div key={group.name} className="space-y-3">
-                <h3 className="text-sm font-mono text-[#C6FF3D] font-bold uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-sm font-mono text-[#00E5FF] font-bold uppercase tracking-wider flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: group.color }} />
                   <span>{group.name}</span>
                 </h3>
@@ -306,7 +306,7 @@ export const ClassicView: React.FC = () => {
 
           {/* Experience */}
           <div className="space-y-4">
-            <h3 className="font-mono text-xs text-[#C6FF3D] uppercase tracking-wider">Experience</h3>
+            <h3 className="font-mono text-xs text-[#00E5FF] uppercase tracking-wider">Experience</h3>
             {portfolioData.experience.map((exp, idx) => (
               <div key={idx} className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -316,7 +316,7 @@ export const ClassicView: React.FC = () => {
                     </h4>
                     <span className="font-mono text-xs text-[#8E8E93]">{exp.location}</span>
                   </div>
-                  <span className="px-3 py-1 rounded bg-[#161C26] font-mono text-xs text-[#C6FF3D] w-fit">
+                  <span className="px-3 py-1 rounded bg-[#161C26] font-mono text-xs text-[#00E5FF] w-fit">
                     {exp.period}
                   </span>
                 </div>
@@ -328,7 +328,7 @@ export const ClassicView: React.FC = () => {
                 <ul className="space-y-2">
                   {exp.highlights.map((h, hIdx) => (
                     <li key={hIdx} className="flex items-start gap-2.5 text-xs text-[#B0B6C2]">
-                      <span className="text-[#C6FF3D] font-bold">›</span>
+                      <span className="text-[#00E5FF] font-bold">›</span>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -339,7 +339,7 @@ export const ClassicView: React.FC = () => {
 
           {/* Education */}
           <div className="space-y-4">
-            <h3 className="font-mono text-xs text-[#C6FF3D] uppercase tracking-wider">Education</h3>
+            <h3 className="font-mono text-xs text-[#00E5FF] uppercase tracking-wider">Education</h3>
             {portfolioData.education.map((edu, idx) => (
               <div key={idx} className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
@@ -347,7 +347,7 @@ export const ClassicView: React.FC = () => {
                     <h4 className="text-lg font-display font-bold text-[#FFFFFF]">
                       {edu.degree}
                     </h4>
-                    <span className="text-sm text-[#C6FF3D]">{edu.institution}</span>
+                    <span className="text-sm text-[#00E5FF]">{edu.institution}</span>
                   </div>
                   <span className="font-mono text-xs text-[#8E8E93]">{edu.period}</span>
                 </div>
@@ -373,7 +373,7 @@ export const ClassicView: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="px-5 py-2.5 rounded bg-[#C6FF3D] hover:bg-[#B4F524] text-[#07080A] font-mono text-xs font-bold transition-all shadow-md shadow-[#C6FF3D]/10"
+              className="px-5 py-2.5 rounded bg-[#00E5FF] hover:bg-[#B4F524] text-[#07080A] font-mono text-xs font-bold transition-all shadow-md shadow-[#00E5FF]/10"
             >
               Send Email ({portfolioData.profile.email})
             </a>

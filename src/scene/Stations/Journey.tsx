@@ -18,13 +18,13 @@ export const JourneyStation: React.FC = () => {
         {/* Main glowing trajectory beam */}
         <mesh position={[0, 0, 0]}>
           <cylinderGeometry args={[0.04, 0.04, 24, 16]} />
-          <meshStandardMaterial color="#C6FF3D" emissive="#C6FF3D" emissiveIntensity={0.8} />
+          <meshStandardMaterial color="#00E5FF" emissive="#00E5FF" emissiveIntensity={0.8} />
         </mesh>
 
         {/* Floating Waypoint Beacons */}
         <mesh position={[0, 4, 0]}>
           <sphereGeometry args={[0.3, 16, 16]} />
-          <meshStandardMaterial color="#C6FF3D" emissive="#C6FF3D" emissiveIntensity={1.2} />
+          <meshStandardMaterial color="#00E5FF" emissive="#00E5FF" emissiveIntensity={1.2} />
         </mesh>
         <mesh position={[0, -4, 0]}>
           <sphereGeometry args={[0.3, 16, 16]} />
@@ -34,7 +34,7 @@ export const JourneyStation: React.FC = () => {
         {/* Ambient Ring Accents */}
         <mesh position={[0, 4, 0]} rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[1.2, 1.25, 32]} />
-          <meshBasicMaterial color="#C6FF3D" transparent opacity={0.3} side={THREE.DoubleSide} />
+          <meshBasicMaterial color="#00E5FF" transparent opacity={0.3} side={THREE.DoubleSide} />
         </mesh>
         <mesh position={[0, -4, 0]} rotation={[Math.PI / 2, 0, 0]}>
           <ringGeometry args={[1.2, 1.25, 32]} />

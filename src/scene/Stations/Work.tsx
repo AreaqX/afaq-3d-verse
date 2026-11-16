@@ -21,7 +21,7 @@ export const WorkStation: React.FC = () => {
       {/* Subtle Orbital Halo Ring */}
       <mesh rotation={[Math.PI / 2, 0, 0]} position={[0, -2, -2]}>
         <ringGeometry args={[5.8, 5.85, 64]} />
-        <meshBasicMaterial color="#C6FF3D" transparent opacity={0.2} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#00E5FF" transparent opacity={0.2} side={THREE.DoubleSide} />
       </mesh>
 
       {/* Featured 3D Phone Showcase */}

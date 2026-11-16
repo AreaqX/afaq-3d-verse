@@ -13,29 +13,28 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #07080A;
-    color: #EDEDED;
+    background-color: #06080F;
+    color: #F1F5F9;
     font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
-  /* Custom scrollbars for modals and classic view */
+  /* Custom scrollbars */
   ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: #07080A;
+    background: #06080F;
   }
   ::-webkit-scrollbar-thumb {
-    background: #20232A;
+    background: #1A2333;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C6FF3D;
+    background: #00E5FF;
   }
 }
 
-/* Screen reader only utility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -48,24 +47,14 @@
   border-width: 0;
 }
 
-/* Subtle scanline overlay for canvas */
+/* Subtle grid overlay */
 .scanline-grid {
-  background-image: linear-gradient(rgba(198, 255, 61, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(198, 255, 61, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(0, 229, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 229, 255, 0.02) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
-/* HUD border styling */
-.hud-border {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.hud-border-lime {
-  border: 1px solid rgba(198, 255, 61, 0.3);
-}
-
-/* Focus visible styles for keyboard accessibility */
 button:focus-visible, a:focus-visible, input:focus-visible {
-  outline: 2px solid #C6FF3D;
+  outline: 2px solid #00E5FF;
   outline-offset: 2px;
 }

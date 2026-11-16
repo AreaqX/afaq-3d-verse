@@ -38,7 +38,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
   ctx.lineWidth = 2.5;
   // Battery outline
   ctx.strokeRect(420, 38, 44, 22);
-  ctx.fillStyle = '#C6FF3D';
+  ctx.fillStyle = '#00E5FF';
   ctx.fillRect(424, 42, 28, 14);
   // Wifi waves
   ctx.beginPath();
@@ -56,13 +56,13 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
 
   // App Header Accent Glow
   const accentGlow = ctx.createRadialGradient(256, 180, 10, 256, 180, 220);
-  accentGlow.addColorStop(0, (project.color || '#C6FF3D') + '44');
+  accentGlow.addColorStop(0, (project.color || '#00E5FF') + '44');
   accentGlow.addColorStop(1, 'transparent');
   ctx.fillStyle = accentGlow;
   ctx.fillRect(0, 70, 512, 280);
 
   // App Logo/Badge Circle
-  ctx.fillStyle = project.color || '#C6FF3D';
+  ctx.fillStyle = project.color || '#00E5FF';
   ctx.beginPath();
   ctx.arc(256, 170, 48, 0, Math.PI * 2);
   ctx.fill();
@@ -85,7 +85,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
 
   // Tech tags preview row
   const tagsText = project.tech.slice(0, 3).join(' • ');
-  ctx.fillStyle = '#C6FF3D';
+  ctx.fillStyle = '#00E5FF';
   ctx.font = '500 18px "JetBrains Mono", monospace';
   ctx.fillText(tagsText, 256, 325);
 
@@ -115,7 +115,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
   ctx.beginPath();
   ctx.roundRect(65, 455, 382, 8, 4);
   ctx.fill();
-  ctx.fillStyle = project.color || '#C6FF3D';
+  ctx.fillStyle = project.color || '#00E5FF';
   ctx.beginPath();
   ctx.roundRect(65, 455, 260, 8, 4);
   ctx.fill();
@@ -136,7 +136,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
     ctx.stroke();
 
     // Circle icon in mock box
-    ctx.fillStyle = (project.color || '#C6FF3D') + '33';
+    ctx.fillStyle = (project.color || '#00E5FF') + '33';
     ctx.beginPath();
     ctx.arc(itemX + 40, itemY + 45, 20, 0, Math.PI * 2);
     ctx.fill();
@@ -157,7 +157,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
   }
 
   // Floating Action Button
-  ctx.fillStyle = '#C6FF3D';
+  ctx.fillStyle = '#00E5FF';
   ctx.shadowColor = 'rgba(198, 255, 61, 0.4)';
   ctx.shadowBlur = 15;
   ctx.beginPath();
@@ -181,7 +181,7 @@ function createPhoneCanvas(project: Project): HTMLCanvasElement {
   // Nav icons (4 dots/rects)
   for (let b = 0; b < 4; b++) {
     const navX = 64 + b * 128;
-    ctx.fillStyle = b === 0 ? (project.color || '#C6FF3D') : '#4B5563';
+    ctx.fillStyle = b === 0 ? (project.color || '#00E5FF') : '#4B5563';
     ctx.beginPath();
     ctx.arc(navX, 965, 8, 0, Math.PI * 2);
     ctx.fill();
@@ -294,8 +294,8 @@ export const Phone: React.FC<PhoneProps> = ({
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[width + 0.04, height + 0.04, depth * 0.9]} />
         <meshStandardMaterial
-          color={isHovered ? "#C6FF3D" : "#242A35"}
-          emissive={isHovered ? "#C6FF3D" : "#000000"}
+          color={isHovered ? "#00E5FF" : "#242A35"}
+          emissive={isHovered ? "#00E5FF" : "#000000"}
           emissiveIntensity={isHovered ? 0.3 : 0}
           metalness={0.9}
           roughness={0.15}
@@ -352,7 +352,7 @@ export const Phone: React.FC<PhoneProps> = ({
         <mesh position={[0, 0, -0.05]}>
           <planeGeometry args={[width + 0.5, height + 0.5]} />
           <meshBasicMaterial
-            color={project.color || "#C6FF3D"}
+            color={project.color || "#00E5FF"}
             transparent
             opacity={0.2}
             side={THREE.DoubleSide}

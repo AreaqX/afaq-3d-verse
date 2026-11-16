@@ -27,7 +27,7 @@ export const HubStation: React.FC = () => {
       {/* Background Subtle Geometric Halo Rings */}
       <mesh ref={ring1Ref} position={[0, 0, -1]}>
         <ringGeometry args={[7.2, 7.3, 64]} />
-        <meshBasicMaterial color="#C6FF3D" transparent opacity={0.25} side={THREE.DoubleSide} />
+        <meshBasicMaterial color="#00E5FF" transparent opacity={0.25} side={THREE.DoubleSide} />
       </mesh>
 
       <mesh ref={ring2Ref} position={[0, 0, -2]}>
@@ -38,11 +38,11 @@ export const HubStation: React.FC = () => {
       {/* Coordinate Crosshairs */}
       <mesh position={[0, 0, -1.5]}>
         <planeGeometry args={[16, 0.02]} />
-        <meshBasicMaterial color="#C6FF3D" transparent opacity={0.12} />
+        <meshBasicMaterial color="#00E5FF" transparent opacity={0.12} />
       </mesh>
       <mesh position={[0, 0, -1.5]}>
         <planeGeometry args={[0.02, 16]} />
-        <meshBasicMaterial color="#C6FF3D" transparent opacity={0.12} />
+        <meshBasicMaterial color="#00E5FF" transparent opacity={0.12} />
       </mesh>
     </group>
   );

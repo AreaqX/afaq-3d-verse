@@ -35,7 +35,7 @@ export const ContactStation: React.FC = () => {
             <octahedronGeometry args={[1.5, 0]} />
             <meshStandardMaterial
               color="#0F131A"
-              emissive="#C6FF3D"
+              emissive="#00E5FF"
               emissiveIntensity={1.4}
               roughness={0.1}
               metalness={0.9}
@@ -50,7 +50,7 @@ export const ContactStation: React.FC = () => {
         {/* Orbiting Gyro Energy Rings */}
         <mesh ref={ring1Ref}>
           <torusGeometry args={[2.8, 0.03, 16, 64]} />
-          <meshBasicMaterial color="#C6FF3D" transparent opacity={0.7} />
+          <meshBasicMaterial color="#00E5FF" transparent opacity={0.7} />
         </mesh>
         <mesh ref={ring2Ref}>
           <torusGeometry args={[3.6, 0.02, 16, 64]} />
