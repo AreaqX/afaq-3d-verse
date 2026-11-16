@@ -1,73 +1,150 @@
-# Welcome to your Lovable project
+# Afaq Mehmood — 3D Flight Portfolio
 
-## Project info
+> **Mobile App Developer · Software Engineer · SQA Engineer**  
+> *"I build mobile apps that ship, and test them until they don't break."*  
+> Location: Sialkot, Pakistan · Status: Open to relocation (UAE / GCC) & Lahore
 
-**URL**: https://lovable.dev/projects/e154228f-a2ac-4075-b4fa-81a5594a876f
+A production-ready, fully immersive 3D personal portfolio experience. The entire site is a continuous full-screen WebGL world where visitors travel along an eased spline trajectory between 5 stations in deep space.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## ⚡ Tech Stack
 
-**Use Lovable**
+- **Framework**: Vite + React 18 + TypeScript
+- **Styling**: Tailwind CSS (Electric Lime `#C6FF3D`, Deep Near-Black `#07080A`, Space Grotesk + JetBrains Mono)
+- **3D Engine**: Three.js, `@react-three/fiber`, `@react-three/drei`
+- **Post-Processing**: `@react-three/postprocessing` (Subtle Bloom, Vignette, Chromatic Aberration during flight)
+- **State & Transitions**: Zustand (`useNav`), Framer Motion
+- **Architecture**: 100% pure static client build (`vite build`) — zero backend, zero database, zero API keys.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e154228f-a2ac-4075-b4fa-81a5594a876f) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Quick Start
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### 1. Install Dependencies
+```bash
+npm install
 ```
 
-**Edit a file directly in GitHub**
+### 2. Run Local Development Server
+```bash
+npm run dev
+```
+Open `http://localhost:8080` (or the port Vite outputs) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### 3. Production Build
+```bash
+npm run build
+```
+Generates optimized static assets in the `dist/` directory with zero TypeScript errors.
 
-**Use GitHub Codespaces**
+To preview the built production bundle locally:
+```bash
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 🧭 The 5 Stations & Navigation
 
-This project is built with:
+1. **Station 01 — HUB**: Floating 3D extruded title "AFAQ MEHMOOD", dynamically morphing role titles (*Mobile App Developer* / *Software Engineer* / *SQA Engineer*), location badge, and "Enter The Flight" launch button.
+2. **Station 02 — WORK (Device Constellation)**: Floating 3D procedural smartphones arranged in a slowly rotating constellation ring. Includes category filtering (*Mobile Apps*, *Internal Tools*, *Automation*, *Research*). Clicking any phone brings it into focus and slides in the detailed specification panel.
+3. **Station 03 — SKILLS (Skill Orbit)**: Concentric interactive 3D orbital rings (*Mobile Development*, *Software Engineering*, *SQA & Testing*). Drag rings to spin them, or hover any glowing skill node to reveal production context.
+4. **Station 04 — JOURNEY (Trajectory Path)**: 3D illuminated flight timeline showcasing career milestones (*Patronecs Software Company*) and education (*University of Sialkot BS Software Engineering*).
+5. **Station 05 — CONTACT (Transmission Beacon)**: Pulsing 3D crystal beacon with direct `mailto:`, one-click email copy (with instant toast), LinkedIn profile, and resume download.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Navigation Controls
+- **HUD Waypoint Dots**: Click any of the 5 labeled dots at the bottom to fly directly to that station.
+- **Keyboard Navigation**:
+  - `→` / `D` or `↓`: Next Station
+  - `←` / `A` or `↑`: Previous Station
+  - `Enter`: Advance / Enter flight
+  - `Esc`: Return to Hub or close active project panel
+  - `1` - `5`: Direct jump to stations 1 through 5
+  - `Ctrl + K`, `Cmd + K`, or `/`: Open Command Search Palette
+- **Mouse / Touch Parallax**: Subtle pointer look-around and drag rotation across all stations.
+- **🐞 SQA Easter Egg**: Tiny robotic bugs drift through space. Click one to squash it with a particle explosion and increment the in-memory "Bugs Squashed" counter.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/e154228f-a2ac-4075-b4fa-81a5594a876f) and click on Share -> Publish.
+## 📝 How to Edit Content (`src/data/portfolio.ts`)
 
-## Can I connect a custom domain to my Lovable project?
+All portfolio content is hardcoded and strictly typed in a single file: [src/data/portfolio.ts](file:///d:/work/portfolio/afaq-3d-verse/src/data/portfolio.ts).
 
-Yes, you can!
+### 1. Updating Profile & Email
+Open `src/data/portfolio.ts` and modify the `profile` object:
+```typescript
+export const portfolioData: PortfolioData = {
+  profile: {
+    name: "Afaq Mehmood",
+    title: "Mobile App Developer · Software Engineer · SQA Engineer",
+    email: "your-actual-email@example.com", // Replace YOUR_EMAIL_HERE
+    linkedin: "https://www.linkedin.com/in/afaqmehmood-500327259",
+    // ...
+  }
+};
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 2. Updating Projects
+Each project has a typed schema:
+```typescript
+{
+  id: "outdoor-share",
+  title: "Outdoor Share",
+  subtitle: "Vehicle Rental Marketplace",
+  description: "Vehicle rental marketplace with identity verification...",
+  category: "Mobile Apps", // 'Mobile Apps' | 'Internal Tools' | 'Automation' | 'Research'
+  tech: ["FlutterFlow", "Stripe", "DocuSeal", "Firebase"],
+  platforms: ["App Store", "Play Store"],
+  whatIDid: [
+    "Architected end-to-end rental flow...",
+    // ...
+  ],
+  color: "#10b981",
+  screenshot: "/screens/outdoor-share.png",
+  featured: true
+}
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 3. Adding Real Screenshots
+1. Place your PNG/JPEG image files in `/public/screens/` (e.g. `/public/screens/outdoor-share.png`).
+2. Set the `screenshot` property on the corresponding project in `src/data/portfolio.ts`:
+   ```typescript
+   screenshot: "/screens/outdoor-share.png",
+   ```
+3. If no screenshot is provided or the file is missing, the procedural canvas mock UI renders automatically on the 3D phone screen with the project's accent color, typography, and wireframe blocks.
+
+---
+
+## 📑 Recruiter Safety Net (Classic View)
+
+For recruiters, ATS, or users on lower-spec hardware:
+- Click the persistent **"Classic View"** button in the top right header (or select it in the `Ctrl+K` command palette).
+- The site renders a clean, accessible, single-page 2D layout containing all profile data, projects, experience, skills, and contact links.
+- Your preference is persisted automatically in `localStorage`.
+- Click **"Launch 3D Experience"** at any time to return to WebGL flight mode.
+- If WebGL is not supported by the browser, the application automatically falls back to Classic View.
+
+---
+
+## 🚢 Deployment
+
+The project builds to a pure static bundle in `dist/`.
+
+### Vercel
+```bash
+npm run build
+# Deploy dist/ folder directly, or connect your Git repository with:
+# Framework Preset: Vite
+# Build Command: npm run build
+# Output Directory: dist
+```
+
+### Netlify
+```bash
+# Build Command: npm run build
+# Publish Directory: dist
+```
+
+### GitHub Pages
+Configure GitHub Actions with `npm run build` and publish the `dist` directory.

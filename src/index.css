@@ -2,155 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Afaq Mehmood — Modern Developer Portfolio Design System
-   Near-dark charcoal base, off-white text, single muted teal accent. All colors HSL.
-*/
-
 @layer base {
   :root {
-    --background: 220 12% 7%;        /* #0F1115 */
-    --foreground: 60 5% 96%;         /* #F5F5F4 */
-
-    --card: 220 11% 10%;
-    --card-foreground: 60 5% 96%;
-
-    --popover: 220 11% 10%;
-    --popover-foreground: 60 5% 96%;
-
-    --primary: 174 42% 51%;          /* muted teal */
-    --primary-foreground: 220 12% 7%;
-
-    --secondary: 220 10% 15%;
-    --secondary-foreground: 60 5% 96%;
-
-    --muted: 220 10% 15%;
-    --muted-foreground: 220 8% 66%;
-
-    --accent: 174 42% 51%;
-    --accent-foreground: 220 12% 7%;
-
-    --destructive: 4 62% 52%;
-    --destructive-foreground: 60 5% 96%;
-
-    --border: 220 9% 18%;
-    --input: 220 9% 18%;
-    --ring: 174 42% 51%;
-
-    --radius: 0.75rem;               /* 12px cards */
-
-    /* Portfolio specific */
-    --surface: 220 11% 12%;
-    --neon: 174 42% 51%;
-    --glow: 174 42% 51%;
-    --sand: 220 10% 15%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)));
-    --gradient-neon: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent)));
-    --gradient-surface: linear-gradient(145deg, hsl(var(--card)), hsl(var(--surface)));
-
-    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.4), 0 8px 24px hsl(0 0% 0% / 0.28);
-    --shadow-lift: 0 2px 6px hsl(0 0% 0% / 0.45), 0 18px 44px hsl(0 0% 0% / 0.4);
-    --shadow-neon: var(--shadow-soft);
-    --shadow-glow: var(--shadow-soft);
-    --shadow-card: var(--shadow-soft);
-
-    --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-spring: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 220 12% 7%;
-    --sidebar-foreground: 60 5% 96%;
-    --sidebar-primary: 174 42% 51%;
-    --sidebar-primary-foreground: 220 12% 7%;
-    --sidebar-accent: 220 11% 12%;
-    --sidebar-accent-foreground: 60 5% 96%;
-    --sidebar-border: 220 9% 18%;
-    --sidebar-ring: 174 42% 51%;
+    color-scheme: dark;
   }
 
-  .dark {
-    --background: 220 12% 7%;
-    --foreground: 60 5% 96%;
-    --card: 220 11% 10%;
-    --card-foreground: 60 5% 96%;
-    --popover: 220 11% 10%;
-    --popover-foreground: 60 5% 96%;
-    --primary: 174 42% 51%;
-    --primary-foreground: 220 12% 7%;
-    --secondary: 220 10% 15%;
-    --secondary-foreground: 60 5% 96%;
-    --muted: 220 10% 15%;
-    --muted-foreground: 220 8% 66%;
-    --accent: 174 42% 51%;
-    --accent-foreground: 220 12% 7%;
-    --destructive: 4 62% 52%;
-    --destructive-foreground: 60 5% 96%;
-    --border: 220 9% 18%;
-    --input: 220 9% 18%;
-    --ring: 174 42% 51%;
-    --surface: 220 11% 12%;
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #07080A;
+    color: #EDEDED;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Custom scrollbars for modals and classic view */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07080A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #20232A;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C6FF3D;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground overflow-x-hidden antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    line-height: 1.75;
-    letter-spacing: 0.005em;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
-    letter-spacing: -0.015em;
-    line-height: 1.2;
-    font-weight: 600;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-@layer components {
-  .glass-effect {
-    @apply bg-card border border-border/60 rounded-xl;
-  }
+/* Subtle scanline overlay for canvas */
+.scanline-grid {
+  background-image: linear-gradient(rgba(198, 255, 61, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(198, 255, 61, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
 
-  .neon-glow {
-    box-shadow: var(--shadow-soft);
-  }
+/* HUD border styling */
+.hud-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-  .primary-glow {
-    box-shadow: var(--shadow-soft);
-  }
+.hud-border-lime {
+  border: 1px solid rgba(198, 255, 61, 0.3);
+}
 
-  .card-shadow {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .hover-lift {
-    transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.35s ease;
-  }
-  .hover-lift:hover {
-    box-shadow: var(--shadow-lift);
-  }
-
-  .gradient-text {
-    color: hsl(var(--primary));
-  }
-
-  .hero-text {
-    color: hsl(var(--foreground));
-  }
-
-  /* Monospace tech tag */
-  .tech-tag {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
-    font-size: 0.72rem;
-    letter-spacing: -0.01em;
-  }
+/* Focus visible styles for keyboard accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid #C6FF3D;
+  outline-offset: 2px;
 }
