@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useNav } from './store/useNav';
 import { World } from './scene/World';
 import { Hud } from './ui/Hud';
-import { ProjectPanel } from './ui/ProjectPanel';
+import { StationOverlay } from './ui/StationOverlay';
 import { CommandPalette } from './ui/CommandPalette';
 import { LoadingScreen } from './ui/LoadingScreen';
 import { ClassicView } from './ui/ClassicView';
@@ -64,8 +64,8 @@ export const App: React.FC = () => {
       ) : (
         <>
           <World />
+          <StationOverlay />
           <Hud />
-          <ProjectPanel />
           <CommandPalette />
           <LoadingScreen />
         </>
