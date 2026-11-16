@@ -1,10 +1,6 @@
 import React, { useEffect } from 'react';
 import { useNav } from './store/useNav';
-import { World } from './scene/World';
-import { Hud } from './ui/Hud';
-import { StationOverlay } from './ui/StationOverlay';
-import { CommandPalette } from './ui/CommandPalette';
-import { LoadingScreen } from './ui/LoadingScreen';
+import { ProfessionalGlassPortfolio } from './ui/ProfessionalGlassPortfolio';
 import { ClassicView } from './ui/ClassicView';
 import { ToastContainer } from './ui/Toast';
 import { portfolioData } from './data/portfolio';
@@ -25,7 +21,7 @@ export const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#07080A]">
+    <div className="min-h-screen bg-[#06080F] text-[#F1F5F9]">
       {/* Screen Reader Accessible Mirror (Visually Hidden) */}
       <div className="sr-only" aria-live="polite">
         <h1>{portfolioData.profile.name} — {portfolioData.profile.title}</h1>
@@ -46,29 +42,18 @@ export const App: React.FC = () => {
             <p>Technologies: {proj.tech.join(', ')}</p>
           </article>
         ))}
-        <h2>Skills</h2>
-        {portfolioData.skills.map((group) => (
-          <section key={group.name}>
-            <h3>{group.name}</h3>
-            <ul>
-              {group.skills.map((s) => (
-                <li key={s.name}>{s.name}: {s.context}</li>
-              ))}
-            </ul>
-          </section>
+        <h2>Tools & Skills</h2>
+        {portfolioData.tools.map((tool) => (
+          <div key={tool.name}>
+            <span>{tool.name} ({tool.category}): {tool.context}</span>
+          </div>
         ))}
       </div>
 
       {isClassicView ? (
         <ClassicView />
       ) : (
-        <>
-          <World />
-          <StationOverlay />
-          <Hud />
-          <CommandPalette />
-          <LoadingScreen />
-        </>
+        <ProfessionalGlassPortfolio />
       )}
 
       {/* Persistent Toasts */}

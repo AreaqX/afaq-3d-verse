@@ -13,6 +13,8 @@ export interface Profile {
   cv: string;
   email: string;
   phone?: string;
+  languages?: string[];
+  visaStatus?: string;
 }
 
 export interface ExperienceItem {
@@ -44,6 +46,14 @@ export interface SkillCategory {
   skills: SkillNode[];
 }
 
+export interface ToolItem {
+  name: string;
+  category: 'Mobile & Web' | 'SQA & Testing' | 'Backend & Cloud' | 'Low-Code & Automation' | 'PM & Tracking' | 'Office & Documentation' | 'Integrations & APIs';
+  context: string;
+  badge?: string;
+  icon?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -71,6 +81,7 @@ export interface PortfolioData {
   experience: ExperienceItem[];
   education: EducationItem[];
   skills: SkillCategory[];
+  tools: ToolItem[];
   projects: Project[];
   research: ResearchItem[];
 }
@@ -95,7 +106,9 @@ export const portfolioData: PortfolioData = {
     portfolioUrl: "https://afaq-portfolio.lovable.app",
     cv: "/Afaq_Mehmood_Resume.pdf",
     email: "afaqmehmood3179@gmail.com",
-    phone: "+92 326 177 9448"
+    phone: "+92 326 177 9448",
+    languages: ["English", "Urdu", "Punjabi"],
+    visaStatus: "Sponsorship required"
   },
 
   experience: [
@@ -105,13 +118,16 @@ export const portfolioData: PortfolioData = {
       period: "Jun 2023 – Present",
       location: "Sialkot / Hybrid",
       description:
-        "Built cross-platform mobile apps, admin portals and internal tools; automated real estate workflows with third-party integrations; secured backends with role-based access control and row-level security; handled payments and subscriptions; owned testing and QA on releases.",
+        "Gathered and verified client requirements, then managed development end to end. Built the frontend, implemented the database schema and backend, and tested every flow before handover to QA for final testing. Performed QA across mobile, web, and admin panels: manual functional, regression, and user acceptance testing, with Android and iOS checks before store release. Wrote test cases, reported and tracked bugs to resolution using ClickUp, Trello, and Jira. Tested Firebase security rules and Supabase RLS policies for multi-tenant isolation and RBAC, and validated APIs with Postman.",
       highlights: [
-        "Architected and deployed 8+ cross-platform mobile applications on App Store and Google Play Store",
-        "Engineered real estate automation pipelines integrating Podio, DocuSeal, and custom webhook services",
-        "Configured secure authentication, RBAC, and Supabase Row-Level Security (RLS) policies",
-        "Integrated multi-provider payment systems including Stripe Connect and RevenueCat subscriptions",
-        "Established QA release protocols, regression test matrices, and automated API validation"
+        "Delivered 5 major projects — multi-tenant SaaS, wellness, engagement, and fintech apps — published on Google Play Store and Apple App Store",
+        "Built 'Outdoor Share', a multi-tenant vehicle rental platform (mobile, web, admin panel) on FlutterFlow and Firebase, extended into 3 synced web apps",
+        "Published 'Well Quest' (Apple App Store) and 'Sole by Soleties' (Google Play & Apple App Store), both with real-time engagement features",
+        "Engineered 'Company Valuation Tool' (Supabase, advanced RLS) and 'ForeCash', a subscription-based forecasting app",
+        "Designed Firebase security rules and Supabase RLS policies across all production apps for multi-tenant isolation and RBAC",
+        "Integrated Stripe, RevenueCat, ChatGPT API, DocuSeal, and Brevo for payments, AI chat, e-signatures, and automation",
+        "Configured Figma MCP and FlutterFlow MCP with Claude AI to accelerate UI-to-component delivery",
+        "Prepared project documentation, reports, data sheets, and presentations using Microsoft Word, Excel, and PowerPoint"
       ]
     }
   ],
@@ -123,8 +139,80 @@ export const portfolioData: PortfolioData = {
       period: "2019 – 2023",
       location: "Sialkot, Pakistan",
       details:
-        "Rigorous coursework in Data Structures, Algorithms, Software Testing & Quality Assurance, Mobile Application Development, and Distributed Systems."
+        "Comprehensive computer science foundations: Software Testing, Verification & Validation, Data Structures & Advanced Algorithms, Distributed Systems, Cloud Architecture, and Relational Database Design."
+    },
+    {
+      degree: "Intermediate, Computer Science",
+      institution: "Superior College, Sambrial",
+      period: "2017 – 2019",
+      location: "Sambrial, Pakistan",
+      details:
+        "Mathematics, Computer Science fundamentals, Object-Oriented Programming principles, and Database foundations."
     }
+  ],
+
+  // Comprehensive Tool Matrix covering EVERY tool and skill from Afaq's resume
+  tools: [
+    // Mobile & Web
+    { name: "FlutterFlow", category: "Mobile & Web", context: "Primary visual & low-code mobile framework; delivered 8+ production apps to stores", badge: "Core", icon: "📱" },
+    { name: "Dart", category: "Mobile & Web", context: "Custom functions, state actions, API integrations, and custom widgets in Flutter", badge: "Core", icon: "🎯" },
+    { name: "React.js", category: "Mobile & Web", context: "Component architecture, interactive SPAs, and administrative web portals", badge: "Core", icon: "⚛️" },
+    { name: "ASP.NET MVC", category: "Mobile & Web", context: "Enterprise C# backend controllers, relational models, and secure RESTful endpoints", badge: "Production", icon: "🔷" },
+    { name: "TypeScript", category: "Mobile & Web", context: "Strict typing across client codebases and contract validation", badge: "Production", icon: "📘" },
+    { name: "App Store Publishing", category: "Mobile & Web", context: "App Store Connect, Certificates, Provisioning Profiles, TestFlight, and Apple Guideline compliance", badge: "Shipped", icon: "🍎" },
+    { name: "Google Play Console", category: "Mobile & Web", context: "AAB releases, Internal/Closed testing tracks, store listings, and Play Console compliance", badge: "Shipped", icon: "🤖" },
+
+    // SQA & Testing
+    { name: "Manual Functional Testing", category: "SQA & Testing", context: "End-to-end user flows, edge cases, negative testing, and business rule verification", badge: "Core", icon: "🔍" },
+    { name: "Regression Testing", category: "SQA & Testing", context: "Systematic regression matrices verified prior to any production store release", badge: "Core", icon: "🔄" },
+    { name: "User Acceptance Testing (UAT)", category: "SQA & Testing", context: "Requirement alignment, client criteria verification, and release sign-off", badge: "Core", icon: "✅" },
+    { name: "Test Case Design & Writing", category: "SQA & Testing", context: "Boundary value analysis, equivalence partitioning, test scenarios, and matrices", badge: "Core", icon: "📝" },
+    { name: "Bug Reporting & Tracking", category: "SQA & Testing", context: "Comprehensive tickets with reproduction steps, logs, severity triage, and verification", badge: "Core", icon: "🐞" },
+    { name: "Postman (API Testing)", category: "SQA & Testing", context: "API collections, automated assertions, token headers, status codes, and latency checks", badge: "Core", icon: "🚀" },
+    { name: "Security-Rule Testing", category: "SQA & Testing", context: "Penetration checks for unauthorized reads/writes and multi-tenant data leakage", badge: "Specialist", icon: "🛡️" },
+
+    // Backend, Cloud & Security
+    { name: "Firebase (BaaS)", category: "Backend & Cloud", context: "Firestore NoSQL, Cloud Functions, Authentication, Cloud Messaging, and Storage", badge: "Core", icon: "🔥" },
+    { name: "Supabase (BaaS)", category: "Backend & Cloud", context: "Managed PostgreSQL, Realtime channels, Edge Functions, and Storage buckets", badge: "Core", icon: "⚡" },
+    { name: "PostgreSQL", category: "Backend & Cloud", context: "Relational schema design, indexes, foreign keys, views, and SQL queries", badge: "Core", icon: "🐘" },
+    { name: "Firebase Security Rules", category: "Backend & Cloud", context: "Fine-grained document authorization, multi-tenant isolation, and payload validation", badge: "Specialist", icon: "🔒" },
+    { name: "Supabase RLS", category: "Backend & Cloud", context: "Advanced Row-Level Security policies enforcing strict tenant boundaries and RBAC", badge: "Specialist", icon: "🛡️" },
+    { name: "Role-Based Access Control (RBAC)", category: "Backend & Cloud", context: "Multi-tenant role permissions separating Admins, Managers, and End-Users", badge: "Specialist", icon: "👥" },
+    { name: "REST APIs", category: "Backend & Cloud", context: "Endpoint contracts, JSON payloads, pagination, JWT authentication, and error codes", badge: "Core", icon: "🌐" },
+
+    // Low-Code, Automation & Enterprise
+    { name: "Retool", category: "Low-Code & Automation", context: "Custom enterprise internal portals, logistics trackers, and customer support consoles", badge: "Enterprise", icon: "🛠️" },
+    { name: "Podio", category: "Low-Code & Automation", context: "Real estate workflow automation, calculation fields, and lead-to-contract pipelines", badge: "Enterprise", icon: "🏢" },
+    { name: "GoHighLevel", category: "Low-Code & Automation", context: "Multi-channel marketing automation, lead scoring, automated SMS/email sequences", badge: "Enterprise", icon: "📈" },
+    { name: "Airtable", category: "Low-Code & Automation", context: "Relational client databases, automated triggers, and form collection workflows", badge: "Production", icon: "📊" },
+    { name: "Lovable", category: "Low-Code & Automation", context: "Full-stack rapid web app prototyping, iterative UI delivery, and modern components", badge: "Modern", icon: "💜" },
+    { name: "Replit", category: "Low-Code & Automation", context: "Rapid backend prototyping, webhook receivers, and microservices testing", badge: "Modern", icon: "💻" },
+    { name: "Softr.io & Tape", category: "Low-Code & Automation", context: "Client portals, secure database frontends, and external stakeholder consoles", badge: "Production", icon: "🧩" },
+
+    // AI & Modern Dev Tools
+    { name: "Claude AI", category: "Low-Code & Automation", context: "AI-assisted code generation, architecture design, test case creation, and review", badge: "AI", icon: "🧠" },
+    { name: "ChatGPT API", category: "Low-Code & Automation", context: "Embedded LLM conversational support, context prompts, and automated customer assistance", badge: "AI", icon: "🤖" },
+    { name: "MCP (Model Context Protocol)", category: "Low-Code & Automation", context: "Integrating automated dev workflows, context servers, and agentic AI tooling", badge: "Cutting-Edge", icon: "🔗" },
+    { name: "Figma MCP", category: "Low-Code & Automation", context: "Accelerating design-to-component workflows directly from Figma designs", badge: "Cutting-Edge", icon: "🎨" },
+    { name: "FlutterFlow MCP", category: "Low-Code & Automation", context: "Automating and accelerating mobile UI-to-component delivery via AI tool connections", badge: "Cutting-Edge", icon: "⚡" },
+
+    // Project Management & Tracking
+    { name: "ClickUp", category: "PM & Tracking", context: "Sprint boards, task dependencies, QA issue tracking, and delivery timelines", badge: "Daily", icon: "📋" },
+    { name: "Trello", category: "PM & Tracking", context: "Kanban workflow visualization, release backlogs, and milestone management", badge: "Daily", icon: "📌" },
+    { name: "Jira", category: "PM & Tracking", context: "Agile sprints, user stories, bug lifecycle, and acceptance criteria tracking", badge: "Daily", icon: "📊" },
+
+    // Office Suite & Documentation
+    { name: "Microsoft Word", category: "Office & Documentation", context: "Technical documentation, system requirement specs (SRS), templates, formatting", badge: "Expert", icon: "📄" },
+    { name: "Microsoft Excel", category: "Office & Documentation", context: "Data entry, formulas, pivot tables, QA metric reporting, and data management", badge: "Expert", icon: "📈" },
+    { name: "Microsoft PowerPoint", category: "Office & Documentation", context: "Executive presentations, architecture walkthroughs, and client pitch decks", badge: "Expert", icon: "📊" },
+    { name: "Document Controller", category: "Office & Documentation", context: "Compliance tracking, versioning, release changelogs, and document archiving", badge: "Certified", icon: "🗄️" },
+
+    // Integrations & Payments
+    { name: "Stripe & Stripe Connect", category: "Integrations & APIs", context: "Payment intents, marketplace escrow, payouts, webhooks, and subscriptions", badge: "Core", icon: "💳" },
+    { name: "RevenueCat", category: "Integrations & APIs", context: "In-app purchases, iOS/Android subscription paywalls, and customer entitlements", badge: "Core", icon: "💰" },
+    { name: "DocuSeal & DocuSign", category: "Integrations & APIs", context: "E-signature embedded contracts, document generation, and status webhooks", badge: "Production", icon: "✍️" },
+    { name: "Brevo & BulkSMS", category: "Integrations & APIs", context: "Transactional emails, automated SMS delivery, and notification pipelines", badge: "Production", icon: "✉️" },
+    { name: "Google Maps API", category: "Integrations & APIs", context: "Geocoding, interactive location search, route tracking, and custom map pins", badge: "Production", icon: "🗺️" }
   ],
 
   skills: [

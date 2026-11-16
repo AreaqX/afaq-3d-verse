@@ -29,16 +29,41 @@ export const CommandPalette: React.FC = () => {
   const allCommands = useMemo<CommandItem[]>(() => {
     const list: CommandItem[] = [];
 
-    // Stations
-    STATIONS.forEach((s) => {
+    // Sections Navigation
+    const sections = [
+      { id: 'hero', name: 'About & Hero Overview', icon: '👤' },
+      { id: 'tools', name: 'All Tools & Technical Arsenal (35+ Tools)', icon: '🛠️' },
+      { id: 'projects', name: 'Featured Mobile Apps & Platforms', icon: '📱' },
+      { id: 'experience', name: 'Work Experience & Education', icon: '💼' },
+      { id: 'contact', name: 'Contact & Relocation Beacon', icon: '✉️' }
+    ];
+
+    sections.forEach((s) => {
       list.push({
-        id: `station-${s.id}`,
-        title: `Fly to ${s.name}`,
-        subtitle: `Station 0${s.index + 1}`,
+        id: `section-${s.id}`,
+        title: `Navigate to ${s.name}`,
+        subtitle: `Smooth scroll to section #${s.id}`,
         category: 'STATIONS',
-        icon: '🚀',
+        icon: s.icon,
         action: () => {
-          goToStation(s.index);
+          const el = document.getElementById(s.id);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          setCommandPalette(false);
+        }
+      });
+    });
+
+    // Tools in Command Palette
+    portfolioData.tools.forEach((t) => {
+      list.push({
+        id: `tool-${t.name}`,
+        title: `${t.name} · ${t.category}`,
+        subtitle: t.context,
+        category: 'ACTIONS',
+        icon: t.icon || '⚡',
+        action: () => {
+          const el = document.getElementById('tools');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
           setCommandPalette(false);
         }
       });

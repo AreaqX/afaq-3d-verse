@@ -259,6 +259,41 @@ export const ClassicView: React.FC = () => {
           </div>
         </section>
 
+        {/* Section: Comprehensive Technical Tools Arsenal */}
+        <section aria-labelledby="tools-heading" className="space-y-6">
+          <div className="border-b border-[#202530] pb-4">
+            <h2 id="tools-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
+              Technical Arsenal & Tools Matrix ({portfolioData.tools.length} Tools)
+            </h2>
+            <p className="font-mono text-xs text-[#8E8E93] mt-1">
+              Production tools, QA test runners, BaaS backends, and low-code enterprise automation platforms.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+            {portfolioData.tools.map((tool) => (
+              <div
+                key={tool.name}
+                className="p-3.5 rounded-lg bg-[#0D1117] border border-[#1E2532] space-y-1.5"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span>{tool.icon}</span>
+                    <span className="text-xs font-mono font-bold text-[#FFFFFF]">{tool.name}</span>
+                  </div>
+                  {tool.badge && (
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-[#00E5FF] bg-[#00E5FF]/10">
+                      {tool.badge}
+                    </span>
+                  )}
+                </div>
+                <div className="text-[10px] font-mono text-[#64748B] uppercase">{tool.category}</div>
+                <div className="text-xs text-[#9CA3AF] leading-snug">{tool.context}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Section: Technical Skills */}
         <section aria-labelledby="skills-heading" className="space-y-6">
           <div className="border-b border-[#202530] pb-4">
