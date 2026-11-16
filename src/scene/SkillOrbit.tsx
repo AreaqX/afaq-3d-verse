@@ -88,7 +88,6 @@ const OrbitalRing: React.FC<OrbitalRingProps> = ({
         <Text
           fontSize={0.22}
           color={category.color}
-          font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
           letterSpacing={0.08}
           anchorX="left"
           anchorY="middle"
@@ -151,7 +150,6 @@ const OrbitalRing: React.FC<OrbitalRingProps> = ({
               <Text
                 position={[0, -0.42, 0.05]}
                 fontSize={0.24}
-                font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
                 letterSpacing={0.02}
                 color={isHovered ? '#FFFFFF' : '#EDEDED'}
                 anchorX="center"
@@ -183,7 +181,6 @@ const OrbitalRing: React.FC<OrbitalRingProps> = ({
                   <Text
                     position={[0, 0, 0.02]}
                     fontSize={0.17}
-                    font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
                     color={category.color}
                     maxWidth={5.4}
                     textAlign="center"
@@ -241,7 +238,6 @@ export const SkillOrbit: React.FC = () => {
       <Text
         position={[0, 0, 1.25]}
         fontSize={0.22}
-        font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
         color="#C6FF3D"
         letterSpacing={0.1}
         anchorX="center"

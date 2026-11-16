@@ -21,7 +21,6 @@ export const JourneyStation: React.FC = () => {
       <Text
         position={[0, 7.5, 0]}
         fontSize={0.7}
-        font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
         letterSpacing={0.14}
         color="#EDEDED"
         anchorX="center"
@@ -76,7 +75,6 @@ export const JourneyStation: React.FC = () => {
           <Text
             position={[-2.2, 1.65, 0.02]}
             fontSize={0.17}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#C6FF3D"
             anchorX="left"
             anchorY="middle"
@@ -88,7 +86,6 @@ export const JourneyStation: React.FC = () => {
           <Text
             position={[-2.2, 1.25, 0.02]}
             fontSize={0.3}
-            font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
             color="#FFFFFF"
             anchorX="left"
             anchorY="middle"
@@ -124,7 +121,6 @@ export const JourneyStation: React.FC = () => {
           <group position={[-2.2, -1.5, 0.02]}>
             <Text
               fontSize={0.14}
-              font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
               color="#8E8E93"
               anchorX="left"
               anchorY="middle"
@@ -162,7 +158,6 @@ export const JourneyStation: React.FC = () => {
           <Text
             position={[-2.2, 1.45, 0.02]}
             fontSize={0.17}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#8E8E93"
             anchorX="left"
             anchorY="middle"
@@ -174,7 +169,6 @@ export const JourneyStation: React.FC = () => {
           <Text
             position={[-2.2, 1.05, 0.02]}
             fontSize={0.3}
-            font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
             color="#FFFFFF"
             anchorX="left"
             anchorY="middle"
@@ -210,7 +204,6 @@ export const JourneyStation: React.FC = () => {
           <group position={[-2.2, -1.3, 0.02]}>
             <Text
               fontSize={0.14}
-              font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
               color="#8E8E93"
               anchorX="left"
               anchorY="middle"

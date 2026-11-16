@@ -60,7 +60,6 @@ export const HubStation: React.FC = () => {
         <Text
           position={[0, 1.8, 0]}
           fontSize={1.75}
-          font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
           letterSpacing={-0.03}
           color="#EDEDED"
           anchorX="center"
@@ -73,7 +72,6 @@ export const HubStation: React.FC = () => {
         <group position={[0, 0.45, 0]}>
           <Text
             fontSize={0.52}
-            font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
             letterSpacing={0.08}
             color="#C6FF3D"
             fillOpacity={roleOpacity}

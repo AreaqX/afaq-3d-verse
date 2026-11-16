@@ -71,7 +71,6 @@ export const WorkStation: React.FC = () => {
       <Text
         position={[0, 6.2, 0]}
         fontSize={0.65}
-        font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
         letterSpacing={0.12}
         color="#EDEDED"
         anchorX="center"

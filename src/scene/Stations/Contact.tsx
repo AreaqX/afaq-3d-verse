@@ -71,7 +71,6 @@ export const ContactStation: React.FC = () => {
       <Text
         position={[0, 0.8, 0]}
         fontSize={0.85}
-        font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
         letterSpacing={-0.02}
         color="#EDEDED"
         anchorX="center"
@@ -113,7 +112,6 @@ export const ContactStation: React.FC = () => {
           <Text
             position={[0, 0, 0.02]}
             fontSize={0.2}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#07080A"
             letterSpacing={0.05}
             anchorX="center"
@@ -146,7 +144,6 @@ export const ContactStation: React.FC = () => {
           <Text
             position={[0, 0, 0.02]}
             fontSize={0.2}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#C6FF3D"
             letterSpacing={0.05}
             anchorX="center"
@@ -179,7 +176,6 @@ export const ContactStation: React.FC = () => {
           <Text
             position={[0, 0, 0.02]}
             fontSize={0.2}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#EDEDED"
             letterSpacing={0.05}
             anchorX="center"
@@ -212,7 +208,6 @@ export const ContactStation: React.FC = () => {
           <Text
             position={[0, 0, 0.02]}
             fontSize={0.2}
-            font="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_al061wqUbewOt5uSU.woff"
             color="#EDEDED"
             letterSpacing={0.05}
             anchorX="center"

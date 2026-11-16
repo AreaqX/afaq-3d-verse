@@ -9,7 +9,6 @@ export const SkillsStation: React.FC = () => {
       <Text
         position={[0, 8.5, 0]}
         fontSize={0.7}
-        font="https://fonts.gstatic.com/s/spacegrotesk/v16/V8mQoQDjQSkFtoMM3T6r8E7mF71Q-g.woff"
         letterSpacing={0.14}
         color="#EDEDED"
         anchorX="center"
