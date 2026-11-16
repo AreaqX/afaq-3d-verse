@@ -17,16 +17,16 @@ export const ContactView: React.FC = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4 }}
-        className="p-8 sm:p-12 rounded-3xl bg-[#0C101A]/95 border border-[#1A2333] backdrop-blur-xl shadow-2xl space-y-6 pointer-events-auto w-full"
+        className="glass-panel p-8 sm:p-12 rounded-3xl space-y-6 pointer-events-auto w-full shadow-[0_24px_70px_rgba(0,0,0,0.7)]"
       >
         {/* Beacon Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#101624] border border-[#00E5FF]/40 text-xs font-mono text-[#00E5FF]">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill border-[#00E5FF]/40 text-xs font-mono text-[#00E5FF] shadow-[0_0_12px_rgba(0,229,255,0.2)]">
           <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-ping shadow-[0_0_8px_#00E5FF]" />
           <span>TRANSMISSION BEACON ONLINE</span>
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-[#FFFFFF] tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-display font-black text-[#FFFFFF] tracking-tight drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
           Let's build something reliable.
         </h2>
 
@@ -36,7 +36,7 @@ export const ContactView: React.FC = () => {
         </p>
 
         {/* Status Callout Box */}
-        <div className="p-4 rounded-xl bg-[#101624] border border-[#1A2333] max-w-lg mx-auto text-left space-y-1 font-mono text-xs text-[#D1D5DB]">
+        <div className="glass-card-interactive p-4 sm:p-5 rounded-2xl max-w-lg mx-auto text-left space-y-2 font-mono text-xs text-[#CBD5E1]">
           <div className="flex items-center gap-2 text-[#00E5FF]">
             <span>📍</span>
             <span className="font-bold">LOCATION:</span>
@@ -53,7 +53,7 @@ export const ContactView: React.FC = () => {
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <a
             href={`mailto:${portfolioData.profile.email}`}
-            className="px-6 py-3 rounded-xl bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] font-mono text-xs sm:text-sm font-bold transition-all shadow-[0_0_20px_rgba(0,229,255,0.35)] flex items-center gap-2 cursor-pointer"
+            className="px-6 py-3.5 rounded-xl bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] font-mono text-xs sm:text-sm font-bold transition-all shadow-[0_0_24px_rgba(0,229,255,0.4)] flex items-center gap-2 cursor-pointer hover:scale-105"
           >
             <span>SEND EMAIL</span>
             <span>↗</span>
@@ -61,7 +61,7 @@ export const ContactView: React.FC = () => {
 
           <button
             onClick={handleCopyEmail}
-            className="px-5 py-3 rounded-xl bg-[#101624] hover:bg-[#161F33] border border-[#1A2333] hover:border-[#00E5FF]/50 text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="glass-card-interactive px-5 py-3.5 rounded-xl text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer hover:border-[#00E5FF]/50"
           >
             <span>COPY EMAIL</span>
             <span>📋</span>
@@ -71,7 +71,7 @@ export const ContactView: React.FC = () => {
             href={portfolioData.profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-xl bg-[#101624] hover:bg-[#161F33] border border-[#1A2333] hover:border-[#00E5FF]/50 text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="glass-card-interactive px-5 py-3.5 rounded-xl text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer hover:border-[#00E5FF]/50"
           >
             <span>LINKEDIN</span>
             <span>↗</span>
@@ -81,7 +81,7 @@ export const ContactView: React.FC = () => {
             href={portfolioData.profile.cv}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-3 rounded-xl bg-[#101624] hover:bg-[#161F33] border border-[#1A2333] hover:border-[#00E5FF]/50 text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer"
+            className="glass-card-interactive px-5 py-3.5 rounded-xl text-[#F1F5F9] font-mono text-xs sm:text-sm transition-all flex items-center gap-2 cursor-pointer hover:border-[#00E5FF]/50"
           >
             <span>RESUME PDF</span>
             <span className="text-[#00E5FF]">↓</span>

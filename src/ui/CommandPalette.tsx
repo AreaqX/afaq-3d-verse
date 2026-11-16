@@ -183,13 +183,13 @@ export const CommandPalette: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: -10 }}
             transition={{ duration: 0.15 }}
-            className="relative w-full max-w-xl bg-[#0D1117] border border-[#232A38] rounded-xl shadow-2xl shadow-black overflow-hidden font-mono text-[#EDEDED]"
+            className="relative w-full max-w-xl glass-panel border border-white/10 rounded-2xl shadow-[0_24px_70px_rgba(0,0,0,0.85)] overflow-hidden font-mono text-[#EDEDED]"
             role="dialog"
             aria-modal="true"
             aria-label="Command search palette"
           >
             {/* Search Input */}
-            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#1A2333]">
+            <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/10">
               <span className="text-base text-[#00E5FF]">🔍</span>
               <input
                 ref={inputRef}
@@ -203,7 +203,7 @@ export const CommandPalette: React.FC = () => {
                 placeholder="Jump to station, project, CV, or action..."
                 className="w-full bg-transparent text-sm text-[#FFFFFF] placeholder-[#64748B] focus:outline-none"
               />
-              <kbd className="px-1.5 py-0.5 rounded bg-[#131926] text-[10px] text-[#94A3B8] border border-[#1E273A]">
+              <kbd className="px-2 py-0.5 rounded-md glass-pill text-[10px] text-[#94A3B8]">
                 ESC
               </kbd>
             </div>
@@ -222,10 +222,10 @@ export const CommandPalette: React.FC = () => {
                       key={item.id}
                       onClick={item.action}
                       onMouseEnter={() => setSelectedIndex(index)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-left transition-colors cursor-pointer ${
+                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all cursor-pointer ${
                         isSelected
-                          ? 'bg-[#131A29] text-[#FFFFFF]'
-                          : 'text-[#CBD5E1] hover:bg-[#101522]'
+                          ? 'bg-[#00E5FF]/15 border border-[#00E5FF]/40 text-[#FFFFFF] shadow-[0_0_15px_rgba(0,229,255,0.15)]'
+                          : 'text-[#CBD5E1] hover:bg-white/5 border border-transparent'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -237,7 +237,7 @@ export const CommandPalette: React.FC = () => {
                           <div className="text-[11px] text-[#64748B]">{item.subtitle}</div>
                         </div>
                       </div>
-                      <span className="text-[10px] text-[#475569] uppercase tracking-wider">
+                      <span className="text-[10px] text-[#64748B] uppercase tracking-wider">
                         {item.category}
                       </span>
                     </button>
@@ -247,14 +247,14 @@ export const CommandPalette: React.FC = () => {
             </div>
 
             {/* Footer tips */}
-            <div className="flex items-center justify-between px-4 py-2 border-t border-[#161D2B] bg-[#080B12] text-[11px] text-[#64748B]">
+            <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/10 bg-black/40 text-[11px] text-[#64748B]">
               <div className="flex items-center gap-2">
                 <span>Navigate</span>
-                <kbd className="px-1 bg-[#131A28] rounded border border-[#1E273A]">↑↓</kbd>
+                <kbd className="px-1.5 py-0.5 glass-pill rounded text-[10px]">↑↓</kbd>
                 <span>Select</span>
-                <kbd className="px-1 bg-[#131A28] rounded border border-[#1E273A]">↵</kbd>
+                <kbd className="px-1.5 py-0.5 glass-pill rounded text-[10px]">↵</kbd>
               </div>
-              <div className="text-[#00E5FF]">FLIGHT COMMAND SYSTEM</div>
+              <div className="text-[#00E5FF] font-bold">FLIGHT COMMAND SYSTEM</div>
             </div>
           </motion.div>
         </div>
