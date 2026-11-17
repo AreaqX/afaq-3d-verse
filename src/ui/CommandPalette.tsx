@@ -31,11 +31,13 @@ export const CommandPalette: React.FC = () => {
 
     // Sections Navigation
     const sections = [
-      { id: 'hero', name: 'About & Hero Overview', icon: '👤' },
-      { id: 'tools', name: 'All Tools & Technical Arsenal (35+ Tools)', icon: '🛠️' },
-      { id: 'projects', name: 'Featured Mobile Apps & Platforms', icon: '📱' },
-      { id: 'experience', name: 'Work Experience & Education', icon: '💼' },
-      { id: 'contact', name: 'Contact & Relocation Beacon', icon: '✉️' }
+      { id: 'about', name: '01 / Executive Profile & Overview', icon: '👤' },
+      { id: 'tools', name: '02 / Technical Arsenal (45 Tools)', icon: '🛠️' },
+      { id: 'mobile-apps', name: '03 / Production Mobile Applications', icon: '📱' },
+      { id: 'internal-systems', name: '04 / Enterprise Systems & Automation', icon: '⚡' },
+      { id: 'experience', name: '05 / Work Experience & QA Leadership', icon: '💼' },
+      { id: 'education', name: '06 / Academic Credentials & Relocation', icon: '🎓' },
+      { id: 'contact', name: '07 / Direct Contact & Transmission Beacon', icon: '✉️' }
     ];
 
     sections.forEach((s) => {
