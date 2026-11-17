@@ -84,12 +84,10 @@ export const PhoneFrame: React.FC = () => {
               {/* Lock Screen */}
               {isLocked ? (
                 <LockScreen />
+              ) : currentApp === 'home' ? (
+                <HomeScreen />
               ) : (
-                <>
-                  {/* Home Screen (Active OS Workspace) */}
-                  <HomeScreen />
-
-                  {/* Open App Layer */}
+                <div className="relative w-full h-full bg-[#0B0F19] overflow-hidden">
                   {currentApp === 'projects' && <ProjectsApp />}
                   {currentApp === 'about' && <AboutApp />}
                   {currentApp === 'skills' && <SkillsApp />}
@@ -98,7 +96,7 @@ export const PhoneFrame: React.FC = () => {
                   {currentApp === 'messages' && <MessagesApp />}
                   {currentApp === 'bughunt' && <BugHuntApp />}
                   {currentApp === 'settings' && <SettingsApp />}
-                </>
+                </div>
               )}
 
               {/* Overlays (Control Center, App Switcher, Spotlight) */}

@@ -4,11 +4,12 @@
 
 @layer base {
   :root {
-    --bg-stage: #07090E;
-    --bg-screen: #0A0E17;
-    --surface: #121826;
-    --surface-alt: #172033;
-    --border: #232F46;
+    /* Matte Black Executive Stage & Screen Tokens */
+    --bg-stage: #11141A;
+    --bg-screen: #0B0F19;
+    --surface: #141B28;
+    --surface-alt: #1A2335;
+    --border: #24314A;
     --border-subtle: rgba(255, 255, 255, 0.08);
     --ink: #FFFFFF;
     --ink-muted: #94A3B8;
@@ -16,7 +17,7 @@
     --accent: #00E5FF;
     --accent-hover: #33EBFF;
     --accent-soft: rgba(0, 229, 255, 0.15);
-    --on-accent: #07090E;
+    --on-accent: #0B0F19;
     --success: #10B981;
 
     color-scheme: dark;
@@ -63,7 +64,7 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.18);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -71,13 +72,15 @@
   }
 }
 
-/* Stage dot pattern background with ambient center glow */
+/* Matte Black Stage with refined ambient depth & subtle tech pattern */
 .stage-pattern {
-  background-color: var(--bg-stage);
+  background-color: #11141A;
   background-image: 
     radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
-    radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
-  background-size: 100% 100%, 28px 28px;
+    radial-gradient(circle at 15% 25%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(59, 130, 246, 0.05) 0%, transparent 45%),
+    radial-gradient(rgba(255, 255, 255, 0.07) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 28px 28px;
 }
 
 /* Phone 3D container */
@@ -87,28 +90,28 @@
 
 .phone-card-shadow {
   box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 20px 50px rgba(0, 0, 0, 0.6),
-    0 0 40px rgba(0, 229, 255, 0.12);
+    0 1px 2px rgba(0, 0, 0, 0.5),
+    0 25px 60px rgba(0, 0, 0, 0.8),
+    0 0 50px rgba(0, 229, 255, 0.15);
 }
 
 .dock-blur {
-  background: rgba(18, 24, 38, 0.75);
+  background: rgba(19, 26, 40, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .screen-card {
-  background: rgba(18, 24, 38, 0.85);
+  background: rgba(19, 26, 40, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
 .screen-card:hover {
-  border-color: rgba(0, 229, 255, 0.35);
+  border-color: rgba(0, 229, 255, 0.4);
 }
 
 /* Ambient glow utility */

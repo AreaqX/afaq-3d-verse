@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { PhoneFrame } from './PhoneFrame';
-import { LeftSidePanel, RightSidePanel } from './SidePanel';
+import { LeftSidePanel, RightSidePanel, FloatingStageBadges } from './SidePanel';
 import { useOS } from '../store/useOS';
 import { portfolioData } from '../data/portfolio';
 
@@ -10,8 +10,6 @@ export const Stage: React.FC = () => {
   const goHome = useOS((state) => state.goHome);
   const closeApp = useOS((state) => state.closeApp);
   const currentApp = useOS((state) => state.currentApp);
-  const isLocked = useOS((state) => state.isLocked);
-  const setControlCenter = useOS((state) => state.setControlCenter);
 
   // Global desktop keyboard shortcuts
   useEffect(() => {
@@ -33,23 +31,23 @@ export const Stage: React.FC = () => {
   }, [currentApp, closeApp, goHome]);
 
   return (
-    <div className="relative w-full min-h-screen stage-pattern flex flex-col justify-between overflow-x-hidden">
-      {/* Top persistent recruiter skip bar (Desktop / Tablet) */}
-      <header className="hidden sm:flex w-full px-6 py-3 border-b border-border bg-surface/80 backdrop-blur-md items-center justify-between z-30 text-xs font-mono">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <span className="font-bold text-white">Afaq Mehmood</span>
+    <div className="relative w-full min-h-screen stage-pattern flex flex-col justify-between overflow-x-hidden text-white select-none">
+      {/* Top persistent recruiter bar (Matte Dark Glass) */}
+      <header className="hidden sm:flex w-full px-6 py-3 border-b border-[#24314A] bg-[#141B28]/90 backdrop-blur-md items-center justify-between z-40 text-xs font-mono shadow-sm">
+        <div className="flex items-center gap-2.5">
+          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50" />
+          <span className="font-bold text-white tracking-wide">Afaq Mehmood</span>
           <span className="text-border">/</span>
-          <span className="text-ink-muted">Interactive Mobile OS</span>
+          <span className="text-accent font-semibold">Mobile App Developer · Software Engineer · SQA Engineer</span>
         </div>
 
         <div className="flex items-center gap-3">
           <a
             href={portfolioData.profile.cv}
             download="Afaq_Mehmood_Resume.pdf"
-            className="text-white hover:text-accent font-medium underline underline-offset-4 transition-colors"
+            className="text-accent hover:underline font-bold transition-colors flex items-center gap-1"
           >
-            Skip to CV PDF (152 KB) ↓
+            <span>CV PDF (152 KB) ↓</span>
           </a>
           <span className="text-border">|</span>
           <a
@@ -61,33 +59,51 @@ export const Stage: React.FC = () => {
           <span className="text-border">|</span>
           <button
             onClick={toggleClassicView}
-            className="px-2.5 py-1 rounded-md bg-accent hover:bg-accent-hover text-black font-bold transition-all cursor-pointer shadow-sm"
+            className="px-3 py-1 rounded-lg bg-accent hover:bg-accent-hover text-black font-bold transition-all cursor-pointer shadow-md shadow-cyan-500/20"
           >
             Classic 2D View
           </button>
         </div>
       </header>
 
-      {/* Main Stage: Center Phone & Side Panels */}
-      <main className="flex-1 w-full max-w-7xl mx-auto flex items-center justify-center lg:justify-between px-0 sm:px-6 py-0 sm:py-6">
-        {/* Left Side Panel (Desktop only) */}
+      {/* Main Stage: Center Phone & Surrounding Elements */}
+      <main className="relative flex-1 w-full max-w-7xl mx-auto flex items-center justify-center lg:justify-between px-0 sm:px-6 py-0 sm:py-6">
+        {/* Left Side Panel (Desktop only >= 1024px) */}
         <LeftSidePanel />
 
+        {/* Floating Stage Badges (Tablet & Medium Screens flanking phone) */}
+        <FloatingStageBadges />
+
         {/* Center: The Smartphone */}
-        <div className="flex-1 flex items-center justify-center">
+        <div className="relative flex-1 flex items-center justify-center z-30">
           <PhoneFrame />
+
+          {/* Ambient Stage Reflection Glow underneath the phone */}
+          <div className="hidden sm:block absolute -bottom-6 left-1/2 -translate-x-1/2 w-80 h-10 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
         </div>
 
-        {/* Right Side Panel (Desktop only) */}
+        {/* Right Side Panel (Desktop only >= 1024px) */}
         <RightSidePanel />
       </main>
 
-      {/* Tablet footnote if side panels hidden */}
-      <footer className="hidden sm:flex lg:hidden w-full py-4 text-center items-center justify-center gap-4 text-xs font-mono text-ink-muted border-t border-border/60 bg-white/50">
-        <span>Afaq Mehmood · Mobile App Developer · Software Engineer · SQA Engineer</span>
-        <button onClick={toggleClassicView} className="text-accent underline cursor-pointer">
-          Classic 2D View
-        </button>
+      {/* Tablet / Medium Screen Footer */}
+      <footer className="hidden sm:flex lg:hidden w-full py-3.5 px-6 items-center justify-between text-xs font-mono text-ink-muted border-t border-[#24314A] bg-[#141B28]/90 backdrop-blur-md z-30">
+        <div className="flex items-center gap-2">
+          <span className="w-2 h-2 rounded-full bg-emerald-400" />
+          <span>Afaq Mehmood · Available for hire</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <a
+            href={portfolioData.profile.cv}
+            download="Afaq_Mehmood_Resume.pdf"
+            className="text-accent underline font-bold"
+          >
+            Resume PDF (152 KB)
+          </a>
+          <button onClick={toggleClassicView} className="text-white underline cursor-pointer">
+            Classic 2D View
+          </button>
+        </div>
       </footer>
     </div>
   );
