@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ExternalLink, Check, Download, ShieldCheck, Smartphone, Star } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Check, Download, ShieldCheck, Smartphone, Star, Globe, Play } from 'lucide-react';
 import { Project, portfolioData } from '../data/portfolio';
 import { useOS } from '../store/useOS';
 
@@ -10,9 +10,15 @@ interface ProjectDetailProps {
 
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack }) => {
   const addToast = useOS((state) => state.addToast);
+  const primaryStoreUrl = project.appStoreUrl || project.playStoreUrl || project.webUrl;
 
   const handleGet = () => {
-    addToast(`${project.title} technical specification verified.`, 'success');
+    if (primaryStoreUrl) {
+      window.open(primaryStoreUrl, '_blank', 'noopener,noreferrer');
+      addToast(`Opening ${project.title} on Store...`, 'success');
+    } else {
+      addToast(`${project.title} technical specification verified.`, 'success');
+    }
   };
 
   return (
@@ -40,9 +46,10 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack })
           <div className="flex items-center gap-2 pt-2">
             <button
               onClick={handleGet}
-              className="px-5 py-1.5 rounded-full bg-accent hover:bg-accent-hover text-black text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer"
+              className="px-5 py-1.5 rounded-full bg-accent hover:bg-accent-hover text-black text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer flex items-center gap-1"
             >
-              GET
+              <span>GET</span>
+              {primaryStoreUrl && <ExternalLink className="w-3 h-3 text-black" />}
             </button>
             {project.platforms?.map((plat) => (
               <span
@@ -55,6 +62,66 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ project, onBack })
           </div>
         </div>
       </div>
+
+      {/* Official Live Store Buttons Banner */}
+      {(project.appStoreUrl || project.playStoreUrl || project.webUrl) && (
+        <div className="p-3 rounded-2xl bg-gradient-to-r from-accent/15 via-white/[0.04] to-[#141B28] border border-accent/40 space-y-2 shadow-lg">
+          <div className="flex items-center justify-between">
+            <span className="text-[10px] font-mono font-bold text-accent uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400" />
+              <span>Official Store Release</span>
+            </span>
+            <span className="text-[9px] font-mono text-emerald-400 font-bold">LIVE IN STORES</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-0.5">
+            {project.appStoreUrl && (
+              <a
+                href={project.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-3 rounded-xl bg-black/80 hover:bg-black border border-white/20 hover:border-accent text-white font-sans text-xs font-semibold flex items-center justify-between transition-all shadow-md group cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="text-sm"></span>
+                  <span>Apple App Store</span>
+                </div>
+                <ExternalLink className="w-3 h-3 text-accent group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            )}
+
+            {project.playStoreUrl && (
+              <a
+                href={project.playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-3 rounded-xl bg-black/80 hover:bg-black border border-white/20 hover:border-emerald-400 text-white font-sans text-xs font-semibold flex items-center justify-between transition-all shadow-md group cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Play className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+                  <span>Google Play</span>
+                </div>
+                <ExternalLink className="w-3 h-3 text-emerald-400 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            )}
+
+            {project.webUrl && (
+              <a
+                href={project.webUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2 px-3 rounded-xl bg-black/80 hover:bg-black border border-white/20 hover:border-sky-400 text-white font-sans text-xs font-semibold flex items-center justify-between transition-all shadow-md group cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Globe className="w-3.5 h-3.5 text-sky-400" />
+                  <span>outdoorshare.app</span>
+                </div>
+                <ExternalLink className="w-3 h-3 text-sky-400 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Ratings & Metadata Bar (App Store Style) */}
       <div className="grid grid-cols-3 divide-x divide-border border-y border-border py-2 text-center bg-surface/50 rounded-xl">

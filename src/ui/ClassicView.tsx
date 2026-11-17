@@ -1,7 +1,7 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolio';
 import { useOS } from '../store/useOS';
-import { Download, Linkedin, Mail, Copy, Smartphone, MapPin, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
+import { Download, Linkedin, Mail, Copy, Smartphone, MapPin, CheckCircle, ExternalLink, Sparkles, Globe, Play } from 'lucide-react';
 
 export const ClassicView: React.FC = () => {
   const toggleClassicView = useOS((state) => state.toggleClassicView);
@@ -184,6 +184,46 @@ export const ClassicView: React.FC = () => {
                     </span>
                   ))}
                 </div>
+
+                {(project.appStoreUrl || project.playStoreUrl || project.webUrl) && (
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-border">
+                    {project.appStoreUrl && (
+                      <a
+                        href={project.appStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 rounded-lg bg-black hover:bg-black/80 border border-white/20 text-white text-xs font-mono flex items-center gap-1.5 transition-colors"
+                      >
+                        <span> App Store</span>
+                        <ExternalLink className="w-3 h-3 text-accent" />
+                      </a>
+                    )}
+                    {project.playStoreUrl && (
+                      <a
+                        href={project.playStoreUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 rounded-lg bg-black hover:bg-black/80 border border-white/20 text-emerald-400 text-xs font-mono flex items-center gap-1.5 transition-colors"
+                      >
+                        <Play className="w-3 h-3 fill-emerald-400" />
+                        <span>Google Play</span>
+                        <ExternalLink className="w-3 h-3 text-emerald-400" />
+                      </a>
+                    )}
+                    {project.webUrl && (
+                      <a
+                        href={project.webUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1.5 rounded-lg bg-black hover:bg-black/80 border border-white/20 text-sky-400 text-xs font-mono flex items-center gap-1.5 transition-colors"
+                      >
+                        <Globe className="w-3 h-3" />
+                        <span>outdoorshare.app</span>
+                        <ExternalLink className="w-3 h-3 text-sky-400" />
+                      </a>
+                    )}
+                  </div>
+                )}
               </article>
             ))}
           </div>

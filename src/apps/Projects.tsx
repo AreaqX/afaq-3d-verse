@@ -169,13 +169,23 @@ export const ProjectsApp: React.FC = () => {
 
                     {/* App info */}
                     <div className="flex-1 min-w-0 text-left">
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-1.5 flex-wrap">
                         <h4 className="text-xs font-bold text-white group-hover:text-accent transition-colors truncate">
                           {p.title}
                         </h4>
                         {p.featured && (
                           <span className="px-1.5 py-0.2 rounded bg-accent-soft text-accent text-[9px] font-mono font-bold">
                             Top App
+                          </span>
+                        )}
+                        {p.appStoreUrl && (
+                          <span className="px-1 py-0.2 rounded bg-white/10 text-white text-[8px] font-mono">
+                             App Store
+                          </span>
+                        )}
+                        {p.playStoreUrl && (
+                          <span className="px-1 py-0.2 rounded bg-emerald-500/20 text-emerald-400 text-[8px] font-mono">
+                            ▶ Play Store
                           </span>
                         )}
                       </div>

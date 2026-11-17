@@ -67,6 +67,9 @@ export interface Project {
   color: string;
   screenshot?: string;
   featured: boolean;
+  appStoreUrl?: string;
+  playStoreUrl?: string;
+  webUrl?: string;
 }
 
 export interface ResearchItem {
@@ -271,7 +274,7 @@ export const portfolioData: PortfolioData = {
         "Vehicle rental marketplace with identity verification, payments, e-signature contracts and AI chat support.",
       category: "Mobile Apps",
       tech: ["FlutterFlow", "Stripe", "DocuSeal", "Firebase"],
-      platforms: ["App Store", "Play Store"],
+      platforms: ["App Store", "Play Store", "Web"],
       whatIDid: [
         "Architected end-to-end rental flow with identity verification and e-signatures via DocuSeal",
         "Integrated Stripe Connect for multi-party secure escrow payments and deposit handling",
@@ -280,7 +283,10 @@ export const portfolioData: PortfolioData = {
       ],
       color: "#10b981",
       screenshot: "/screens/outdoor-share.png",
-      featured: true
+      featured: true,
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.mycompany.myoutdoorshareffapp",
+      appStoreUrl: "https://apps.apple.com/us/app/outdoorshare/id6746942574",
+      webUrl: "https://outdoorshare.app"
     },
     {
       id: "well-quest",
@@ -290,7 +296,7 @@ export const portfolioData: PortfolioData = {
         "Wellness and habit-tracking app with personalised programs, progress analytics and subscription tiers.",
       category: "Mobile Apps",
       tech: ["FlutterFlow", "Supabase", "RevenueCat"],
-      platforms: ["App Store", "Play Store"],
+      platforms: ["App Store"],
       whatIDid: [
         "Implemented personalized wellness program algorithms and interactive habit analytics",
         "Configured tiered in-app subscriptions and paywalls using RevenueCat",
@@ -299,7 +305,8 @@ export const portfolioData: PortfolioData = {
       ],
       color: "#06b6d4",
       screenshot: "/screens/well-quest.png",
-      featured: true
+      featured: true,
+      appStoreUrl: "https://apps.apple.com/us/app/wellquest-wellness-tracker/id6764549163"
     },
     {
       id: "sole-by-soleties",
@@ -318,7 +325,9 @@ export const portfolioData: PortfolioData = {
       ],
       color: "#f59e0b",
       screenshot: "/screens/sole-by-soleties.png",
-      featured: true
+      featured: true,
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.soleapp.app",
+      appStoreUrl: "https://apps.apple.com/us/app/sole-by-soleties/id6766420640"
     },
     {
       id: "e-scrow",
@@ -413,7 +422,9 @@ export const portfolioData: PortfolioData = {
       ],
       color: "#a855f7",
       screenshot: "/screens/forecash.png",
-      featured: true
+      featured: true,
+      playStoreUrl: "https://play.google.com/store/apps/details?id=com.mycompany.forecash",
+      appStoreUrl: "https://apps.apple.com/us/app/forecash-financial-forecasting/id6747763876"
     },
 
     // Internal Tools
