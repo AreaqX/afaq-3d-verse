@@ -33,11 +33,21 @@ export const Stage: React.FC = () => {
   return (
     <div className="relative w-full min-h-screen stage-pattern flex flex-col justify-between overflow-x-hidden text-white select-none">
       {/* Top persistent recruiter bar (Matte Dark Glass) */}
-      <header className="hidden sm:flex w-full px-6 py-3 border-b border-[#24314A] bg-[#141B28]/90 backdrop-blur-md items-center justify-between z-40 text-xs font-mono shadow-sm">
+      <header className="hidden sm:flex w-full px-6 py-3 border-b border-white/10 bg-[#141B28]/80 backdrop-blur-2xl items-center justify-between z-40 text-xs font-mono shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
         <div className="flex items-center gap-2.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50" />
+          <div className="relative">
+            <img
+              src="/me.png"
+              alt="Afaq Mehmood"
+              className="w-7 h-7 rounded-full object-cover ring-1 ring-accent/60 shadow-md"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/afaq.png';
+              }}
+            />
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse absolute -bottom-0.5 -right-0.5 ring-1 ring-[#0B0F19]" />
+          </div>
           <span className="font-bold text-white tracking-wide">Afaq Mehmood</span>
-          <span className="text-border">/</span>
+          <span className="text-white/20">/</span>
           <span className="text-accent font-semibold">Mobile App Developer · Software Engineer · SQA Engineer</span>
         </div>
 
@@ -49,14 +59,14 @@ export const Stage: React.FC = () => {
           >
             <span>CV PDF (152 KB) ↓</span>
           </a>
-          <span className="text-border">|</span>
+          <span className="text-white/20">|</span>
           <a
             href={`mailto:${portfolioData.profile.email}`}
             className="text-white hover:text-accent font-medium transition-colors"
           >
             Contact ✉
           </a>
-          <span className="text-border">|</span>
+          <span className="text-white/20">|</span>
           <button
             onClick={toggleClassicView}
             className="px-3 py-1 rounded-lg bg-accent hover:bg-accent-hover text-black font-bold transition-all cursor-pointer shadow-md shadow-cyan-500/20"
@@ -79,7 +89,7 @@ export const Stage: React.FC = () => {
           <PhoneFrame />
 
           {/* Ambient Stage Reflection Glow underneath the phone */}
-          <div className="hidden sm:block absolute -bottom-6 left-1/2 -translate-x-1/2 w-80 h-10 bg-accent/20 blur-3xl rounded-full pointer-events-none" />
+          <div className="hidden sm:block absolute -bottom-8 left-1/2 -translate-x-1/2 w-96 h-14 bg-accent/25 blur-3xl rounded-full pointer-events-none" />
         </div>
 
         {/* Right Side Panel (Desktop only >= 1024px) */}
@@ -87,10 +97,17 @@ export const Stage: React.FC = () => {
       </main>
 
       {/* Tablet / Medium Screen Footer */}
-      <footer className="hidden sm:flex lg:hidden w-full py-3.5 px-6 items-center justify-between text-xs font-mono text-ink-muted border-t border-[#24314A] bg-[#141B28]/90 backdrop-blur-md z-30">
+      <footer className="hidden sm:flex lg:hidden w-full py-3.5 px-6 items-center justify-between text-xs font-mono text-ink-muted border-t border-white/10 bg-[#141B28]/80 backdrop-blur-2xl z-30 shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400" />
-          <span>Afaq Mehmood · Available for hire</span>
+          <img
+            src="/me.png"
+            alt="Afaq Mehmood"
+            className="w-5 h-5 rounded-full object-cover ring-1 ring-emerald-400"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = '/afaq.png';
+            }}
+          />
+          <span className="text-white font-medium">Afaq Mehmood · Available for hire</span>
         </div>
         <div className="flex items-center gap-3">
           <a
