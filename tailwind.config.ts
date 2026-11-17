@@ -9,35 +9,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#06080F",
-        surface: "#0C101A",
-        "surface-elevated": "#131926",
-        border: "#1A2333",
-        "border-light": "#253147",
-        foreground: "#F1F5F9",
-        muted: "#94A3B8",
-        "muted-dark": "#475569",
+        stage: "var(--bg-stage)",
+        screen: "var(--bg-screen)",
+        surface: "var(--surface)",
+        "surface-alt": "var(--surface-alt)",
+        border: "var(--border)",
+        ink: "var(--ink)",
+        "ink-muted": "var(--ink-muted)",
+        "ink-faint": "var(--ink-faint)",
         accent: {
-          DEFAULT: "#00E5FF",
-          hover: "#00B8D4",
-          dim: "#0284C7",
-          glow: "rgba(0, 229, 255, 0.25)"
+          DEFAULT: "var(--accent)",
+          hover: "var(--accent-hover)",
+          soft: "var(--accent-soft)",
         },
-        cyan: {
-          DEFAULT: "#00E5FF",
-          hover: "#00C4DB",
-          dim: "#0369A1",
-          glow: "rgba(0, 229, 255, 0.25)"
-        }
+        success: "var(--success)",
       },
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
-        sans: ["Space Grotesk", "sans-serif"],
+        sans: ["Plus Jakarta Sans", "Inter", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        display: ["Plus Jakarta Sans", "Inter", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"]
       },
       boxShadow: {
-        "cyan-glow": "0 0 25px rgba(0, 229, 255, 0.35)",
-        "cyan-subtle": "0 0 15px rgba(0, 229, 255, 0.15)"
+        phone: "0 1px 2px rgba(15,23,42,.06), 0 12px 32px rgba(15,23,42,.12), 0 32px 64px rgba(15,23,42,.08)",
+        card: "0 1px 2px rgba(15,23,42,.04), 0 4px 12px rgba(15,23,42,.03)",
+        elevated: "0 8px 24px rgba(15,23,42,.08)",
       }
     }
   },

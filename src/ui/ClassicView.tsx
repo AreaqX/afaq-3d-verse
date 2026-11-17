@@ -1,10 +1,11 @@
 import React from 'react';
 import { portfolioData } from '../data/portfolio';
-import { useNav } from '../store/useNav';
+import { useOS } from '../store/useOS';
+import { Download, Linkedin, Mail, Copy, Smartphone, MapPin, CheckCircle, ExternalLink, Sparkles } from 'lucide-react';
 
 export const ClassicView: React.FC = () => {
-  const toggleClassicView = useNav((state) => state.toggleClassicView);
-  const addToast = useNav((state) => state.addToast);
+  const toggleClassicView = useOS((state) => state.toggleClassicView);
+  const addToast = useOS((state) => state.addToast);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(portfolioData.profile.email);
@@ -16,99 +17,115 @@ export const ClassicView: React.FC = () => {
   const automationProjects = portfolioData.projects.filter((p) => p.category === 'Automation');
 
   return (
-    <div className="min-h-screen bg-[#06080F] text-[#F1F5F9] font-sans antialiased overflow-y-auto selection:bg-[#00E5FF] selection:text-[#06080F]">
+    <div className="min-h-screen bg-stage text-ink font-sans antialiased overflow-y-auto selection:bg-accent-soft selection:text-accent">
       {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-[#06080F]/95 border-b border-[#1A2333] backdrop-blur-md px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-white/90 border-b border-border backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#00E5FF] shadow-[0_0_8px_#00E5FF]" />
-          <span className="font-display font-bold text-lg text-[#FFFFFF]">AFAQ MEHMOOD</span>
-          <span className="hidden sm:inline font-mono text-xs text-[#94A3B8]">/ CLASSIC ACCESSIBLE VIEW</span>
+          <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+          <span className="font-display font-black text-lg text-ink tracking-tight">AFAQ MEHMOOD</span>
+          <span className="hidden sm:inline font-mono text-xs text-ink-muted">/ CLASSIC ACCESSIBLE VIEW</span>
         </div>
 
         <div className="flex items-center gap-3">
           <a
             href={portfolioData.profile.cv}
             download="Afaq_Mehmood_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-3.5 py-1.5 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-xs font-mono text-[#F1F5F9] transition-colors"
+            className="px-3.5 py-1.5 rounded-lg bg-surface hover:bg-surface-alt border border-border text-xs font-mono text-ink transition-colors flex items-center gap-1.5 cursor-pointer"
           >
-            Download CV ↓
+            <Download className="w-3.5 h-3.5" />
+            <span>Download CV</span>
           </a>
           <button
             onClick={toggleClassicView}
-            className="px-4 py-1.5 rounded-lg bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] text-xs font-mono font-bold transition-all shadow-md shadow-[#00E5FF]/20 cursor-pointer"
+            className="px-4 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-white text-xs font-mono font-bold transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
           >
-            Launch 3D Experience 🚀
+            <Smartphone className="w-3.5 h-3.5" />
+            <span>3D Smartphone Experience</span>
           </button>
         </div>
       </header>
 
       {/* Main Container */}
       <main className="max-w-4xl mx-auto px-6 py-12 space-y-16">
-        {/* Profile / Hero Section */}
-        <section aria-labelledby="profile-heading" className="space-y-6">
-          <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0C101A] border border-[#1A2333] text-xs font-mono text-[#94A3B8]">
-              <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
-              <span>Sialkot, PK · Open to relocation (UAE / GCC) & Lahore</span>
+        {/* Profile / Hero Section with Portrait */}
+        <section aria-labelledby="profile-heading" className="bg-white p-8 rounded-3xl border border-border shadow-card space-y-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-md shrink-0 bg-surface-alt">
+              <img
+                src="/me.png"
+                alt="Afaq Mehmood"
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/afaq-mehmood.png';
+                }}
+              />
+              <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-success border-2 border-white" />
             </div>
-            <h1 id="profile-heading" className="text-4xl sm:text-5xl font-display font-bold text-[#FFFFFF] tracking-tight">
-              Afaq Mehmood
-            </h1>
-            <p className="font-mono text-base sm:text-lg text-[#00E5FF] font-medium">
-              {portfolioData.profile.title}
-            </p>
+
+            <div className="space-y-2 flex-1">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-mono font-semibold">
+                <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                <span>OPEN TO RELOCATION: UAE / GCC (1 MO) & LAHORE</span>
+              </div>
+              <h1 id="profile-heading" className="text-3xl sm:text-4xl font-display font-black text-ink tracking-tight">
+                Afaq Mehmood
+              </h1>
+              <p className="font-mono text-sm sm:text-base text-accent font-bold">
+                {portfolioData.profile.title}
+              </p>
+            </div>
           </div>
 
-          <p className="text-lg text-[#CBD5E1] font-medium leading-relaxed max-w-2xl">
+          <p className="text-lg text-ink font-medium leading-relaxed italic border-l-2 border-accent pl-4">
             "{portfolioData.profile.tagline}"
           </p>
 
-          <p className="text-base text-[#94A3B8] leading-relaxed max-w-3xl">
+          <p className="text-sm text-ink-muted leading-relaxed">
             {portfolioData.profile.summary}
           </p>
 
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-border/80">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="px-4 py-2 rounded-lg bg-[#00E5FF] hover:bg-[#00C4DB] text-[#06080F] font-mono text-xs font-bold transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-accent hover:bg-accent-hover text-white font-mono text-xs font-bold transition-colors flex items-center gap-2 cursor-pointer"
             >
-              Send Email ↗
+              <Mail className="w-3.5 h-3.5" />
+              <span>Email Me</span>
             </a>
             <button
               onClick={handleCopyEmail}
-              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
-              Copy Email 📋
+              <Copy className="w-3.5 h-3.5" />
+              <span>Copy Email</span>
             </button>
             <a
               href={portfolioData.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
-              LinkedIn ↗
+              <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
+              <span>LinkedIn</span>
             </a>
             <a
               href={portfolioData.profile.cv}
               download="Afaq_Mehmood_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-[#0C101A] hover:bg-[#131926] border border-[#1A2333] text-[#F1F5F9] font-mono text-xs transition-colors cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
-              Resume PDF ↓
+              <Download className="w-3.5 h-3.5" />
+              <span>Resume PDF (152 KB)</span>
             </a>
           </div>
         </section>
 
         {/* Section: Featured Mobile Apps */}
-        <section aria-labelledby="featured-apps-heading" className="space-y-8">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="featured-apps-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
-              Featured Production Mobile Applications
+        <section aria-labelledby="featured-apps-heading" className="space-y-6">
+          <div className="border-b border-border pb-4">
+            <h2 id="featured-apps-heading" className="text-2xl font-display font-bold text-ink">
+              Production Mobile Applications
             </h2>
-            <p className="font-mono text-xs text-[#8E8E93] mt-1">
+            <p className="font-mono text-xs text-ink-muted mt-1">
               8 published apps built from architecture through App Store & Google Play Store release.
             </p>
           </div>
@@ -117,18 +134,18 @@ export const ClassicView: React.FC = () => {
             {featuredProjects.map((project) => (
               <article
                 key={project.id}
-                className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] hover:border-[#00E5FF]/50 transition-all flex flex-col justify-between space-y-4"
+                className="p-6 rounded-2xl bg-white border border-border shadow-xs hover:border-accent hover:shadow-card transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] text-[#00E5FF] uppercase tracking-wider">
+                    <span className="font-mono text-[11px] text-accent uppercase font-bold tracking-wider">
                       {project.subtitle}
                     </span>
                     <div className="flex items-center gap-1.5">
                       {project.platforms?.map((plat) => (
                         <span
                           key={plat}
-                          className="px-2 py-0.5 rounded bg-[#161B24] border border-[#242B38] text-[10px] font-mono text-[#D1D5DB]"
+                          className="px-2 py-0.5 rounded-full bg-surface-alt border border-border text-[10px] font-mono text-ink-muted font-medium"
                         >
                           {plat}
                         </span>
@@ -136,20 +153,20 @@ export const ClassicView: React.FC = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-display font-bold text-[#FFFFFF]">
+                  <h3 className="text-xl font-display font-bold text-ink">
                     {project.title}
                   </h3>
 
-                  <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                  <p className="text-sm text-ink-muted leading-relaxed">
                     {project.description}
                   </p>
 
                   <div className="space-y-2 pt-2">
-                    <span className="font-mono text-xs text-[#8E8E93] uppercase">Engineering Highlights</span>
+                    <span className="font-mono text-[11px] text-ink-faint uppercase font-bold">Engineering Highlights</span>
                     <ul className="space-y-1.5">
                       {project.whatIDid.map((bullet, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-xs text-[#B0B6C2]">
-                          <span className="text-[#00E5FF] mt-0.5 select-none font-bold">›</span>
+                        <li key={idx} className="flex items-start gap-2 text-xs text-ink-muted">
+                          <span className="text-accent mt-0.5 select-none font-bold">›</span>
                           <span>{bullet}</span>
                         </li>
                       ))}
@@ -157,11 +174,11 @@ export const ClassicView: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-[#1C222E]">
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-border">
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#00E5FF]"
+                      className="px-2 py-0.5 rounded-md bg-accent-soft text-[11px] font-mono font-medium text-accent"
                     >
                       {t}
                     </span>
@@ -173,13 +190,13 @@ export const ClassicView: React.FC = () => {
         </section>
 
         {/* Section: Internal Tools & Enterprise Automation */}
-        <section aria-labelledby="internal-tools-heading" className="space-y-8">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="internal-tools-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
+        <section aria-labelledby="internal-tools-heading" className="space-y-6">
+          <div className="border-b border-border pb-4">
+            <h2 id="internal-tools-heading" className="text-2xl font-display font-bold text-ink">
               Internal Tools & Workflow Automation
             </h2>
-            <p className="font-mono text-xs text-[#8E8E93] mt-1">
-              Custom operations platforms, CRM architectures, and financial modeling tools.
+            <p className="font-mono text-xs text-ink-muted mt-1">
+              Custom operations platforms, CRM architectures, and automated real estate workflows.
             </p>
           </div>
 
@@ -187,22 +204,22 @@ export const ClassicView: React.FC = () => {
             {[...internalTools, ...automationProjects].map((project) => (
               <article
                 key={project.id}
-                className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] space-y-3"
+                className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-3"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] text-[#8E8E93] uppercase">
+                  <span className="font-mono text-[11px] text-ink-faint uppercase font-semibold">
                     {project.category}
                   </span>
-                  <span className="font-mono text-[11px] text-[#00E5FF]">
+                  <span className="font-mono text-[11px] text-accent font-bold">
                     {project.subtitle}
                   </span>
                 </div>
 
-                <h3 className="text-lg font-display font-bold text-[#FFFFFF]">
+                <h3 className="text-lg font-display font-bold text-ink">
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                <p className="text-sm text-ink-muted leading-relaxed">
                   {project.description}
                 </p>
 
@@ -210,7 +227,7 @@ export const ClassicView: React.FC = () => {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded bg-[#121620] border border-[#1E2532] text-[11px] font-mono text-[#00E5FF]"
+                      className="px-2 py-0.5 rounded-md bg-surface-alt border border-border text-[11px] font-mono text-ink-muted"
                     >
                       {t}
                     </span>
@@ -221,51 +238,13 @@ export const ClassicView: React.FC = () => {
           </div>
         </section>
 
-        {/* Section: Research & Lab Explorations */}
-        <section aria-labelledby="research-heading" className="space-y-6">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="research-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
-              Research & Lab Explorations
-            </h2>
-            <p className="font-mono text-xs text-[#8E8E93] mt-1">
-              Active engineering experiments spanning AI copilots, Model Context Protocol, and declarative backend security.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {portfolioData.research.map((item) => (
-              <div
-                key={item.id}
-                className="p-5 rounded-lg bg-[#0C1016] border border-[#1E2532] space-y-2.5"
-              >
-                <h3 className="text-base font-display font-bold text-[#FFFFFF]">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-[#9CA3AF] leading-relaxed">
-                  {item.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {item.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded bg-[#141922] text-[10px] font-mono text-[#8E8E93]"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Section: Comprehensive Technical Tools Arsenal */}
         <section aria-labelledby="tools-heading" className="space-y-6">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="tools-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
-              Technical Arsenal & Tools Matrix ({portfolioData.tools.length} Tools)
+          <div className="border-b border-border pb-4">
+            <h2 id="tools-heading" className="text-2xl font-display font-bold text-ink">
+              Technical Arsenal & Tools ({portfolioData.tools.length} Tools)
             </h2>
-            <p className="font-mono text-xs text-[#8E8E93] mt-1">
+            <p className="font-mono text-xs text-ink-muted mt-1">
               Production tools, QA test runners, BaaS backends, and low-code enterprise automation platforms.
             </p>
           </div>
@@ -274,21 +253,21 @@ export const ClassicView: React.FC = () => {
             {portfolioData.tools.map((tool) => (
               <div
                 key={tool.name}
-                className="p-3.5 rounded-lg bg-[#0D1117] border border-[#1E2532] space-y-1.5"
+                className="p-3.5 rounded-xl bg-white border border-border shadow-xs space-y-1.5"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
-                    <span>{tool.icon}</span>
-                    <span className="text-xs font-mono font-bold text-[#FFFFFF]">{tool.name}</span>
+                    <span className="text-base">{tool.icon}</span>
+                    <span className="text-xs font-mono font-bold text-ink">{tool.name}</span>
                   </div>
                   {tool.badge && (
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-[#00E5FF] bg-[#00E5FF]/10">
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono text-accent bg-accent-soft font-semibold">
                       {tool.badge}
                     </span>
                   )}
                 </div>
-                <div className="text-[10px] font-mono text-[#64748B] uppercase">{tool.category}</div>
-                <div className="text-xs text-[#9CA3AF] leading-snug">{tool.context}</div>
+                <div className="text-[10px] font-mono text-ink-faint uppercase">{tool.category}</div>
+                <div className="text-xs text-ink-muted leading-snug">{tool.context}</div>
               </div>
             ))}
           </div>
@@ -296,19 +275,19 @@ export const ClassicView: React.FC = () => {
 
         {/* Section: Technical Skills */}
         <section aria-labelledby="skills-heading" className="space-y-6">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="skills-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
+          <div className="border-b border-border pb-4">
+            <h2 id="skills-heading" className="text-2xl font-display font-bold text-ink">
               Technical Skills & Competencies
             </h2>
-            <p className="font-mono text-xs text-[#8E8E93] mt-1">
-              Core technologies and practical production context for each skill.
+            <p className="font-mono text-xs text-ink-muted mt-1">
+              Core technologies and practical production context for each domain.
             </p>
           </div>
 
           <div className="space-y-6">
             {portfolioData.skills.map((group) => (
               <div key={group.name} className="space-y-3">
-                <h3 className="text-sm font-mono text-[#00E5FF] font-bold uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-xs font-mono text-accent font-bold uppercase tracking-wider flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: group.color }} />
                   <span>{group.name}</span>
                 </h3>
@@ -317,12 +296,12 @@ export const ClassicView: React.FC = () => {
                   {group.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-3.5 rounded-lg bg-[#0D1117] border border-[#1E2532] space-y-1"
+                      className="p-3.5 rounded-xl bg-white border border-border space-y-1"
                     >
-                      <div className="text-xs font-mono font-bold text-[#FFFFFF]">
+                      <div className="text-xs font-mono font-bold text-ink">
                         {skill.name}
                       </div>
-                      <div className="text-[11px] text-[#7A8394] leading-snug">
+                      <div className="text-[11px] text-ink-muted leading-snug">
                         {skill.context}
                       </div>
                     </div>
@@ -335,37 +314,37 @@ export const ClassicView: React.FC = () => {
 
         {/* Section: Experience & Education */}
         <section aria-labelledby="trajectory-heading" className="space-y-8">
-          <div className="border-b border-[#202530] pb-4">
-            <h2 id="trajectory-heading" className="text-2xl font-display font-bold text-[#FFFFFF]">
+          <div className="border-b border-border pb-4">
+            <h2 id="trajectory-heading" className="text-2xl font-display font-bold text-ink">
               Experience & Education
             </h2>
           </div>
 
           {/* Experience */}
           <div className="space-y-4">
-            <h3 className="font-mono text-xs text-[#00E5FF] uppercase tracking-wider">Experience</h3>
+            <h3 className="font-mono text-xs text-accent uppercase font-bold tracking-wider">Experience</h3>
             {portfolioData.experience.map((exp, idx) => (
-              <div key={idx} className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] space-y-4">
+              <div key={idx} className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
-                    <h4 className="text-xl font-display font-bold text-[#FFFFFF]">
+                    <h4 className="text-xl font-display font-bold text-ink">
                       {exp.role} · {exp.company}
                     </h4>
-                    <span className="font-mono text-xs text-[#8E8E93]">{exp.location}</span>
+                    <span className="font-mono text-xs text-ink-muted">{exp.location}</span>
                   </div>
-                  <span className="px-3 py-1 rounded bg-[#161C26] font-mono text-xs text-[#00E5FF] w-fit">
+                  <span className="px-3 py-1 rounded-full bg-accent-soft font-mono text-xs text-accent font-bold w-fit">
                     {exp.period}
                   </span>
                 </div>
 
-                <p className="text-sm text-[#9CA3AF] leading-relaxed">
+                <p className="text-sm text-ink-muted leading-relaxed">
                   {exp.description}
                 </p>
 
                 <ul className="space-y-2">
                   {exp.highlights.map((h, hIdx) => (
-                    <li key={hIdx} className="flex items-start gap-2.5 text-xs text-[#B0B6C2]">
-                      <span className="text-[#00E5FF] font-bold">›</span>
+                    <li key={hIdx} className="flex items-start gap-2.5 text-xs text-ink-muted">
+                      <span className="text-accent font-bold">›</span>
                       <span>{h}</span>
                     </li>
                   ))}
@@ -376,20 +355,20 @@ export const ClassicView: React.FC = () => {
 
           {/* Education */}
           <div className="space-y-4">
-            <h3 className="font-mono text-xs text-[#00E5FF] uppercase tracking-wider">Education</h3>
+            <h3 className="font-mono text-xs text-accent uppercase font-bold tracking-wider">Education</h3>
             {portfolioData.education.map((edu, idx) => (
-              <div key={idx} className="p-6 rounded-xl bg-[#0D1117] border border-[#202530] space-y-2">
+              <div key={idx} className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
-                    <h4 className="text-lg font-display font-bold text-[#FFFFFF]">
+                    <h4 className="text-lg font-display font-bold text-ink">
                       {edu.degree}
                     </h4>
-                    <span className="text-sm text-[#00E5FF]">{edu.institution}</span>
+                    <span className="text-sm text-accent font-bold">{edu.institution}</span>
                   </div>
-                  <span className="font-mono text-xs text-[#8E8E93]">{edu.period}</span>
+                  <span className="font-mono text-xs text-ink-muted">{edu.period}</span>
                 </div>
                 {edu.details && (
-                  <p className="text-xs text-[#9CA3AF] leading-relaxed pt-1">
+                  <p className="text-xs text-ink-muted leading-relaxed pt-1">
                     {edu.details}
                   </p>
                 )}
@@ -399,24 +378,24 @@ export const ClassicView: React.FC = () => {
         </section>
 
         {/* Section: Contact & Transmission */}
-        <section aria-labelledby="contact-heading" className="p-8 rounded-2xl bg-[#0D1117] border border-[#202530] text-center space-y-6">
-          <h2 id="contact-heading" className="text-3xl font-display font-bold text-[#FFFFFF]">
+        <section aria-labelledby="contact-heading" className="p-8 rounded-3xl bg-white border border-border shadow-card text-center space-y-6">
+          <h2 id="contact-heading" className="text-3xl font-display font-bold text-ink">
             Let's build something reliable.
           </h2>
-          <p className="text-sm text-[#9CA3AF] max-w-lg mx-auto">
+          <p className="text-sm text-ink-muted max-w-lg mx-auto">
             Available for mobile engineering and full-stack software development roles. Open to relocation in UAE / GCC (available within 1 month) and on-site roles in Lahore.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="px-5 py-2.5 rounded bg-[#00E5FF] hover:bg-[#B4F524] text-[#07080A] font-mono text-xs font-bold transition-all shadow-md shadow-[#00E5FF]/10"
+              className="px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-mono text-xs font-bold transition-all shadow-sm"
             >
               Send Email ({portfolioData.profile.email})
             </a>
             <button
               onClick={handleCopyEmail}
-              className="px-4 py-2.5 rounded bg-[#161C26] hover:bg-[#202838] border border-[#2A3445] text-xs font-mono text-[#EDEDED] transition-colors"
+              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white border border-border text-xs font-mono text-ink transition-colors cursor-pointer"
             >
               Copy Email 📋
             </button>
@@ -424,7 +403,7 @@ export const ClassicView: React.FC = () => {
               href={portfolioData.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded bg-[#161C26] hover:bg-[#202838] border border-[#2A3445] text-xs font-mono text-[#EDEDED] transition-colors"
+              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white border border-border text-xs font-mono text-ink transition-colors cursor-pointer"
             >
               LinkedIn Profile ↗
             </a>
@@ -433,7 +412,7 @@ export const ClassicView: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#1C222E] px-6 py-8 text-center text-xs font-mono text-[#6E7687]">
+      <footer className="border-t border-border px-6 py-8 text-center text-xs font-mono text-ink-faint">
         AFAQ MEHMOOD · MOBILE APP DEVELOPER · SOFTWARE ENGINEER · SQA ENGINEER · {new Date().getFullYear()}
       </footer>
     </div>

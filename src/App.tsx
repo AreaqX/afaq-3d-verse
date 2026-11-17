@@ -1,27 +1,41 @@
 import React, { useEffect } from 'react';
-import { useNav } from './store/useNav';
-import { ProfessionalGlassPortfolio } from './ui/ProfessionalGlassPortfolio';
+import { useOS } from './store/useOS';
+import { Stage } from './stage/Stage';
 import { ClassicView } from './ui/ClassicView';
 import { ToastContainer } from './ui/Toast';
 import { portfolioData } from './data/portfolio';
 
 export const App: React.FC = () => {
-  const isClassicView = useNav((state) => state.isClassicView);
+  const isClassicView = useOS((state) => state.isClassicView);
+  const setReduceMotion = useOS((state) => state.setReduceMotion);
+  const setSpotlight = useOS((state) => state.setSpotlight);
 
   // Check prefers-reduced-motion
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     const updateMotion = (e: MediaQueryListEvent | MediaQueryList) => {
-      useNav.setState({ prefersReducedMotion: e.matches });
+      setReduceMotion(e.matches);
     };
     updateMotion(mediaQuery);
     mediaQuery.addEventListener('change', updateMotion);
     return () => mediaQuery.removeEventListener('change', updateMotion);
-  }, []);
+  }, [setReduceMotion]);
+
+  // Global Ctrl+K / Cmd+K listener for Spotlight
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setSpotlight(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [setSpotlight]);
 
   return (
-    <div className="min-h-screen bg-[#06080F] text-[#F1F5F9]">
+    <div className="min-h-screen bg-stage text-ink selection:bg-accent-soft selection:text-accent font-sans">
       {/* Screen Reader Accessible Mirror (Visually Hidden) */}
       <div className="sr-only" aria-live="polite">
         <h1>{portfolioData.profile.name} — {portfolioData.profile.title}</h1>
@@ -50,10 +64,11 @@ export const App: React.FC = () => {
         ))}
       </div>
 
+      {/* Primary Experience Router: 3D Smartphone Stage vs Classic 2D Recruiter View */}
       {isClassicView ? (
         <ClassicView />
       ) : (
-        <ProfessionalGlassPortfolio />
+        <Stage />
       )}
 
       {/* Persistent Toasts */}

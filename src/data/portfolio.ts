@@ -15,6 +15,7 @@ export interface Profile {
   phone?: string;
   languages?: string[];
   visaStatus?: string;
+  avatar: string;
 }
 
 export interface ExperienceItem {
