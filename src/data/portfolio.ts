@@ -106,7 +106,7 @@ export const portfolioData: PortfolioData = {
     status: "Open to relocation (UAE / GCC), available within 1 month. Also open to roles in Lahore.",
     relocation: "Open to UAE / GCC & Lahore",
     availability: "Available within 1 month",
-    linkedin: "https://www.linkedin.com/in/afaqmehmood-500327259",
+    linkedin: "https://www.linkedin.com/in/afaq-mehmood-500327259/",
     portfolioUrl: "https://afaq-portfolio.lovable.app",
     cv: "/Afaq_Mehmood_Resume.pdf",
     email: "afaqmehmood3179@gmail.com",

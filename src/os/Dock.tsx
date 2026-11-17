@@ -31,13 +31,13 @@ export const Dock: React.FC = () => {
       name: 'LinkedIn',
       icon: Linkedin,
       bg: 'bg-gradient-to-tr from-[#005582] via-[#0077B5] to-[#00A0DC] text-white shadow-md border border-white/20',
-      action: () => window.open(portfolioData.profile.linkedin, '_blank'),
+      action: () => window.open(portfolioData.profile.linkedin, '_blank', 'noopener,noreferrer'),
     },
   ];
 
   return (
-    <div className="w-full px-3 pb-2 z-20">
-      <div className="dock-blur px-4 py-2.5 rounded-[28px] flex items-center justify-around max-w-[280px] mx-auto shadow-xl">
+    <div className="w-full px-2 sm:px-3 pb-1 pt-1 z-20 shrink-0">
+      <div className="dock-blur px-3 sm:px-4 py-2 sm:py-2.5 rounded-[24px] sm:rounded-[28px] flex items-center justify-around max-w-[270px] sm:max-w-[280px] mx-auto shadow-2xl border border-white/15">
         {dockApps.map((app) => {
           const Icon = app.icon;
           return (
@@ -50,9 +50,9 @@ export const Dock: React.FC = () => {
               title={app.name}
             >
               <div
-                className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all ${app.bg}`}
+                className={`w-11 h-11 sm:w-12 sm:h-12 aspect-square rounded-2xl flex items-center justify-center transition-all ${app.bg}`}
               >
-                <Icon className="w-6 h-6" />
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </motion.button>
           );

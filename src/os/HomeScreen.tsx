@@ -9,14 +9,10 @@ import {
   MessageSquare,
   Bug,
   Settings,
-  Briefcase,
   Search,
   Sparkles,
-  ExternalLink,
-  ShieldCheck,
   Star,
   Download,
-  Mail,
   CheckCircle2,
 } from 'lucide-react';
 import { useOS, AppId } from '../store/useOS';
@@ -134,7 +130,7 @@ export const HomeScreen: React.FC = () => {
   };
 
   return (
-    <div className="w-full h-full flex flex-col justify-between pt-1 pb-2 px-3.5 select-none relative overflow-y-auto overflow-x-hidden bg-gradient-to-b from-[#080C15] via-[#0E1524] to-[#060910] text-white">
+    <div className="w-full h-full flex flex-col justify-between pt-1 pb-1.5 px-3 select-none relative overflow-y-auto overflow-x-hidden bg-gradient-to-b from-[#080C15] via-[#0E1524] to-[#060910] text-white">
       {/* Background Decorative Ethereal Glow Spheres */}
       <div className="absolute top-10 -right-16 w-52 h-52 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
       <div className="absolute bottom-24 -left-16 w-56 h-56 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
@@ -147,142 +143,121 @@ export const HomeScreen: React.FC = () => {
         >
           <div className="flex items-center gap-2">
             <Search className="w-3.5 h-3.5 text-accent" />
-            <span className="text-[11px] text-white/80 font-sans">
+            <span className="text-[11px] text-white/80 font-sans truncate">
               Search apps, projects, 45 tools...
             </span>
           </div>
-          <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[9px] font-mono text-white/70 border border-white/10">
+          <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-[9px] font-mono text-white/70 border border-white/10 shrink-0">
             Ctrl+K
           </kbd>
         </button>
       </div>
 
-      {/* Live Apple-Style Widgets Container */}
-      <div className="space-y-2.5 py-2 px-0.5 shrink-0">
-        {/* Widget 1: Profile & Status Card */}
+      {/* Live Apple-Style Widgets Container (Responsive & Balanced) */}
+      <div className="space-y-2 py-1.5 px-0.5 shrink-0">
+        {/* Profile & Live Status Card */}
         <div
           onClick={() => openApp('about')}
-          className="screen-card p-3 rounded-2xl cursor-pointer hover:border-accent/40 transition-all flex items-center gap-3 relative overflow-hidden group"
+          className="screen-card p-2.5 rounded-2xl cursor-pointer hover:border-accent/40 transition-all flex items-center gap-2.5 relative overflow-hidden group shadow-md"
         >
           {/* Subtle Ambient Radial Highlight */}
           <div className="absolute -right-8 -bottom-8 w-24 h-24 rounded-full bg-accent/15 blur-xl pointer-events-none" />
 
           {/* Avatar with live pulse radar */}
-          <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-white/20 shadow-md bg-surface-alt">
+          <div className="relative w-11 h-11 rounded-xl overflow-hidden shrink-0 border border-white/20 shadow-md bg-surface-alt aspect-square">
             <img
               src="/me.png"
               alt="Afaq Mehmood"
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-top aspect-square"
               onError={(e) => {
-                (e.target as HTMLImageElement).src = '/images/afaq-mehmood.png';
+                (e.target as HTMLImageElement).src = '/afaq.png';
               }}
             />
-            <span className="absolute bottom-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0E1524]" />
+            <span className="absolute bottom-0.5 right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-400 border-2 border-[#0E1524] animate-pulse" />
           </div>
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 min-w-0">
+              <div className="flex items-center gap-1 min-w-0">
                 <span className="font-bold text-xs text-white truncate">Afaq Mehmood</span>
                 <CheckCircle2 className="w-3.5 h-3.5 text-accent shrink-0" />
               </div>
-              <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 text-[9px] font-mono font-semibold border border-emerald-500/30">
+              <span className="px-1.5 py-0.2 rounded-full bg-emerald-500/20 text-emerald-400 text-[8px] font-mono font-semibold border border-emerald-500/30 shrink-0">
                 HIRE ME
               </span>
             </div>
 
-            <div className="text-[11px] font-mono font-medium text-accent truncate mt-0.5">
+            <div className="text-[10px] font-mono font-semibold text-accent truncate mt-0.5">
               {roles[roleIdx]}
             </div>
 
-            <div className="flex items-center gap-2 mt-1.5">
-              <a
-                href={portfolioData.profile.cv}
-                download="Afaq_Mehmood_Resume.pdf"
+            <div className="flex items-center justify-between mt-1">
+              <span className="text-[9px] text-ink-muted truncate">
+                UAE / GCC · Lahore
+              </span>
+              <button
                 onClick={handleDownloadCV}
-                className="px-2 py-0.5 rounded-lg bg-accent/20 hover:bg-accent hover:text-black border border-accent/40 text-[10px] font-mono font-semibold text-accent transition-all flex items-center gap-1"
+                className="px-1.5 py-0.2 rounded bg-accent/20 hover:bg-accent hover:text-black border border-accent/40 text-[9px] font-mono font-semibold text-accent transition-all flex items-center gap-1 shrink-0"
               >
                 <Download className="w-2.5 h-2.5" />
                 <span>CV (152 KB)</span>
-              </a>
-
-              <span className="text-[10px] text-ink-muted truncate">
-                UAE / GCC · Lahore
-              </span>
+              </button>
             </div>
           </div>
         </div>
 
-        {/* Widget 2: Featured App Spotlight Banner */}
+        {/* Featured Flagship App Pill Banner */}
         <div
           onClick={handleLaunchFeatured}
-          className="screen-card p-3 rounded-2xl cursor-pointer hover:border-accent/40 transition-all space-y-2 relative overflow-hidden group"
+          className="screen-card px-2.5 py-2 rounded-2xl cursor-pointer hover:border-accent/40 transition-all flex items-center justify-between relative overflow-hidden group shadow-md"
         >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-1.5 text-[10px] font-mono font-semibold text-accent">
-              <Sparkles className="w-3 h-3" />
-              <span>FEATURED APP STORE RELEASE</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white shrink-0 shadow-sm border border-white/20 aspect-square">
+              <LayoutGrid className="w-4 h-4" />
             </div>
-            <div className="flex items-center gap-1 text-[10px] font-mono text-amber-400">
-              <Star className="w-3 h-3 fill-amber-400" />
-              <span>5.0</span>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-cyan-400 flex items-center justify-center text-white shrink-0 shadow-sm border border-white/20">
-              <LayoutGrid className="w-5 h-5" />
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between">
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5">
                 <span className="font-bold text-xs text-white truncate">
                   {featuredApp.title}
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-white/10 text-[9px] font-mono text-white/90 group-hover:bg-accent group-hover:text-black transition-colors">
-                  GET ›
+                <span className="text-[9px] font-mono text-emerald-400 font-bold">
+                  ★ 5.0
                 </span>
               </div>
-              <p className="text-[10px] text-ink-muted line-clamp-1 mt-0.5">
-                {featuredApp.subtitle}
+              <p className="text-[9px] text-ink-muted truncate">
+                {featuredApp.subtitle} · Live Store App
               </p>
-              <div className="flex items-center gap-1 mt-1">
-                {featuredApp.tech.slice(0, 3).map((t) => (
-                  <span
-                    key={t}
-                    className="px-1.5 py-0.2 rounded bg-white/5 border border-white/10 text-[9px] font-mono text-white/70"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
+
+          <span className="px-2.5 py-1 rounded-full bg-accent text-black font-bold text-[10px] font-mono shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+            GET ›
+          </span>
         </div>
 
         {/* Quick Engineering Metrics Row */}
-        <div className="grid grid-cols-4 gap-1.5 text-center">
-          <div className="p-1.5 rounded-xl bg-white/[0.05] border border-white/10">
-            <div className="text-xs font-bold font-mono text-white">8 Apps</div>
-            <div className="text-[8px] font-mono text-ink-muted uppercase">Stores</div>
+        <div className="grid grid-cols-4 gap-1 text-center">
+          <div className="p-1 rounded-xl bg-white/[0.04] border border-white/5">
+            <div className="text-[11px] font-bold font-mono text-white">8 Apps</div>
+            <div className="text-[7.5px] font-mono text-ink-muted uppercase">Stores</div>
           </div>
-          <div className="p-1.5 rounded-xl bg-white/[0.05] border border-white/10">
-            <div className="text-xs font-bold font-mono text-accent">3+ Yrs</div>
-            <div className="text-[8px] font-mono text-ink-muted uppercase">Exp</div>
+          <div className="p-1 rounded-xl bg-white/[0.04] border border-white/5">
+            <div className="text-[11px] font-bold font-mono text-accent">3+ Yrs</div>
+            <div className="text-[7.5px] font-mono text-ink-muted uppercase">Exp</div>
           </div>
-          <div className="p-1.5 rounded-xl bg-white/[0.05] border border-white/10">
-            <div className="text-xs font-bold font-mono text-emerald-400">45 Tools</div>
-            <div className="text-[8px] font-mono text-ink-muted uppercase">Arsenal</div>
+          <div className="p-1 rounded-xl bg-white/[0.04] border border-white/5">
+            <div className="text-[11px] font-bold font-mono text-emerald-400">45 Tools</div>
+            <div className="text-[7.5px] font-mono text-ink-muted uppercase">Arsenal</div>
           </div>
-          <div className="p-1.5 rounded-xl bg-white/[0.05] border border-white/10">
-            <div className="text-xs font-bold font-mono text-amber-400">100%</div>
-            <div className="text-[8px] font-mono text-ink-muted uppercase">QA Rate</div>
+          <div className="p-1 rounded-xl bg-white/[0.04] border border-white/5">
+            <div className="text-[11px] font-bold font-mono text-amber-400">100%</div>
+            <div className="text-[7.5px] font-mono text-ink-muted uppercase">QA Rate</div>
           </div>
         </div>
       </div>
 
-      {/* Main Apps Grid (4 cols x 2 rows) */}
-      <div className="grid grid-cols-4 gap-y-3 gap-x-2 px-1 py-1 shrink-0 my-auto">
+      {/* Main Apps Grid (4 cols x 2 rows, Pixel-Perfect Responsive Squircles) */}
+      <div className="grid grid-cols-4 gap-y-2.5 sm:gap-y-3.5 gap-x-2 px-1 py-1 shrink-0 my-auto">
         {apps.map((app) => {
           const Icon = app.icon;
           return (
@@ -293,21 +268,21 @@ export const HomeScreen: React.FC = () => {
               onClick={() => openApp(app.id)}
               className="flex flex-col items-center gap-1 group cursor-pointer relative"
             >
-              {/* Glossy Squircle App Icon */}
+              {/* Glossy Squircle App Icon (Strict 1:1 Aspect Ratio) */}
               <div
-                className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center relative overflow-hidden transition-all shadow-lg border border-white/20 ${app.gradient}`}
+                className={`w-12 h-12 sm:w-14 sm:h-14 aspect-square rounded-2xl flex items-center justify-center relative overflow-hidden shrink-0 transition-all shadow-lg border border-white/20 ${app.gradient}`}
               >
                 {app.isPortrait ? (
                   <img
                     src="/me.png"
                     alt={portfolioData.profile.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top aspect-square rounded-2xl"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = '/images/afaq-mehmood.png';
+                      (e.target as HTMLImageElement).src = '/afaq.png';
                     }}
                   />
                 ) : (
-                  <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white drop-shadow-sm" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-sm" />
                 )}
 
                 {/* Specular Inner Glint */}
@@ -316,7 +291,7 @@ export const HomeScreen: React.FC = () => {
                 {/* Badge if present */}
                 {app.badge && (
                   <span
-                    className={`absolute -top-1 -right-1 px-1.5 py-0.2 rounded-full text-[8px] font-mono font-bold text-white shadow-md border border-black/20 scale-90 ${
+                    className={`absolute -top-1 -right-1 px-1.5 py-0.2 rounded-full text-[7.5px] font-mono font-bold text-white shadow-md border border-black/20 scale-90 ${
                       app.badgeColor || 'bg-accent'
                     }`}
                   >
@@ -326,7 +301,7 @@ export const HomeScreen: React.FC = () => {
               </div>
 
               {/* App Label */}
-              <span className="text-[11px] font-medium text-white/90 group-hover:text-accent transition-colors text-center tracking-tight truncate max-w-[64px]">
+              <span className="text-[10px] sm:text-[11px] font-medium text-white/90 group-hover:text-accent transition-colors text-center tracking-tight truncate max-w-[64px]">
                 {app.name}
               </span>
             </motion.button>
@@ -338,8 +313,8 @@ export const HomeScreen: React.FC = () => {
       <Dock />
 
       {/* Bottom Home Indicator Bar */}
-      <div className="w-full flex items-center justify-center pt-1 pb-1 shrink-0">
-        <div className="w-32 h-1 rounded-full bg-white/25 hover:bg-white/50 transition-colors cursor-pointer" />
+      <div className="w-full flex items-center justify-center pt-0.5 pb-0.5 shrink-0">
+        <div className="w-28 h-1 rounded-full bg-white/25 hover:bg-white/50 transition-colors cursor-pointer" />
       </div>
     </div>
   );

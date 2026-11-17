@@ -92,7 +92,7 @@ export const portfolioData: PortfolioData = {
     name: "Afaq Mehmood",
     title: "Mobile App Developer · Software Engineer · SQA Engineer",
     email: "your-email@example.com", // Replace with your email
-    linkedin: "https://www.linkedin.com/in/afaqmehmood-500327259",
+    linkedin: "https://www.linkedin.com/in/afaq-mehmood-500327259/",
     location: "Sialkot, Pakistan",
     cv: "/Afaq_Mehmood_Resume.pdf",
     // ...
