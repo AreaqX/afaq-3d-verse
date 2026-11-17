@@ -19,10 +19,10 @@ export const ClassicView: React.FC = () => {
   return (
     <div className="min-h-screen bg-stage text-ink font-sans antialiased overflow-y-auto selection:bg-accent-soft selection:text-accent">
       {/* Top Banner Navigation */}
-      <header className="sticky top-0 z-40 bg-white/90 border-b border-border backdrop-blur-md px-6 py-4 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-surface/90 border-b border-border backdrop-blur-md px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <span className="w-2.5 h-2.5 rounded-full bg-accent" />
-          <span className="font-display font-black text-lg text-ink tracking-tight">AFAQ MEHMOOD</span>
+          <span className="font-display font-black text-lg text-white tracking-tight">AFAQ MEHMOOD</span>
           <span className="hidden sm:inline font-mono text-xs text-ink-muted">/ CLASSIC ACCESSIBLE VIEW</span>
         </div>
 
@@ -30,14 +30,14 @@ export const ClassicView: React.FC = () => {
           <a
             href={portfolioData.profile.cv}
             download="Afaq_Mehmood_Resume.pdf"
-            className="px-3.5 py-1.5 rounded-lg bg-surface hover:bg-surface-alt border border-border text-xs font-mono text-ink transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="px-3.5 py-1.5 rounded-lg bg-surface hover:bg-surface-alt border border-border text-xs font-mono text-white transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Download CV</span>
           </a>
           <button
             onClick={toggleClassicView}
-            className="px-4 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-white text-xs font-mono font-bold transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+            className="px-4 py-1.5 rounded-lg bg-accent hover:bg-accent-hover text-black text-xs font-mono font-bold transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
           >
             <Smartphone className="w-3.5 h-3.5" />
             <span>3D Smartphone Experience</span>
@@ -48,7 +48,7 @@ export const ClassicView: React.FC = () => {
       {/* Main Container */}
       <main className="max-w-4xl mx-auto px-6 py-12 space-y-16">
         {/* Profile / Hero Section with Portrait */}
-        <section aria-labelledby="profile-heading" className="bg-white p-8 rounded-3xl border border-border shadow-card space-y-6">
+        <section aria-labelledby="profile-heading" className="bg-surface p-8 rounded-3xl border border-border shadow-card space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-accent/20 shadow-md shrink-0 bg-surface-alt">
               <img
@@ -94,7 +94,7 @@ export const ClassicView: React.FC = () => {
             </a>
             <button
               onClick={handleCopyEmail}
-              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white/10 border border-border text-white font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
               <Copy className="w-3.5 h-3.5" />
               <span>Copy Email</span>
@@ -103,7 +103,7 @@ export const ClassicView: React.FC = () => {
               href={portfolioData.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white/10 border border-border text-white font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
               <Linkedin className="w-3.5 h-3.5 text-[#0A66C2]" />
               <span>LinkedIn</span>
@@ -111,7 +111,7 @@ export const ClassicView: React.FC = () => {
             <a
               href={portfolioData.profile.cv}
               download="Afaq_Mehmood_Resume.pdf"
-              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white border border-border text-ink font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-surface-alt hover:bg-white/10 border border-border text-white font-mono text-xs transition-colors flex items-center gap-2 cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Resume PDF (152 KB)</span>
@@ -134,7 +134,7 @@ export const ClassicView: React.FC = () => {
             {featuredProjects.map((project) => (
               <article
                 key={project.id}
-                className="p-6 rounded-2xl bg-white border border-border shadow-xs hover:border-accent hover:shadow-card transition-all flex flex-col justify-between space-y-4"
+                className="p-6 rounded-2xl bg-surface border border-border shadow-xs hover:border-accent hover:shadow-card transition-all flex flex-col justify-between space-y-4"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
@@ -204,7 +204,7 @@ export const ClassicView: React.FC = () => {
             {[...internalTools, ...automationProjects].map((project) => (
               <article
                 key={project.id}
-                className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-3"
+                className="p-6 rounded-2xl bg-surface border border-border shadow-xs space-y-3"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[11px] text-ink-faint uppercase font-semibold">
@@ -253,7 +253,7 @@ export const ClassicView: React.FC = () => {
             {portfolioData.tools.map((tool) => (
               <div
                 key={tool.name}
-                className="p-3.5 rounded-xl bg-white border border-border shadow-xs space-y-1.5"
+                className="p-3.5 rounded-xl bg-surface border border-border shadow-xs space-y-1.5"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
@@ -296,9 +296,9 @@ export const ClassicView: React.FC = () => {
                   {group.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-3.5 rounded-xl bg-white border border-border space-y-1"
+                      className="p-3.5 rounded-xl bg-surface border border-border space-y-1"
                     >
-                      <div className="text-xs font-mono font-bold text-ink">
+                      <div className="text-xs font-mono font-bold text-white">
                         {skill.name}
                       </div>
                       <div className="text-[11px] text-ink-muted leading-snug">
@@ -315,7 +315,7 @@ export const ClassicView: React.FC = () => {
         {/* Section: Experience & Education */}
         <section aria-labelledby="trajectory-heading" className="space-y-8">
           <div className="border-b border-border pb-4">
-            <h2 id="trajectory-heading" className="text-2xl font-display font-bold text-ink">
+            <h2 id="trajectory-heading" className="text-2xl font-display font-bold text-white">
               Experience & Education
             </h2>
           </div>
@@ -324,10 +324,10 @@ export const ClassicView: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-mono text-xs text-accent uppercase font-bold tracking-wider">Experience</h3>
             {portfolioData.experience.map((exp, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-4">
+              <div key={idx} className="p-6 rounded-2xl bg-surface border border-border shadow-xs space-y-4">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
-                    <h4 className="text-xl font-display font-bold text-ink">
+                    <h4 className="text-xl font-display font-bold text-white">
                       {exp.role} · {exp.company}
                     </h4>
                     <span className="font-mono text-xs text-ink-muted">{exp.location}</span>
@@ -357,10 +357,10 @@ export const ClassicView: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-mono text-xs text-accent uppercase font-bold tracking-wider">Education</h3>
             {portfolioData.education.map((edu, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-border shadow-xs space-y-2">
+              <div key={idx} className="p-6 rounded-2xl bg-surface border border-border shadow-xs space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
-                    <h4 className="text-lg font-display font-bold text-ink">
+                    <h4 className="text-lg font-display font-bold text-white">
                       {edu.degree}
                     </h4>
                     <span className="text-sm text-accent font-bold">{edu.institution}</span>
@@ -378,8 +378,8 @@ export const ClassicView: React.FC = () => {
         </section>
 
         {/* Section: Contact & Transmission */}
-        <section aria-labelledby="contact-heading" className="p-8 rounded-3xl bg-white border border-border shadow-card text-center space-y-6">
-          <h2 id="contact-heading" className="text-3xl font-display font-bold text-ink">
+        <section aria-labelledby="contact-heading" className="p-8 rounded-3xl bg-surface border border-border shadow-card text-center space-y-6">
+          <h2 id="contact-heading" className="text-3xl font-display font-bold text-white">
             Let's build something reliable.
           </h2>
           <p className="text-sm text-ink-muted max-w-lg mx-auto">
@@ -389,13 +389,13 @@ export const ClassicView: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-mono text-xs font-bold transition-all shadow-sm"
+              className="px-5 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-black font-mono text-xs font-bold transition-all shadow-md"
             >
               Send Email ({portfolioData.profile.email})
             </a>
             <button
               onClick={handleCopyEmail}
-              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white border border-border text-xs font-mono text-ink transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white/10 border border-border text-xs font-mono text-white transition-colors cursor-pointer"
             >
               Copy Email 📋
             </button>
@@ -403,7 +403,7 @@ export const ClassicView: React.FC = () => {
               href={portfolioData.profile.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white border border-border text-xs font-mono text-ink transition-colors cursor-pointer"
+              className="px-4 py-2.5 rounded-xl bg-surface-alt hover:bg-white/10 border border-border text-xs font-mono text-white transition-colors cursor-pointer"
             >
               LinkedIn Profile ↗
             </a>

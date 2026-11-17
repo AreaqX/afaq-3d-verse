@@ -30,7 +30,7 @@ export const AppShell: React.FC<AppShellProps> = ({
       className="absolute inset-0 z-10 flex flex-col justify-between bg-screen select-none overflow-hidden"
     >
       {/* Top App Header */}
-      <div className="h-14 px-4 border-b border-border bg-white/90 backdrop-blur-md flex items-center justify-between shrink-0 z-20">
+      <div className="h-14 px-4 border-b border-border bg-surface/90 backdrop-blur-md flex items-center justify-between shrink-0 z-20">
         <div className="flex items-center gap-1.5">
           <button
             onClick={onBack || closeApp}

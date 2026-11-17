@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { StatusBar } from '../os/StatusBar';
 import { HomeScreen } from '../os/HomeScreen';
@@ -25,11 +25,9 @@ export const PhoneFrame: React.FC = () => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 180 };
+  const springConfig = { damping: 24, stiffness: 160 };
   const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), springConfig);
   const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), springConfig);
-  const glareX = useTransform(mouseX, [-0.5, 0.5], ['0%', '100%']);
-  const glareY = useTransform(mouseY, [-0.5, 0.5], ['0%', '100%']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (reduceMotion) return;
@@ -49,31 +47,36 @@ export const PhoneFrame: React.FC = () => {
     <div
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="phone-perspective relative flex items-center justify-center p-0 sm:p-4 w-full h-full sm:h-auto"
+      className="phone-perspective relative flex items-center justify-center p-0 sm:p-4 w-full h-full sm:h-auto select-none"
     >
-      {/* 3D Animated Floating Phone */}
+      {/* 3D Animated Floating Titanium Phone */}
       <motion.div
         style={{
           rotateX: reduceMotion ? 0 : rotateX,
           rotateY: reduceMotion ? 0 : rotateY,
           transformStyle: 'preserve-3d',
         }}
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative sm:w-[390px] sm:h-[810px] w-full h-[100dvh] rounded-none sm:rounded-[50px] p-0 sm:p-3 bg-gradient-to-b from-[#D5D9DF] via-[#E2E6EC] to-[#C3C8D0] sm:shadow-phone border-0 sm:border sm:border-white/80"
+        className="relative sm:w-[400px] sm:h-[830px] w-full h-[100dvh] rounded-none sm:rounded-[54px] p-0 sm:p-3 bg-gradient-to-b from-[#2E3544] via-[#1E232F] to-[#121620] sm:shadow-phone border-0 sm:border sm:border-[#4B5569]/60 opacity-100 transition-shadow duration-300"
       >
-        {/* Hardware Side Buttons (Desktop only) */}
-        <div className="hidden sm:block absolute -left-[4px] top-28 w-[3px] h-8 bg-[#A8B0BC] rounded-l-md shadow-xs" />
-        <div className="hidden sm:block absolute -left-[4px] top-40 w-[3px] h-12 bg-[#A8B0BC] rounded-l-md shadow-xs" />
-        <div className="hidden sm:block absolute -left-[4px] top-56 w-[3px] h-12 bg-[#A8B0BC] rounded-l-md shadow-xs" />
-        <div className="hidden sm:block absolute -right-[4px] top-36 w-[3px] h-16 bg-[#A8B0BC] rounded-r-md shadow-xs" />
+        {/* Hardware Side Buttons (Titanium Machined) - Desktop only */}
+        {/* Action Button (Orange/Amber accent rim) */}
+        <div className="hidden sm:block absolute -left-[4.5px] top-28 w-[4px] h-8 bg-gradient-to-r from-[#D97706] to-[#B45309] rounded-l-md shadow-xs border-y border-l border-white/20" />
+        {/* Volume Up */}
+        <div className="hidden sm:block absolute -left-[4.5px] top-40 w-[4px] h-12 bg-gradient-to-r from-[#3E4759] to-[#252C39] rounded-l-md shadow-xs border-y border-l border-white/20" />
+        {/* Volume Down */}
+        <div className="hidden sm:block absolute -left-[4.5px] top-56 w-[4px] h-12 bg-gradient-to-r from-[#3E4759] to-[#252C39] rounded-l-md shadow-xs border-y border-l border-white/20" />
+        {/* Power / Lock Button (Right) */}
+        <div className="hidden sm:block absolute -right-[4.5px] top-36 w-[4px] h-18 bg-gradient-to-l from-[#3E4759] to-[#252C39] rounded-r-md shadow-xs border-y border-r border-white/20" />
 
-        {/* Screen Bezel (Outer black frame) */}
-        <div className="relative w-full h-full rounded-none sm:rounded-[42px] bg-[#0B0F17] p-0 sm:p-2.5 overflow-hidden flex flex-col justify-between shadow-inner">
-          {/* Internal Display Surface */}
-          <div className="relative w-full h-full rounded-none sm:rounded-[34px] bg-screen overflow-hidden flex flex-col justify-between">
-            {/* Status Bar */}
+        {/* Outer Black Screen Bezel */}
+        <div className="relative w-full h-full rounded-none sm:rounded-[46px] bg-[#07090E] p-0 sm:p-2.5 overflow-hidden flex flex-col justify-between ring-1 ring-white/10 shadow-inner">
+          
+          {/* Subtle Top Ear Speaker Grill (Desktop) */}
+          <div className="hidden sm:block absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-1 rounded-full bg-[#151A24] z-40 border border-white/5" />
+
+          {/* Internal Display Surface (OLED Midnight Glass) */}
+          <div className="relative w-full h-full rounded-none sm:rounded-[38px] bg-screen overflow-hidden flex flex-col justify-between">
+            {/* Status Bar & Dynamic Island */}
             <StatusBar />
 
             {/* Screen Content Router */}
@@ -83,7 +86,7 @@ export const PhoneFrame: React.FC = () => {
                 <LockScreen />
               ) : (
                 <>
-                  {/* Home Screen (Background or Active) */}
+                  {/* Home Screen (Active OS Workspace) */}
                   <HomeScreen />
 
                   {/* Open App Layer */}
@@ -104,14 +107,14 @@ export const PhoneFrame: React.FC = () => {
               <Spotlight />
             </div>
 
-            {/* Dynamic Light Reflection Across Glass */}
+            {/* Subtle Specular Glass Sheen Across Display */}
             {!reduceMotion && (
-              <motion.div
+              <div
+                className="hidden sm:block absolute inset-0 pointer-events-none rounded-[38px] z-30"
                 style={{
                   background:
-                    'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 60%)',
+                    'linear-gradient(130deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 30%, transparent 60%)',
                 }}
-                className="hidden sm:block absolute inset-0 pointer-events-none rounded-[34px]"
               />
             )}
           </div>

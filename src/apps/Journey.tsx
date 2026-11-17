@@ -6,19 +6,19 @@ import { AppShell } from '../os/AppShell';
 export const JourneyApp: React.FC = () => {
   return (
     <AppShell title="Journey" subtitle="CAREER & EDUCATION">
-      <div className="space-y-6 pb-8">
+      <div className="space-y-6 pb-8 text-white">
         {/* Route Activity Header */}
-        <div className="p-4 rounded-2xl bg-white border border-border shadow-sm flex items-center justify-between">
+        <div className="p-4 rounded-2xl bg-surface border border-border shadow-sm flex items-center justify-between">
           <div>
             <span className="text-[10px] font-mono font-bold text-accent uppercase">
-              ACTIVE MILESTONE
+              ACTIVE POSITION
             </span>
-            <div className="text-xs font-bold text-ink mt-0.5">
+            <div className="text-xs font-bold text-white mt-0.5">
               Senior Software Developer
             </div>
             <span className="text-[11px] text-ink-muted">Patronecs Software Company</span>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-accent-soft flex items-center justify-center text-accent">
+          <div className="w-10 h-10 rounded-xl bg-accent-soft flex items-center justify-center text-accent border border-accent/20">
             <Briefcase className="w-5 h-5" />
           </div>
         </div>
@@ -29,23 +29,23 @@ export const JourneyApp: React.FC = () => {
           {portfolioData.experience.map((exp, idx) => (
             <div key={idx} className="relative space-y-2">
               {/* Timeline Route Node */}
-              <div className="absolute -left-6 top-1 w-5 h-5 rounded-full bg-accent flex items-center justify-center text-white ring-4 ring-white shadow-sm">
-                <div className="w-2 h-2 rounded-full bg-white" />
+              <div className="absolute -left-6 top-1 w-5 h-5 rounded-full bg-accent flex items-center justify-center text-black ring-4 ring-screen shadow-md">
+                <div className="w-2 h-2 rounded-full bg-black" />
               </div>
 
-              <div className="bg-white p-4 rounded-2xl border border-border shadow-sm space-y-3">
-                <div className="flex items-center justify-between border-b border-border/60 pb-2">
+              <div className="bg-surface p-4 rounded-2xl border border-border shadow-sm space-y-3">
+                <div className="flex items-center justify-between border-b border-border pb-2">
                   <span className="text-[10px] font-mono font-bold text-accent">
                     {exp.period}
                   </span>
-                  <span className="text-[10px] font-mono text-ink-faint flex items-center gap-1">
+                  <span className="text-[10px] font-mono text-ink-muted flex items-center gap-1">
                     <MapPin className="w-3 h-3 text-accent" />
                     {exp.location}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold text-ink">{exp.role}</h3>
+                  <h3 className="text-sm font-bold text-white">{exp.role}</h3>
                   <p className="text-xs font-medium text-accent mt-0.5">{exp.company}</p>
                 </div>
 
@@ -54,7 +54,7 @@ export const JourneyApp: React.FC = () => {
                 </p>
 
                 <div className="space-y-1.5 pt-1">
-                  <div className="text-[10px] font-mono font-bold text-ink-muted uppercase">
+                  <div className="text-[10px] font-mono font-bold text-accent uppercase">
                     Deliverables & QA Leadership:
                   </div>
                   <ul className="space-y-1">
@@ -74,23 +74,23 @@ export const JourneyApp: React.FC = () => {
           {portfolioData.education.map((edu, idx) => (
             <div key={idx} className="relative space-y-2">
               {/* Timeline Route Node */}
-              <div className="absolute -left-6 top-1 w-5 h-5 rounded-full bg-white border-2 border-accent flex items-center justify-center text-accent ring-4 ring-white shadow-sm">
+              <div className="absolute -left-6 top-1 w-5 h-5 rounded-full bg-surface border-2 border-accent flex items-center justify-center text-accent ring-4 ring-screen shadow-md">
                 <GraduationCap className="w-3 h-3 text-accent" />
               </div>
 
-              <div className="bg-white p-4 rounded-2xl border border-border shadow-sm space-y-2">
-                <div className="flex items-center justify-between border-b border-border/60 pb-2">
+              <div className="bg-surface p-4 rounded-2xl border border-border shadow-sm space-y-2">
+                <div className="flex items-center justify-between border-b border-border pb-2">
                   <span className="text-[10px] font-mono font-bold text-ink-muted">
                     {edu.period}
                   </span>
-                  <span className="text-[10px] font-mono text-ink-faint flex items-center gap-1">
+                  <span className="text-[10px] font-mono text-ink-muted flex items-center gap-1">
                     <MapPin className="w-3 h-3" />
                     {edu.location}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold text-ink">{edu.degree}</h3>
+                  <h3 className="text-sm font-bold text-white">{edu.degree}</h3>
                   <p className="text-xs font-medium text-accent mt-0.5">{edu.institution}</p>
                 </div>
 

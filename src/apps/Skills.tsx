@@ -12,15 +12,15 @@ export const SkillsApp: React.FC = () => {
 
   return (
     <AppShell title="Skills" subtitle="45 VERIFIED TOOLS">
-      <div className="space-y-4 pb-8">
+      <div className="space-y-4 pb-8 text-white">
         {/* View Switcher Pill */}
-        <div className="flex p-1 rounded-xl bg-surface-alt border border-border">
+        <div className="flex p-1 rounded-xl bg-surface border border-border">
           <button
             onClick={() => setActiveTab('groups')}
             className={`flex-1 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'groups'
-                ? 'bg-white text-ink shadow-sm'
-                : 'text-ink-muted hover:text-ink'
+                ? 'bg-accent text-black font-bold shadow-sm'
+                : 'text-ink-muted hover:text-white'
             }`}
           >
             Core Competencies (3)
@@ -29,8 +29,8 @@ export const SkillsApp: React.FC = () => {
             onClick={() => setActiveTab('tools')}
             className={`flex-1 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
               activeTab === 'tools'
-                ? 'bg-white text-ink shadow-sm'
-                : 'text-ink-muted hover:text-ink'
+                ? 'bg-accent text-black font-bold shadow-sm'
+                : 'text-ink-muted hover:text-white'
             }`}
           >
             All 45 Tools Matrix
@@ -46,12 +46,12 @@ export const SkillsApp: React.FC = () => {
                 <div key={group.name} className="space-y-1.5">
                   <div className="flex items-center gap-2 px-1">
                     <Icon className="w-3.5 h-3.5 text-accent" />
-                    <h3 className="text-xs font-mono font-bold text-ink uppercase tracking-wider">
+                    <h3 className="text-xs font-mono font-bold text-accent uppercase tracking-wider">
                       {group.name}
                     </h3>
                   </div>
 
-                  <div className="rounded-2xl bg-white border border-border divide-y divide-border/60 overflow-hidden shadow-sm">
+                  <div className="rounded-2xl bg-surface border border-border divide-y divide-border overflow-hidden shadow-sm">
                     {group.skills.map((skill) => {
                       const isExpanded = expandedSkill === skill.name;
                       return (
@@ -62,7 +62,7 @@ export const SkillsApp: React.FC = () => {
                             }
                             className="w-full p-3.5 flex items-center justify-between text-left hover:bg-surface-alt/60 transition-colors cursor-pointer"
                           >
-                            <span className="text-xs font-medium text-ink font-sans">
+                            <span className="text-xs font-medium text-white font-sans">
                               {skill.name}
                             </span>
                             <div className="flex items-center gap-2">
@@ -81,7 +81,7 @@ export const SkillsApp: React.FC = () => {
                                 initial={{ height: 0, opacity: 0 }}
                                 animate={{ height: 'auto', opacity: 1 }}
                                 exit={{ height: 0, opacity: 0 }}
-                                className="overflow-hidden bg-accent-soft/30 px-3.5 pb-3 text-xs text-ink-muted leading-relaxed"
+                                className="overflow-hidden bg-accent-soft px-3.5 pb-3 text-xs text-ink-muted leading-relaxed"
                               >
                                 <div className="pt-1 flex items-start gap-1.5 text-accent font-medium text-[11px]">
                                   <Check className="w-3 h-3 shrink-0 mt-0.5" />
@@ -105,15 +105,15 @@ export const SkillsApp: React.FC = () => {
               Production Tools & Platforms ({portfolioData.tools.length})
             </h3>
 
-            <div className="rounded-2xl bg-white border border-border divide-y divide-border/60 overflow-hidden shadow-sm">
+            <div className="rounded-2xl bg-surface border border-border divide-y divide-border overflow-hidden shadow-sm">
               {portfolioData.tools.map((tool) => (
                 <div key={tool.name} className="p-3 flex items-start justify-between gap-3 text-left">
                   <div className="space-y-0.5">
                     <div className="flex items-center gap-2">
                       <span className="text-sm select-none">{tool.icon}</span>
-                      <span className="text-xs font-bold text-ink">{tool.name}</span>
+                      <span className="text-xs font-bold text-white">{tool.name}</span>
                       {tool.badge && (
-                        <span className="px-1.5 py-0.2 rounded bg-accent-soft text-accent text-[9px] font-mono font-bold">
+                        <span className="px-1.5 py-0.2 rounded bg-accent-soft text-accent text-[9px] font-mono font-bold border border-accent/20">
                           {tool.badge}
                         </span>
                       )}

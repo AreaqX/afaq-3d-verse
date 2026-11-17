@@ -35,33 +35,33 @@ export const Stage: React.FC = () => {
   return (
     <div className="relative w-full min-h-screen stage-pattern flex flex-col justify-between overflow-x-hidden">
       {/* Top persistent recruiter skip bar (Desktop / Tablet) */}
-      <header className="hidden sm:flex w-full px-6 py-3 border-b border-border/80 bg-white/70 backdrop-blur-md items-center justify-between z-30 text-xs font-mono">
+      <header className="hidden sm:flex w-full px-6 py-3 border-b border-border bg-surface/80 backdrop-blur-md items-center justify-between z-30 text-xs font-mono">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-accent" />
-          <span className="font-bold text-ink">Afaq Mehmood</span>
-          <span className="text-ink-faint">/</span>
-          <span className="text-ink-muted">Interactive Mobile Portfolio</span>
+          <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+          <span className="font-bold text-white">Afaq Mehmood</span>
+          <span className="text-border">/</span>
+          <span className="text-ink-muted">Interactive Mobile OS</span>
         </div>
 
         <div className="flex items-center gap-3">
           <a
             href={portfolioData.profile.cv}
             download="Afaq_Mehmood_Resume.pdf"
-            className="text-ink hover:text-accent font-medium underline underline-offset-4"
+            className="text-white hover:text-accent font-medium underline underline-offset-4 transition-colors"
           >
             Skip to CV PDF (152 KB) ↓
           </a>
           <span className="text-border">|</span>
           <a
             href={`mailto:${portfolioData.profile.email}`}
-            className="text-ink hover:text-accent font-medium"
+            className="text-white hover:text-accent font-medium transition-colors"
           >
             Contact ✉
           </a>
           <span className="text-border">|</span>
           <button
             onClick={toggleClassicView}
-            className="px-2.5 py-1 rounded-md bg-accent-soft hover:bg-accent hover:text-white text-accent font-bold transition-all cursor-pointer"
+            className="px-2.5 py-1 rounded-md bg-accent hover:bg-accent-hover text-black font-bold transition-all cursor-pointer shadow-sm"
           >
             Classic 2D View
           </button>

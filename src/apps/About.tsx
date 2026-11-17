@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Calendar, Globe, Shield, Award, Mail, Phone, Download, Linkedin } from 'lucide-react';
+import { MapPin, Calendar, Globe, Shield, Award, Mail, Phone, Download, Linkedin, CheckCircle2 } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 import { AppShell } from '../os/AppShell';
 import { useOS } from '../store/useOS';
@@ -44,31 +44,37 @@ export const AboutApp: React.FC = () => {
 
   return (
     <AppShell title="Profile" subtitle="AFAQ MEHMOOD">
-      <div className="space-y-5 pb-8">
+      <div className="space-y-4 pb-8">
         {/* Profile Header Card */}
-        <div className="bg-white rounded-3xl p-5 border border-border shadow-sm flex flex-col items-center text-center space-y-3">
+        <div className="bg-surface rounded-3xl p-5 border border-border shadow-sm flex flex-col items-center text-center space-y-3">
           {/* Avatar with status badge */}
           <div className="relative">
-            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent shadow-md bg-surface-alt">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-accent shadow-lg bg-surface-alt">
               <img
                 src="/me.png"
                 alt={portfolioData.profile.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = '/images/afaq-mehmood.png';
+                }}
               />
             </div>
-            <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-success border-2 border-white" />
+            <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-emerald-400 border-2 border-surface" />
           </div>
 
           <div>
-            <h1 className="text-xl font-display font-bold text-ink">
-              {portfolioData.profile.name}
-            </h1>
+            <div className="flex items-center justify-center gap-1.5">
+              <h1 className="text-xl font-display font-bold text-white">
+                {portfolioData.profile.name}
+              </h1>
+              <CheckCircle2 className="w-4 h-4 text-accent" />
+            </div>
             <p className="text-xs font-mono font-medium text-accent mt-0.5">
               {portfolioData.profile.title}
             </p>
           </div>
 
-          <p className="text-xs text-ink-muted italic border-l-2 border-accent/40 pl-3 text-left py-1">
+          <p className="text-xs text-ink-muted italic border-l-2 border-accent pl-3 text-left py-1">
             "{portfolioData.profile.tagline}"
           </p>
 
@@ -80,7 +86,7 @@ export const AboutApp: React.FC = () => {
           <div className="grid grid-cols-2 gap-2 w-full pt-1">
             <a
               href={`mailto:${portfolioData.profile.email}`}
-              className="py-2 px-3 rounded-xl bg-accent text-white font-mono text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm hover:bg-accent-hover transition-colors"
+              className="py-2.5 px-3 rounded-xl bg-accent text-black font-mono text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm hover:bg-accent-hover transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>Email</span>
@@ -88,7 +94,7 @@ export const AboutApp: React.FC = () => {
 
             <button
               onClick={handleCopyEmail}
-              className="py-2 px-3 rounded-xl bg-surface-alt border border-border text-ink font-mono text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-surface transition-colors cursor-pointer"
+              className="py-2.5 px-3 rounded-xl bg-surface-alt border border-border text-white font-mono text-xs font-semibold flex items-center justify-center gap-1.5 hover:bg-white/10 transition-colors cursor-pointer"
             >
               <span>Copy Email</span>
             </button>
@@ -100,14 +106,14 @@ export const AboutApp: React.FC = () => {
           <h3 className="text-xs font-mono font-bold text-ink-muted uppercase tracking-wider px-1">
             Core Profile Facts
           </h3>
-          <div className="rounded-2xl bg-white border border-border divide-y divide-border/60 overflow-hidden shadow-sm">
+          <div className="rounded-2xl bg-surface border border-border divide-y divide-border overflow-hidden shadow-sm">
             {facts.map((fact, idx) => {
               const Icon = fact.icon;
               return (
                 <div key={idx} className="p-3.5 flex items-center justify-between gap-3 text-xs">
                   <div className="flex items-center gap-2.5 text-ink-muted">
                     <Icon className="w-4 h-4 text-accent" />
-                    <span className="font-medium text-ink">{fact.label}</span>
+                    <span className="font-medium text-white">{fact.label}</span>
                   </div>
                   <span
                     className={`font-mono text-right text-[11px] truncate ${
@@ -127,22 +133,20 @@ export const AboutApp: React.FC = () => {
           <a
             href={portfolioData.profile.cv}
             download="Afaq_Mehmood_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full py-3 px-4 rounded-2xl bg-white border border-border hover:border-accent text-ink font-semibold text-xs flex items-center justify-between shadow-sm transition-all"
+            className="w-full py-3 px-4 rounded-2xl bg-surface border border-border hover:border-accent text-white font-semibold text-xs flex items-center justify-between shadow-sm transition-all"
           >
             <div className="flex items-center gap-2.5">
               <Download className="w-4 h-4 text-accent" />
               <span>Download Official Resume PDF</span>
             </div>
-            <span className="text-[10px] font-mono text-ink-faint">152 KB</span>
+            <span className="text-[10px] font-mono text-accent font-bold">152 KB</span>
           </a>
 
           <a
             href={portfolioData.profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full py-3 px-4 rounded-2xl bg-white border border-border hover:border-accent text-ink font-semibold text-xs flex items-center justify-between shadow-sm transition-all"
+            className="w-full py-3 px-4 rounded-2xl bg-surface border border-border hover:border-accent text-white font-semibold text-xs flex items-center justify-between shadow-sm transition-all"
           >
             <div className="flex items-center gap-2.5">
               <Linkedin className="w-4 h-4 text-[#0A66C2]" />

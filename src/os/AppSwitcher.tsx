@@ -16,11 +16,11 @@ export const AppSwitcher: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="absolute inset-0 z-40 bg-black/40 backdrop-blur-md flex flex-col justify-between p-4 pt-10">
+      <div className="absolute inset-0 z-40 bg-black/60 backdrop-blur-md flex flex-col justify-between p-4 pt-10 text-white">
         {/* Backdrop tap to close */}
         <div onClick={() => setAppSwitcher(false)} className="absolute inset-0" />
 
-        <div className="relative z-50 text-center text-xs font-mono font-bold text-white tracking-widest uppercase pb-2">
+        <div className="relative z-50 text-center text-xs font-mono font-bold text-accent tracking-widest uppercase pb-2">
           RECENTS / APP SWITCHER
         </div>
 
@@ -36,14 +36,14 @@ export const AppSwitcher: React.FC = () => {
                 key={appId}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => openApp(appId)}
-                className="w-56 h-80 rounded-2xl bg-white border border-border shadow-2xl flex flex-col justify-between p-4 cursor-pointer shrink-0 snap-center group"
+                className="w-56 h-80 rounded-2xl bg-surface border border-border shadow-2xl flex flex-col justify-between p-4 cursor-pointer shrink-0 snap-center group hover:border-accent/40 transition-colors"
               >
                 <div className="flex items-center justify-between border-b border-border pb-2">
-                  <span className="font-bold text-xs text-ink uppercase tracking-wider">{appId}</span>
+                  <span className="font-bold text-xs text-white uppercase tracking-wider">{appId}</span>
                   <Smartphone className="w-4 h-4 text-accent" />
                 </div>
                 <div className="my-auto text-center space-y-1">
-                  <div className="text-sm font-bold text-ink">Active Session</div>
+                  <div className="text-sm font-bold text-white">Active Session</div>
                   <p className="text-[10px] text-ink-muted">Tap to resume</p>
                 </div>
                 <div className="text-center text-[10px] font-mono text-accent font-semibold">
@@ -58,7 +58,7 @@ export const AppSwitcher: React.FC = () => {
         <div className="relative z-50 flex items-center justify-center gap-3 pb-4">
           <button
             onClick={goHome}
-            className="px-6 py-2 rounded-full bg-white/90 hover:bg-white text-ink text-xs font-semibold shadow-md transition-all cursor-pointer"
+            className="px-6 py-2 rounded-full bg-accent hover:bg-accent-hover text-black text-xs font-bold shadow-md transition-all cursor-pointer"
           >
             Close All & Go Home
           </button>

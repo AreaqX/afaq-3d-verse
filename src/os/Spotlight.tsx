@@ -96,7 +96,7 @@ export const Spotlight: React.FC = () => {
 
   return (
     <AnimatePresence>
-      <div className="absolute inset-0 z-50 bg-black/40 backdrop-blur-md flex flex-col justify-start p-4 pt-12">
+      <div className="absolute inset-0 z-50 bg-black/60 backdrop-blur-md flex flex-col justify-start p-4 pt-12 text-white">
         {/* Backdrop tap to close */}
         <div onClick={() => setSpotlight(false)} className="absolute inset-0" />
 
@@ -104,7 +104,7 @@ export const Spotlight: React.FC = () => {
           initial={{ opacity: 0, scale: 0.96, y: -20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: -20 }}
-          className="relative z-50 w-full max-w-sm mx-auto bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
+          className="relative z-50 w-full max-w-sm mx-auto bg-surface rounded-3xl shadow-2xl border border-border overflow-hidden"
         >
           {/* Search Header */}
           <div className="p-3.5 border-b border-border flex items-center gap-2.5">
@@ -115,12 +115,12 @@ export const Spotlight: React.FC = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search apps, projects, actions..."
-              className="w-full text-xs text-ink placeholder:text-ink-faint focus:outline-none font-sans"
+              className="w-full text-xs text-white placeholder:text-ink-muted focus:outline-none font-sans bg-transparent"
             />
             {query && (
               <button
                 onClick={() => setQuery('')}
-                className="p-1 rounded-full text-ink-muted hover:text-ink"
+                className="p-1 rounded-full text-ink-muted hover:text-white"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -128,9 +128,9 @@ export const Spotlight: React.FC = () => {
           </div>
 
           {/* Results List */}
-          <div className="max-h-72 overflow-y-auto divide-y divide-border/60 p-1">
+          <div className="max-h-72 overflow-y-auto divide-y divide-border p-1">
             {filtered.length === 0 ? (
-              <div className="p-6 text-center text-xs text-ink-faint font-mono">
+              <div className="p-6 text-center text-xs text-ink-muted font-mono">
                 No matching results.
               </div>
             ) : (
@@ -144,12 +144,12 @@ export const Spotlight: React.FC = () => {
                   className="w-full p-2.5 rounded-xl flex items-center justify-between text-left hover:bg-surface-alt transition-colors group cursor-pointer"
                 >
                   <div className="min-w-0 pr-2">
-                    <div className="text-xs font-semibold text-ink group-hover:text-accent transition-colors truncate">
+                    <div className="text-xs font-semibold text-white group-hover:text-accent transition-colors truncate">
                       {item.title}
                     </div>
                     <div className="text-[10px] text-ink-muted truncate">{item.subtitle}</div>
                   </div>
-                  <ArrowRight className="w-3.5 h-3.5 text-ink-faint group-hover:text-accent transition-colors shrink-0" />
+                  <ArrowRight className="w-3.5 h-3.5 text-ink-muted group-hover:text-accent transition-colors shrink-0" />
                 </button>
               ))
             )}

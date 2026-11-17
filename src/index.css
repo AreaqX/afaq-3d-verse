@@ -4,40 +4,47 @@
 
 @layer base {
   :root {
-    --bg-stage: #EEF0F3;
-    --bg-screen: #F8F9FB;
-    --surface: #FFFFFF;
-    --surface-alt: #F1F3F6;
-    --border: #E2E5EA;
-    --ink: #0F172A;
-    --ink-muted: #5B6577;
-    --ink-faint: #8A93A3;
-    --accent: #0E7C7B;
-    --accent-hover: #0A6564;
-    --accent-soft: #E3F3F2;
-    --on-accent: #FFFFFF;
-    --success: #15803D;
+    --bg-stage: #07090E;
+    --bg-screen: #0A0E17;
+    --surface: #121826;
+    --surface-alt: #172033;
+    --border: #232F46;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --ink: #FFFFFF;
+    --ink-muted: #94A3B8;
+    --ink-faint: #64748B;
+    --accent: #00E5FF;
+    --accent-hover: #33EBFF;
+    --accent-soft: rgba(0, 229, 255, 0.15);
+    --on-accent: #07090E;
+    --success: #10B981;
 
-    color-scheme: light;
+    color-scheme: dark;
+  }
+
+  [data-accent="teal"] {
+    --accent: #00E5FF;
+    --accent-hover: #33EBFF;
+    --accent-soft: rgba(0, 229, 255, 0.15);
   }
 
   [data-accent="cobalt"] {
-    --accent: #1D4ED8;
-    --accent-hover: #1E40AF;
-    --accent-soft: #EFF6FF;
+    --accent: #3B82F6;
+    --accent-hover: #60A5FA;
+    --accent-soft: rgba(59, 130, 246, 0.15);
   }
 
   [data-accent="amber"] {
-    --accent: #B45309;
-    --accent-hover: #92400E;
-    --accent-soft: #FEF3C7;
+    --accent: #F59E0B;
+    --accent-hover: #FBBF24;
+    --accent-soft: rgba(245, 158, 11, 0.15);
   }
 
   html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     background-color: var(--bg-stage);
     color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "SF Pro Display", "SF Pro Text", Inter, Roboto, sans-serif;
@@ -56,7 +63,7 @@
     background: transparent;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(15, 23, 42, 0.12);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
@@ -64,43 +71,47 @@
   }
 }
 
-/* Stage dot pattern background */
+/* Stage dot pattern background with ambient center glow */
 .stage-pattern {
   background-color: var(--bg-stage);
-  background-image: radial-gradient(#DDE1E7 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-size: 100% 100%, 28px 28px;
 }
 
 /* Phone 3D container */
 .phone-perspective {
-  perspective: 1200px;
+  perspective: 1400px;
 }
 
 .phone-card-shadow {
   box-shadow: 
-    0 1px 2px rgba(15, 23, 42, 0.05),
-    0 12px 36px rgba(15, 23, 42, 0.12),
-    0 30px 60px rgba(15, 23, 42, 0.08);
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 20px 50px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(0, 229, 255, 0.12);
 }
 
 .dock-blur {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(18, 24, 38, 0.75);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .screen-card {
-  background: var(--surface);
+  background: rgba(18, 24, 38, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .screen-card:hover {
-  border-color: rgba(14, 124, 123, 0.3);
+  border-color: rgba(0, 229, 255, 0.35);
 }
 
-button:focus-visible, a:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+/* Ambient glow utility */
+.ambient-glow {
+  filter: drop-shadow(0 0 20px rgba(0, 229, 255, 0.25));
 }

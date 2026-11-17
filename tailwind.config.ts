@@ -30,9 +30,9 @@ export default {
         mono: ["JetBrains Mono", "monospace"]
       },
       boxShadow: {
-        phone: "0 1px 2px rgba(15,23,42,.06), 0 12px 32px rgba(15,23,42,.12), 0 32px 64px rgba(15,23,42,.08)",
-        card: "0 1px 2px rgba(15,23,42,.04), 0 4px 12px rgba(15,23,42,.03)",
-        elevated: "0 8px 24px rgba(15,23,42,.08)",
+        phone: "0 25px 70px -15px rgba(0,0,0,0.85), 0 0 50px rgba(0,229,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.15)",
+        card: "0 2px 8px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.2)",
+        elevated: "0 12px 36px rgba(0,0,0,0.45)",
       }
     }
   },

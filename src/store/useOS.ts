@@ -56,7 +56,7 @@ interface OSState {
 export const useOS = create<OSState>()(
   persist(
     (set, get) => ({
-      isLocked: true,
+      isLocked: false,
       currentApp: 'home',
       appHistory: ['home'],
       selectedProjectId: null,
